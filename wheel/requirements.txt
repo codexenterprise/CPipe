@@ -1,0 +1,25 @@
+
+paho-mqtt
+websocket-client
+freetype-py
+pycryptodome
+websocket
+tensorrt
+getmac
+#  git clone https://github.com/NVIDIA-AI-IOT/torch2trt
+#  cd torch2trt
+#  python setup.py install
+torch2trt
+flask
+future
+shapely
+pyyaml
+onnx == 1.16.1
+onnxruntime-gpu == 1.16.1 # cuda 11.7 cudnn 8.9  pip install onnxruntime-gpu==1.18.1 --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-11/pypi/simple/
+requests
+scipy
+filterpy
+pathfindingp
+opencv-python >= 4.10.0.84 # cuda or no cuda (need videocodec)
+scikit-image
+torch == 2.0.1 # cuda 11.7 cudnn 8.9
