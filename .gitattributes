@@ -1,0 +1,4 @@
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.cpipe filter=lfs diff=lfs merge=lfs -text
+*.codex filter=lfs diff=lfs merge=lfs -text
+*.engine filter=lfs diff=lfs merge=lfs -text
