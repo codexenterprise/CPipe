@@ -1,7 +1,5 @@
 #### CPipe是基于Python编写的AI视觉算法快速部署框架.本框架基于Node思想,将所有视频流/视频文件/AI算法/上报信息以及逻辑代码块等抽象成一个Node节点.节点之间可以自由连接.
 
-
-
 CPipe框架功能:
 - 支持Node节点网页可视化
 - 支持算法推理结果网页实时可视化
@@ -34,10 +32,10 @@ CPipe框架功能:
 价值:
 降低研发成本/减少开发周期/提供稳定且高性能的AI算法推理引擎/提供高并发视频流实时算法推理/提供算法模型机代码加密安全
 
-![cpipe.png](doc%2Fcpipe.png)
+![cpipe.jpg](doc%2Fcpipe.jpg)
 
 ### 基于CPipe SDK 在Web页面上实时显示效果:
-![demo1.png](doc%2Fdemo1.png)
+![demo1.jpg](doc%2Fdemo1.jpg)
 
 ### 详细使用手册见:
 [CPipe使用手册v3.3.0.docx](doc%2FCPipe%CA%B9%D3%C3%CA%D6%B2%E1v3.3.0.docx)
@@ -48,8 +46,11 @@ CPipe框架功能:
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
-### 更新内容：V3.5.7 （2025-4-7）
+### 更新内容：V3.5.8 （2025-4-29）
 1. 新增支持所有模型onnx转tensorrt,见[demo.py](examples%2Fonnx2tensorrt%2Fdemo.py)
+2. 增加CTRL + C退出时释放相关资源
+3. 优化CTRL + C退出是卡死的问题
+4. 增加MMResenet50模型节点
 
 ### 更新内容：V3.5.6 （2025-3-x）
 1. 增加cpipe格式加密模型(cpipe模型可以再cpipe框架下运行, 不依赖设备license, codex模型依赖设备license). demo见[demo.py](examples%2Fmodel_encryption%2Fdemo.py)
@@ -78,7 +79,7 @@ pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
    - 
 6. yolov7 增加 ONNX模型适配, 模型结构必须满足如下:
 
-   ![yolov7.png](doc%2Fyolov7.png)
+   ![yolov7.jpg](doc%2Fyolov7.jpg)
 
 7. 优化WSL license问题
 8. 增加retinaface ONNX模型适配(删除RetinafaceTRT类, 统一到Retinaface)
@@ -171,7 +172,8 @@ show_track: self.kwargs.get("show_track", True)
     - 通过device参数: cuda:x 和 cpu 指定
 
 
-![contacts.jpg](doc%2Fcontacts.jpg)
+![contact1.jpg](doc%2Fcontact1.jpg)
+![contact2.jpg](doc%2Fcontact2.jpg)
 
 邮箱: 9838465@qq.com
 
