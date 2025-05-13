@@ -8,7 +8,7 @@ if __name__ == "__main__":
     stream = VideoStreamer("stream", "rtmp://192.168.8.122:1935/live/7777", 3, 1)
 
     detect = YOLOv10("YOLOv10",
-                     "../../models/yolov10.onnx",
+                     "../../models/yolov10n.onnx",
                      3,
                      (3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
