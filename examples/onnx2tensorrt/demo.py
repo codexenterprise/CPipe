@@ -13,9 +13,11 @@ MODEL_PATH = "/home/zhouhe/workspace/cpipe2.0/__OTHERS__/demo_person/yolov10n.on
 # MODEL_PATH = "/home/zhouhe/workspace/cpipe2.0/__OTHERS__/demo_person/movenet_person_pose.onnx.cpipe"
 
 # with dynamic batch size
-YOLOv7.onnx2tensorrt(MODEL_PATH, max_batch_size=16, input_height=640, input_width=640)
+YOLOv7.onnx2tensorrt(MODEL_PATH, input_names=["images"], min_shapes=[(1, 3, 640, 640)], opt_shapes=[(1, 3, 640, 640)], max_shapes=[(1, 3, 640, 640)])
+
 YOLOv10.onnx2tensorrt(MODEL_PATH, max_batch_size=16, input_height=640, input_width=640)
-YOLOv11.onnx2tensorrt(MODEL_PATH, max_batch_size=16, input_height=640, input_width=640)
+
+YOLOv11.onnx2tensorrt(MODEL_PATH, input_names=["images"], min_shapes=[(1, 3, 640, 640)], opt_shapes=[(1, 3, 640, 640)], max_shapes=[(1, 3, 640, 640)])
 
 YOLOv8obb.onnx2tensorrt(MODEL_PATH, max_batch_size=16, input_height=640, input_width=640)
 

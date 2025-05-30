@@ -46,7 +46,7 @@ class my_node(Node):
                     #         ("polygon", {"coord": np.array([[700, 100], [1820, 980], [1000, 1030], [550, 800]], dtype=np.int32), "color": (0, 0, 255), "thickness": 1, "isclosed": True}),
                     #     ],
                     # }.
-                    new_cdata.show[stream_name] = [
+                    new_cdata.shows[stream_name] = [
                         ("text", {"coord": np.array([996, 996], dtype=np.int32), "data": "show cpipe", "color": (0, 0, 255), "text_size": 40}),
                         ("line", {"coord": np.array([[996, 996], [996, 996]], dtype=np.int32), "color": (0, 0, 255), "thickness": 1}),
                         ("circle", {"coord": np.array([[996, 996], [996, 996]], dtype=np.int32), "color": (0, 255, 255), "radius": 1}),

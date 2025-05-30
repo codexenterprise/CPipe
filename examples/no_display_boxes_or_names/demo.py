@@ -5,8 +5,6 @@ from cpipe.module.node import Node
 
 
 if __name__ == "__main__":
-    # todo ...
-
     # args:
     #         show_polygon_box: self.kwargs.get("show_polygon_box", False)
     #         show_box: self.kwargs.get("show_box", True)

@@ -46,16 +46,18 @@ CPipe框架功能:
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
-### 更新内容：V3.5.9 （2025-5-6）
+### 更新内容：V3.6.0 （2025-5-30）
 1. 新增更多代码案例[examples](examples):
    - 节点程序编译, 主程序main.py编译. [compile_custom_node](examples%2Fcompile_custom_node)
    - 画面添加自定义内容 [draw_line_point_text_to_image](examples%2Fdraw_line_point_text_to_image)
    - 自定义算法节点 [custom_algorithm_node](examples%2Fcustom_algorithm_node)
    - 日志使用方法 [log_test](examples%2Flog_test)
    - 自定义节点 [create_custom_node](examples%2Fcreate_custom_node)
-   - RK3588 代码案例 [RK3588](examples%2FRK3588)
+   - RK3588 代码案例 [RK3588](examples/RK3588)
+   - 华为昇腾300芯片 代码案例 [atlas300i_pro](examples/atlas300i_pro)
    - 算法节点指定有效推理区域 [set_algo_crop_area](examples%2Fset_algo_crop_area)
    - Web页面增加文本显示 [show_text_on_web](examples%2Fshow_text_on_web)
+   - 增加给类算法节点创建方式demo [algorithm_node_create](examples/algorithm_node_create)
 2. 所有算法节点增加hook_inputs/hook_outputs参数:
    - 用于对算法输入的每张图片做逻辑预处理(例如裁剪部分区域做推理) [algorithm_node_hook_function](examples%2Falgorithm_node_hook_function)
    - 新增from cpipe.module.cinferencehooks import HKI_DilateImage, HKI_CropImage, HKO_ClassNamesThresholdFilter, HKO_DumpClass
@@ -65,6 +67,20 @@ pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
      - HKO_DumpClass: 过滤掉不需要的box
 3. 优化本地文件模式下streamer帧率
 4. yolov8OBB增加角度结果到Box.box_angle参数下
+5. 增加还是华为昇腾300芯片适配, 已经验证模型包括:
+   - 已适配yolov7
+   - 已适配yolov8OBB
+   - 已适配movenet
+   - 已适配RTMPOSE
+   - 已适配MMshufflenet/shufflenet
+6. 增加华为Ascend框架模型动态BatchSize库CACLModel(from cpipe.module.thirdparty.acl.cacl import CACLModel). 注: 值依赖Ascend的acl(python库)
+7. 增加日志文件名添加标识符功能: 
+    ```python
+        from cpipe.module.clogger import CLogger
+        CLogger.set_file_name_mark("996")
+    ```
+8. 增加OCR识别[ocr_recognition](examples/ocr_recognition). 注: 目前只支持识别, 按不支持检测和矫正
+   - 新增Box对象字段box_text用于存储OCR结果
 
 ### 更新内容：V3.5.8 （2025-4-29）
 1. 新增支持所有模型onnx转tensorrt,见[demo.py](examples%2Fonnx2tensorrt%2Fdemo.py)
