@@ -50,13 +50,13 @@ CPipe框架功能:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
 ### 更新内容：V3.7.1 （2025-7-11）注: MCP功能必须Python3.10及以上版本可以使用
-1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[create_MCPStreamer](examples/create_MCPStreamer)[imageStreamer_demo](examples/streamer/imageStreamer_demo.py)
+1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[MCPStreamer](examples/MCPStreamer)
 2. 新增MCPReport节点用于配对MCPStreamer完成数据上报功能(利用CEvent完成数据在各个节点之间传递)
 3. 优化Node页面显示, 调整Queue显示逻辑: 下游节点剩余queue数/下游节点最大queue数(下游节点正常推理帧数/下游节点到达总帧数)
 4. 优化链路阻塞模式, 新增BLOCKING_MODE_TIMEOUT参数, 用于设置阻塞模式超时时间, 默认10秒, 超过10秒后会自动回收共享内存.
-5. CPipe现在可以通过MCP协议完成云端推理功能, 案例见[create_MCPStreamer](examples/create_MCPStreamer)
-    - yolov8OBB 云端推理服务demo[face_server.py](examples/create_MCPStreamer/face_server.py)
-    - 人脸检测机转向量服务[face_server.py](examples/create_MCPStreamer/face_server.py)
+5. CPipe现在可以通过MCP协议完成云端推理功能, 案例见[MCPStreamer](examples/MCPStreamer)
+    - yolov8OBB 云端推理服务demo[face_server.py](examples/MCPStreamer/face_server.py)
+    - 人脸检测机转向量服务[face_server.py](examples/MCPStreamer/face_server.py)
 6. 新增算法节点支持单独推理功能见[demo.py](examples/cpipe_model_inference/demo.py)
 7. 新增节点画有效区域/线功能案例代码[set_algorithm_ROI](examples/set_algorithm_ROI)
 8. 新增fastsam算法节点, 案例见[sam](examples/sam)
