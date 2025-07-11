@@ -1,0 +1,25 @@
+2025-07-11 17:16:40,155 CPipe INFO [36mLicense expiration time(performance edition): 2026-04-02 10:42:26[0m
+2025-07-11 17:16:40,380 CPipe INFO [36mMCPStreamer              <<<<<< retinaface[0m
+2025-07-11 17:16:40,381 CPipe INFO [36mretinaface               <<<<<< adaface[0m
+2025-07-11 17:16:40,381 CPipe INFO [36madaface                  <<<<<< MCPReport[0m
+2025-07-11 17:16:40,382 CPipe INFO [36madaface                  <<<<<< CPipeInsight[0m
+2025-07-11 17:16:40,382 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-07-11 17:16:40,513 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 943633 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-07-11 17:16:40,522 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['retinaface', 'adaface', 'MCPReport', 'CPipeInsight'] are not ready![0m
+2025-07-11 17:16:40,530 CPipe INFO [35mNo.0: MCPStreamer(TYPE:Streamer, SM: 23.73Mb) PID:943668 -> alive[0m
+2025-07-11 17:16:40,534 CPipe ERROR [91mmodel file not exists: /home/zhouhe/workspace/cpipe2.0/examples/MCPStreamer/src/model_files/416x416-det_10g_batch.engine[0m
+2025-07-11 17:16:40,543 CPipe INFO [35mNo.1: retinaface(TYPE:Other, SM: 0.0Mb) PID:943671 -> dead[0m
+2025-07-11 17:16:40,546 CPipe ERROR [91mmodel file not exists: /home/zhouhe/workspace/cpipe2.0/examples/MCPStreamer/src/model_files/adaface_ir101_webface12m_batch64_GPU3070.engine[0m
+2025-07-11 17:16:40,556 CPipe INFO [35mNo.2: adaface(TYPE:Other, SM: 0.0Mb) PID:943673 -> dead[0m
+2025-07-11 17:16:40,567 CPipe INFO [35mNo.3: MCPReport(TYPE:Other, SM: 0.0Mb) PID:943675 -> alive[0m
+2025-07-11 17:16:40,572 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['retinaface', 'adaface', 'CPipeInsight'] are not ready![0m
+2025-07-11 17:16:40,595 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-07-11 17:16:40,605 CPipe INFO [35mNo.4: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:943677 -> alive[0m
+2025-07-11 17:16:40,622 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['retinaface', 'adaface'] are not ready![0m
+2025-07-11 17:16:42,187 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-07-11 17:16:42,688 CPipe INFO [36mMCPStreamer              (PID: 943668) already exited.[0m
+2025-07-11 17:16:42,689 CPipe INFO [36mretinaface               (PID: 943671) already exited.[0m
+2025-07-11 17:16:42,689 CPipe INFO [36madaface                  (PID: 943673) already exited.[0m
+2025-07-11 17:16:42,690 CPipe INFO [36mMCPReport                (PID: 943675) already exited.[0m
+2025-07-11 17:16:42,690 CPipe INFO [36mCPipeInsight             (PID: 943677) already exited.[0m
+2025-07-11 17:16:42,706 CPipe INFO [35m############################### Exit CPipe End (PID: 943633) ###############################[0m

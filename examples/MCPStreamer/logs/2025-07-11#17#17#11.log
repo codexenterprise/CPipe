@@ -1,0 +1,30 @@
+2025-07-11 17:17:12,598 CPipe INFO [36mLicense expiration time(performance edition): 2026-04-02 10:42:26[0m
+2025-07-11 17:17:12,814 CPipe INFO [36mMCPStreamer              <<<<<< retinaface[0m
+2025-07-11 17:17:12,815 CPipe INFO [36mretinaface               <<<<<< adaface[0m
+2025-07-11 17:17:12,815 CPipe INFO [36madaface                  <<<<<< MCPReport[0m
+2025-07-11 17:17:12,815 CPipe INFO [36madaface                  <<<<<< CPipeInsight[0m
+2025-07-11 17:17:12,816 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-07-11 17:17:12,932 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 943777 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-07-11 17:17:12,940 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['retinaface', 'adaface', 'MCPReport', 'CPipeInsight'] are not ready![0m
+2025-07-11 17:17:12,947 CPipe INFO [35mNo.0: MCPStreamer(TYPE:Streamer, SM: 23.73Mb) PID:943812 -> alive[0m
+2025-07-11 17:17:12,964 CPipe INFO [35mNo.1: retinaface(TYPE:Other, SM: 0.0Mb) PID:943815 -> alive[0m
+2025-07-11 17:17:12,977 CPipe INFO [35mNo.2: adaface(TYPE:Other, SM: 0.0Mb) PID:943816 -> alive[0m
+2025-07-11 17:17:12,988 CPipe INFO [35mNo.3: MCPReport(TYPE:Other, SM: 0.0Mb) PID:943817 -> alive[0m
+2025-07-11 17:17:12,990 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['retinaface', 'adaface', 'CPipeInsight'] are not ready![0m
+2025-07-11 17:17:13,014 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-07-11 17:17:13,025 CPipe INFO [35mNo.4: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:943819 -> alive[0m
+2025-07-11 17:17:13,040 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['retinaface', 'adaface'] are not ready![0m
+2025-07-11 17:17:16,326 CPipe INFO [36mretinaface(InferenceEngine): inputNames:(['input.1']), outputNames(('448', '471', '494', '451', '474', '497', '454', '477', '500')), TensorRT model </home/zhouhe/workspace/cpipe2.0/src/model_files/416x416-det_10g_batch.engine> average time(20 times, batch size:16): 0.00038s[0m
+2025-07-11 17:17:16,450 CPipe INFO [36mMCPStreamer(Streamer): Waiting for all consumers ready, ['adaface'] are not ready![0m
+2025-07-11 17:17:17,109 CPipe INFO [36madaface(InferenceEngine): inputNames:(['input_layer']), outputNames(['onnx::Div_1386', 'output_layer']), TensorRT model </home/zhouhe/workspace/cpipe2.0/src/model_files/adaface_ir101_webface12m_batch64_GPU3070.engine> average time(20 times, batch size:16): 0.0008s[0m
+2025-07-11 17:17:17,160 CPipe INFO [35m↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ LAUNCH ALL NODES 943777 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑[0m
+2025-07-11 17:17:17,204 CPipe INFO [36mMCPStreamer(Streamer): All consumers are ready![0m
+2025-07-11 17:17:20,163 CPipe INFO [35mMCPStreamer is dead, exit code: 1[0m
+2025-07-11 17:17:23,166 CPipe INFO [35mMCPStreamer is dead, exit code: 1[0m
+2025-07-11 17:17:23,751 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-07-11 17:17:24,253 CPipe INFO [36mMCPStreamer              (PID: 943812) already exited.[0m
+2025-07-11 17:17:24,253 CPipe INFO [36mretinaface               (PID: 943815) already exited.[0m
+2025-07-11 17:17:24,254 CPipe INFO [36madaface                  (PID: 943816) already exited.[0m
+2025-07-11 17:17:24,254 CPipe INFO [36mMCPReport                (PID: 943817) already exited.[0m
+2025-07-11 17:17:24,255 CPipe INFO [36mCPipeInsight             (PID: 943819) already exited.[0m
+2025-07-11 17:17:24,272 CPipe INFO [35m############################### Exit CPipe End (PID: 943777) ###############################[0m
