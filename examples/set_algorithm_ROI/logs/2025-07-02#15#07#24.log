@@ -1,0 +1,16 @@
+2025-07-02 15:07:25,240 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-07-02 15:07:25,469 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:07:25,712 CPipe INFO [36mss                       <<<<<< D1[0m
+2025-07-02 15:07:25,713 CPipe INFO [36mD1                       <<<<<< CPipeInsight[0m
+2025-07-02 15:07:28,745 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-07-02 15:07:28,793 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 57074 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-07-02 15:07:28,818 CPipe INFO [35mNo.0: ss(TYPE:Streamer, SM: 23.73Mb) PID:57187 -> alive[0m
+2025-07-02 15:07:28,831 CPipe INFO [35mNo.1: D1(TYPE:Other, SM: 0.0Mb) PID:57190 -> alive[0m
+2025-07-02 15:07:28,861 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-07-02 15:07:28,875 CPipe INFO [35mNo.2: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:57193 -> alive[0m
+2025-07-02 15:07:34,899 CPipe INFO [36mD1(InferenceEngine): inputNames:(images), outputNames(['output0']), ONNX model <../../src/model_files/yolov10n.onnx> average time(20 times, batch size:1): 0.00637s[0m
+2025-07-02 15:07:44,240 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-07-02 15:07:44,741 CPipe INFO [36mss                       (PID: 57187) is running, force kill it![0m
+2025-07-02 15:07:44,742 CPipe INFO [36mD1                       (PID: 57190) already exited.[0m
+2025-07-02 15:07:44,743 CPipe INFO [36mCPipeInsight             (PID: 57193) already exited.[0m
+2025-07-02 15:07:44,743 CPipe INFO [35m############################### Exit CPipe End (PID: 57074) ###############################[0m

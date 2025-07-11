@@ -44,7 +44,7 @@ class ShuffleNetCut(ShuffleNet):
             frames_stream_names = []
             streamer_names, boxes = new_cdata.get_bboxes()
             for idx_img, one_image_boxes in enumerate(boxes):
-                img, m_time = self.get_streamer_frame(streamer_names[idx_img], new_cdata.images[streamer_names[idx_img]])
+                img, m_time = self.get_streamer_frame(cimage=new_cdata.images[streamer_names[idx_img]])
                 for idx_box, one_box in enumerate(one_image_boxes):
                     if one_box.box_class_name in self.secondary_class_names:
                         if not self.dump_images:

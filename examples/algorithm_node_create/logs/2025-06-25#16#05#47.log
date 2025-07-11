@@ -1,0 +1,6 @@
+2025-06-25 16:05:47,885 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-06-25 16:05:52,916 CPipe ERROR [91mstreamers(Streamer) reconnect failed! <rtmp://192.168.8.122:1935/live/7777>[0m
+2025-06-25 16:05:52,917 CPipe ERROR [91mstreamers(Streamer): get_rtsp_info failed! <rtmp://192.168.8.122:1935/live/7777>[0m
+2025-06-25 16:05:53,257 CPipe INFO [36mstreamers                <<<<<< chache[0m
+2025-06-25 16:05:53,258 CPipe INFO [36mchache                   <<<<<< tracker[0m
+2025-06-25 16:05:53,258 CPipe INFO [36mtracker                  <<<<<< CPipeInsight[0m

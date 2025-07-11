@@ -1,10 +1,15 @@
+from cpipe.module.insight import CPipeInsight
 from cpipe.module.model.yolov8 import YOLOv8obb
+from cpipe.module.node import Node
+from cpipe.module.streamer import VideoStreamer
 from my_hooks import HKI_CropImage, HKI_DilateImage, HKO_ClassNamesThresholdFilter
 from cpipe.module.model.movenet import MoveNet
 from cpipe.module.model.shufflenet import ShuffleNet
 
 
 if __name__ == "__main__":
+    stream = VideoStreamer("stream", "rtmp://192.168.8.121:1935/live/7777", 3, 1)
+
     zhu_det = YOLOv8obb("zhu_det",
                         # "./src/dengpao/dengpao_zhu11.12_batch1.engine",
                         "project/dct/models/dct_batch.engine",
@@ -44,4 +49,9 @@ if __name__ == "__main__":
         secondary_class_names=['电压表', '电流表'],
         hook_inputs=HKI_CropImage([0.0, 0.5, 0.0, 1.0])  # <<<<<<<<<<<<<<<<<<< hook input mode
     )
+
+    cp = CPipeInsight(http_insight=True)
+    zhu_det += [xian, cp]
+
+    Node.launch()
 

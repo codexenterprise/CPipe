@@ -1,0 +1,7 @@
+2025-06-30 17:39:40,703 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-06-30 17:39:40,952 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-30 17:39:41,328 CPipe INFO [36mss                       <<<<<< D1[0m
+2025-06-30 17:39:41,329 CPipe INFO [36mD1                       <<<<<< D2[0m
+2025-06-30 17:39:41,329 CPipe INFO [36mD2                       <<<<<< CPipeInsight[0m
+2025-06-30 17:43:03,118 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-30 17:43:03,619 CPipe INFO [35m############################### Exit CPipe End (PID: 95112) ###############################[0m

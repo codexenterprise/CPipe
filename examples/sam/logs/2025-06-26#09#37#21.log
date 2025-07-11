@@ -1,0 +1,20 @@
+2025-06-26 09:37:21,442 CPipe INFO [36mLicense expiration time: 2025-12-03 16:01:16[0m
+2025-06-26 09:37:21,443 CPipe INFO [36mzhushitu: register event update_mask[0m
+2025-06-26 09:37:21,484 CPipe INFO [36mzhushitu(Streamer) reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-26 09:37:21,756 CPipe INFO [36mfastsam: register event update_mask[0m
+2025-06-26 09:37:21,866 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-26 09:37:21,896 CPipe INFO [36mzhushitu                 <<<<<< fastsam[0m
+2025-06-26 09:37:21,897 CPipe INFO [36mfastsam                  <<<<<< CPipeInsight[0m
+2025-06-26 09:37:21,898 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-26 09:37:21,915 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 1235188 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-26 09:37:21,946 CPipe INFO [35mNo.0: zhushitu(TYPE:Streamer, SM: 5.93Mb) PID:1235279 -> alive[0m
+2025-06-26 09:37:21,958 CPipe INFO [35mNo.1: fastsam(TYPE:Other, SM: 0.0Mb) PID:1235282 -> alive[0m
+2025-06-26 09:37:21,990 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-26 09:37:22,005 CPipe INFO [35mNo.2: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:1235285 -> alive[0m
+2025-06-26 09:37:22,668 CPipe INFO [36mzhushitu(Streamer): reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-26 09:37:22,669 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam', 'CPipeInsight'] are not ready![0m
+2025-06-26 09:37:52,503 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-26 09:37:53,004 CPipe INFO [36mzhushitu                 (PID: 1235279) already exited.[0m
+2025-06-26 09:37:53,005 CPipe INFO [36mfastsam                  (PID: 1235282) is running, force kill it![0m
+2025-06-26 09:37:53,005 CPipe INFO [36mCPipeInsight             (PID: 1235285) is running, force kill it![0m
+2025-06-26 09:37:53,005 CPipe INFO [35m############################### Exit CPipe End (PID: 1235188) ###############################[0m

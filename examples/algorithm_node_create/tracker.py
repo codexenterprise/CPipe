@@ -6,7 +6,7 @@ from cpipe.module.node import Node
 
 if __name__ == "__main__":
 
-    streamer1 = VideoStreamer("streamers","rtmp://192.168.8.122:1935/live/7777", 3, 1)
+    streamer1 = VideoStreamer("streamers","rtmp://192.168.8.7:1935/live/7777", 3, 1)
 
     chache = YOLOv7("chache",
                        "../../src/dongsheng/dongsheng_huowu_new.engine",

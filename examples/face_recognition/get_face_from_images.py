@@ -21,7 +21,7 @@ rf = RetinafaceTRT(
     # secondary_class_names=["person"],
 )
 
-rf._loadModel()
+rf.loadModel()
 
 for idx, one in enumerate(person_images_files):
     one_path = os.path.join(person_images_path, one)

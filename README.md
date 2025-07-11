@@ -8,10 +8,13 @@ CPipe框架功能:
 - 支持页面添加/删除视频流节点
 - 支持页面配置算法区域功能
 - 支持AI模型格式TensorRT/ONNX/PyTorch等
-- 支持各类AI算法(目标检测/旋转目标检测/分类/人脸识别/人脸质量评估/关键点检测/人流统计/目标跟踪/REID/视频时序分类等)
+- 支持各类AI算法(目标检测/旋转目标检测/分类/人脸识别/人脸质量评估/关键点检测/人流统计/目标跟踪/REID/视频时序分类/OCR等)
 - 支持视频类型:RTSP/RTMP/本地视频文件/本地图片
 - 支持日志本地存储/日志云端上报/日志网页实时显示
 - 支持AI模型文件加密功能
+- 支持MCP协议(必须python3.10及以上版本可以使用)
+- 支持云端推理
+
 
 ### 框架优势
 | 内容 | 使用前 | 使用CPipe+训练平台 |
@@ -45,6 +48,26 @@ CPipe框架功能:
 
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
+
+### 更新内容：V3.7.0 （2025-7-10）注: MCP功能必须Python3.10及以上版本可以使用
+1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[create_MCPStreamer](examples/create_MCPStreamer)[imageStreamer_demo](examples/streamer/imageStreamer_demo.py)
+2. 新增MCPReport节点用于配对MCPStreamer完成数据上报功能(利用CEvent完成数据在各个节点之间传递)
+3. 优化Node页面显示, 调整Queue显示逻辑: 下游节点剩余queue数/下游节点最大queue数(下游节点正常推理帧数/下游节点到达总帧数)
+4. 优化链路阻塞模式, 新增BLOCKING_MODE_TIMEOUT参数, 用于设置阻塞模式超时时间, 默认10秒, 超过10秒后会自动回收共享内存.
+5. CPipe现在可以通过MCP协议完成云端推理功能, 案例见[create_MCPStreamer](examples/create_MCPStreamer)
+    - yolov8OBB 云端推理服务demo[face_server.py](examples/create_MCPStreamer/face_server.py)
+    - 人脸检测机转向量服务[face_server.py](examples/create_MCPStreamer/face_server.py)
+6. 新增算法节点支持单独推理功能见[demo.py](examples/cpipe_model_inference/demo.py)
+7. 新增节点画有效区域/线功能案例代码[set_algorithm_ROI](examples/set_algorithm_ROI)
+8. 新增fastsam算法节点, 案例见[sam](examples/sam)
+9. 新增Web页面画区域实时生效功能
+10. 新增节点event功能(通过event可以给节点发送信号和任何数据), 案例见[send_events_to_node](examples/send_events_to_node)
+11. 优化hook接口增加更多参数
+12. 优化dino COS函数采用batch模式
+13. CMask类全部改造成共享内存模式, 用于多进程共享, 提高效率
+14. CPipe全面支持动态视频分辨率, 视频/RTSP/RTMP改变其分辨率, 所有节点自动适配, 无需重启CPipe
+15. 支持CPipe启动时视频流节点无法正常连接, 但依然可以启动CPipe, Node.launch后会自动重试连接
+
 
 ### 更新内容：V3.6.0 （2025-5-30）
 1. 新增更多代码案例[examples](examples):

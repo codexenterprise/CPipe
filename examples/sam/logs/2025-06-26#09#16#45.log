@@ -1,0 +1,37 @@
+2025-06-26 09:16:45,546 CPipe INFO [36mLicense expiration time: 2025-12-03 16:01:16[0m
+2025-06-26 09:16:45,547 CPipe INFO [36mzhushitu: register event update_mask[0m
+2025-06-26 09:16:45,648 CPipe INFO [36mzhushitu(Streamer) reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-26 09:16:45,857 CPipe INFO [36mfastsam: register event update_mask[0m
+2025-06-26 09:16:45,959 CPipe INFO [36mdino: register event update_mask[0m
+2025-06-26 09:16:46,049 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-26 09:16:46,088 CPipe INFO [36mzhushitu                 <<<<<< fastsam[0m
+2025-06-26 09:16:46,089 CPipe INFO [36mfastsam                  <<<<<< dino[0m
+2025-06-26 09:16:46,089 CPipe INFO [36mdino                     <<<<<< CPipeInsight[0m
+2025-06-26 09:16:46,090 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-26 09:16:46,101 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 1224789 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-26 09:16:46,125 CPipe INFO [35mNo.0: zhushitu(TYPE:Streamer, SM: 5.93Mb) PID:1224872 -> alive[0m
+2025-06-26 09:16:46,134 CPipe INFO [36mzhushitu(Streamer): reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-26 09:16:46,135 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam', 'dino', 'CPipeInsight'] are not ready![0m
+2025-06-26 09:16:46,143 CPipe INFO [35mNo.1: fastsam(TYPE:Other, SM: 0.0Mb) PID:1224873 -> alive[0m
+2025-06-26 09:16:46,155 CPipe INFO [35mNo.2: dino(TYPE:Other, SM: 0.0Mb) PID:1224888 -> alive[0m
+2025-06-26 09:16:46,171 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-26 09:16:46,183 CPipe INFO [35mNo.3: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:1224889 -> alive[0m
+2025-06-26 09:16:46,185 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam', 'dino'] are not ready![0m
+2025-06-26 09:16:51,285 CPipe INFO [36mfastsam(InferenceEngine): inputNames:(['images']), outputNames(['onnx::Shape_1215', 'onnx::Concat_1263', 'output1', 'onnx::Reshape_1301', 'onnx::Reshape_1320', 'output0']), TensorRT model <../../src/model_files/FastSAM-x.engine> average time(20 times, batch size:1): 0.02567s[0m
+2025-06-26 09:16:51,409 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['dino'] are not ready![0m
+2025-06-26 09:16:55,723 CPipe INFO [36mdino(InferenceEngine): inputNames:(['input']), outputNames(['output']), TensorRT model <../../src/model_files/dino_embedding.engine> average time(20 times, batch size:32): 0.00165s[0m
+2025-06-26 09:16:55,745 CPipe INFO [35m↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ LAUNCH ALL NODES 1224789 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑[0m
+2025-06-26 09:16:55,771 CPipe INFO [36mzhushitu(Streamer): All consumers are ready![0m
+2025-06-26 09:16:58,749 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:01,752 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:04,756 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:07,759 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:10,762 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:13,765 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:16,769 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-26 09:17:17,471 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-26 09:17:18,000 CPipe INFO [36mzhushitu                 (PID: 1224872) already exited.[0m
+2025-06-26 09:17:18,001 CPipe INFO [36mfastsam                  (PID: 1224873) already exited.[0m
+2025-06-26 09:17:18,002 CPipe INFO [36mdino                     (PID: 1224888) already exited.[0m
+2025-06-26 09:17:18,003 CPipe INFO [36mCPipeInsight             (PID: 1224889) already exited.[0m
+2025-06-26 09:17:18,007 CPipe INFO [35m############################### Exit CPipe End (PID: 1224789) ###############################[0m

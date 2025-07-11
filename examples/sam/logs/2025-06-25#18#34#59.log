@@ -1,0 +1,25 @@
+2025-06-25 18:34:59,976 CPipe INFO [36mLicense expiration time: 2025-12-03 16:01:16[0m
+2025-06-25 18:34:59,978 CPipe INFO [36mzhushitu: register event update_mask[0m
+2025-06-25 18:35:00,039 CPipe INFO [36mzhushitu(Streamer) reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-25 18:35:00,239 CPipe INFO [36mfastsam: register event update_mask[0m
+2025-06-25 18:35:00,350 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-25 18:35:00,387 CPipe INFO [36mzhushitu                 <<<<<< fastsam[0m
+2025-06-25 18:35:00,387 CPipe INFO [36mfastsam                  <<<<<< CPipeInsight[0m
+2025-06-25 18:35:00,388 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-25 18:35:00,404 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 1040863 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-25 18:35:00,432 CPipe INFO [35mNo.0: zhushitu(TYPE:Streamer, SM: 5.93Mb) PID:1040977 -> alive[0m
+2025-06-25 18:35:00,445 CPipe INFO [35mNo.1: fastsam(TYPE:Other, SM: 0.0Mb) PID:1040981 -> alive[0m
+2025-06-25 18:35:00,464 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-25 18:35:00,476 CPipe INFO [35mNo.2: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:1040986 -> alive[0m
+2025-06-25 18:35:01,657 CPipe INFO [36mzhushitu(Streamer): reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-25 18:35:01,658 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam', 'CPipeInsight'] are not ready![0m
+2025-06-25 18:35:03,617 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam'] are not ready![0m
+2025-06-25 18:35:18,324 CPipe INFO [36mfastsam(InferenceEngine): inputNames:(images), outputNames(output0), ONNX model <../../src/model_files/FastSAM-x.onnx> average time(20 times, batch size:1): 0.0941s[0m
+2025-06-25 18:35:18,360 CPipe INFO [36mzhushitu(Streamer): All consumers are ready![0m
+2025-06-25 18:35:18,362 CPipe INFO [35m↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ LAUNCH ALL NODES 1040863 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑[0m
+2025-06-25 18:37:55,021 CPipe INFO [35mfastsam is dead, exit code: 1[0m
+2025-06-25 18:37:56,945 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-25 18:37:57,487 CPipe INFO [36mzhushitu                 (PID: 1040977) already exited.[0m
+2025-06-25 18:37:57,491 CPipe INFO [36mfastsam                  (PID: 1040981) already exited.[0m
+2025-06-25 18:37:57,496 CPipe INFO [36mCPipeInsight             (PID: 1040986) already exited.[0m
+2025-06-25 18:37:57,497 CPipe INFO [35m############################### Exit CPipe End (PID: 1040863) ###############################[0m

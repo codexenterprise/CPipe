@@ -1,0 +1,145 @@
+2025-07-02 15:04:48,049 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-07-02 15:04:48,332 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:48,590 CPipe INFO [36mss                       <<<<<< D1[0m
+2025-07-02 15:04:48,590 CPipe INFO [36mD1                       <<<<<< CPipeInsight[0m
+2025-07-02 15:04:48,590 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-07-02 15:04:48,643 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 54476 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-07-02 15:04:48,659 CPipe INFO [35mNo.0: ss(TYPE:Streamer, SM: 23.73Mb) PID:54536 -> alive[0m
+2025-07-02 15:04:48,676 CPipe INFO [35mNo.1: D1(TYPE:Other, SM: 0.0Mb) PID:54537 -> alive[0m
+2025-07-02 15:04:48,714 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-07-02 15:04:48,724 CPipe INFO [35mNo.2: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:54538 -> alive[0m
+2025-07-02 15:04:48,829 CPipe INFO [36mss(Streamer): reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:48,829 CPipe INFO [36mss(Streamer): Waiting for all consumers ready, ['D1'] are not ready![0m
+2025-07-02 15:04:57,293 CPipe INFO [36mD1(InferenceEngine): inputNames:(images), outputNames(['output0']), ONNX model <../../src/model_files/yolov10n.onnx> average time(20 times, batch size:1): 0.00728s[0m
+2025-07-02 15:04:57,430 CPipe INFO [35m↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ LAUNCH ALL NODES 54476 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑[0m
+2025-07-02 15:04:57,463 CPipe INFO [36mss(Streamer): All consumers are ready![0m
+2025-07-02 15:04:57,929 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:58,188 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:58,392 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:58,574 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:58,772 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:58,952 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:59,538 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:04:59,799 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:00,022 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:00,247 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:00,446 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:00,662 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:00,865 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:01,098 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:01,284 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:01,481 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:01,683 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:01,881 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:02,098 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:02,339 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:02,535 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:02,728 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:02,863 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:03,060 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:03,256 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:03,476 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:03,684 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:03,857 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:04,044 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:04,247 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:04,459 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:04,641 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:04,827 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:05,014 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:05,194 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:05,387 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:05,568 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:05,748 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:05,946 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:06,137 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:06,309 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:06,486 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:06,680 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:06,852 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:07,033 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:07,220 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:07,445 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:07,624 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:07,804 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:08,028 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:08,205 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:08,399 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:08,527 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:08,694 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:08,881 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:09,075 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:09,260 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:09,449 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:09,629 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:09,806 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:09,987 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:10,178 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:10,353 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:10,529 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:10,716 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:10,903 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:11,090 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:11,280 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:11,452 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:11,658 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:11,845 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:12,086 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:12,317 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:12,536 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:12,738 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:12,918 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:13,099 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:13,294 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:13,488 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:13,693 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:13,888 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:14,088 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:14,289 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:14,469 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:14,653 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:14,844 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:15,019 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:15,196 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:15,374 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:15,557 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:15,722 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:15,897 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:16,049 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:16,237 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:16,407 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:16,583 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:16,722 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:16,915 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:17,104 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:17,242 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:17,437 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:17,657 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:17,826 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:18,046 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:18,219 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:18,403 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:18,601 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:18,775 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:18,969 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:19,148 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:19,344 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:19,534 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:19,720 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:19,872 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:20,111 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:20,285 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:20,474 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:20,627 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:20,803 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:20,995 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:21,178 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:21,368 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:21,555 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:21,740 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:21,926 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-07-02 15:05:22,043 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-07-02 15:05:22,557 CPipe INFO [36mss                       (PID: 54536) already exited.[0m
+2025-07-02 15:05:22,559 CPipe INFO [36mD1                       (PID: 54537) already exited.[0m
+2025-07-02 15:05:22,559 CPipe INFO [36mCPipeInsight             (PID: 54538) already exited.[0m
+2025-07-02 15:05:22,568 CPipe INFO [35m############################### Exit CPipe End (PID: 54476) ###############################[0m

@@ -1,0 +1,24 @@
+2025-06-30 17:33:54,489 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-06-30 17:33:54,490 CPipe INFO [36mss: register event update_mask[0m
+2025-06-30 17:34:24,507 CPipe ERROR [91mss(Streamer) reconnect failed! <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-30 17:34:24,507 CPipe ERROR [91mss(Streamer): get_rtsp_info failed! <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-30 17:34:24,591 CPipe INFO [36mD1: register event update_mask[0m
+2025-06-30 17:34:24,664 CPipe INFO [36mD2: register event update_mask[0m
+2025-06-30 17:34:24,743 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-30 17:34:24,781 CPipe INFO [36mss                       <<<<<< D1[0m
+2025-06-30 17:34:24,783 CPipe INFO [36mD1                       <<<<<< D2[0m
+2025-06-30 17:34:24,787 CPipe INFO [36mD2                       <<<<<< CPipeInsight[0m
+2025-06-30 17:34:24,788 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-30 17:34:24,788 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 86737 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-30 17:34:24,789 CPipe ERROR [91mss: VideoStreamer init: get_rtsp_info failed!-rtmp://192.168.8.7:1935/live/7777[0m
+2025-06-30 17:34:24,803 CPipe INFO [35mNo.0: ss(TYPE:Streamer, SM: 0.0Mb) PID:87036 -> alive[0m
+2025-06-30 17:34:24,813 CPipe INFO [35mNo.1: D1(TYPE:Other, SM: 0.0Mb) PID:87038 -> alive[0m
+2025-06-30 17:34:24,838 CPipe INFO [35mNo.2: D2(TYPE:Other, SM: 0.0Mb) PID:87039 -> alive[0m
+2025-06-30 17:34:24,839 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-30 17:34:24,851 CPipe INFO [35mNo.3: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:87045 -> alive[0m
+2025-06-30 17:34:30,099 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-30 17:34:30,612 CPipe INFO [36mss                       (PID: 87036) already exited.[0m
+2025-06-30 17:34:30,614 CPipe INFO [36mD1                       (PID: 87038) is running, force kill it![0m
+2025-06-30 17:34:30,614 CPipe INFO [36mD2                       (PID: 87039) is running, force kill it![0m
+2025-06-30 17:34:30,614 CPipe INFO [36mCPipeInsight             (PID: 87045) already exited.[0m
+2025-06-30 17:34:30,615 CPipe INFO [35m############################### Exit CPipe End (PID: 86737) ###############################[0m

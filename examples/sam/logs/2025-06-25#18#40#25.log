@@ -1,0 +1,28 @@
+2025-06-25 18:40:26,173 CPipe INFO [36mLicense expiration time: 2025-12-03 16:01:16[0m
+2025-06-25 18:40:26,174 CPipe INFO [36mzhushitu: register event update_mask[0m
+2025-06-25 18:40:26,231 CPipe INFO [36mzhushitu(Streamer) reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-25 18:40:26,498 CPipe INFO [36mfastsam: register event update_mask[0m
+2025-06-25 18:40:26,633 CPipe INFO [36mdino: register event update_mask[0m
+2025-06-25 18:40:26,773 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-25 18:40:26,815 CPipe INFO [36mzhushitu                 <<<<<< fastsam[0m
+2025-06-25 18:40:26,817 CPipe INFO [36mfastsam                  <<<<<< dino[0m
+2025-06-25 18:40:26,817 CPipe INFO [36mdino                     <<<<<< CPipeInsight[0m
+2025-06-25 18:40:26,818 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-25 18:40:26,854 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 1045322 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-25 18:40:26,887 CPipe INFO [35mNo.0: zhushitu(TYPE:Streamer, SM: 5.93Mb) PID:1045442 -> alive[0m
+2025-06-25 18:40:26,911 CPipe INFO [35mNo.1: fastsam(TYPE:Other, SM: 0.0Mb) PID:1045445 -> alive[0m
+2025-06-25 18:40:26,922 CPipe INFO [35mNo.2: dino(TYPE:Other, SM: 0.0Mb) PID:1045448 -> alive[0m
+2025-06-25 18:40:26,956 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-25 18:40:26,970 CPipe INFO [35mNo.3: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:1045451 -> alive[0m
+2025-06-25 18:40:28,028 CPipe INFO [36mzhushitu(Streamer): reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-25 18:40:28,028 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam', 'dino', 'CPipeInsight'] are not ready![0m
+2025-06-25 18:40:30,041 CPipe ERROR [91mmodel file not exists: /mnt/d/embed_model.onnx[0m
+2025-06-25 18:40:30,887 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['fastsam', 'dino'] are not ready![0m
+2025-06-25 18:40:47,569 CPipe INFO [36mfastsam(InferenceEngine): inputNames:(images), outputNames(output0), ONNX model <../../src/model_files/FastSAM-x.onnx> average time(20 times, batch size:1): 0.09355s[0m
+2025-06-25 18:40:47,639 CPipe INFO [36mzhushitu(Streamer): Waiting for all consumers ready, ['dino'] are not ready![0m
+2025-06-25 18:40:47,869 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-25 18:40:48,373 CPipe INFO [36mzhushitu                 (PID: 1045442) already exited.[0m
+2025-06-25 18:40:48,374 CPipe INFO [36mfastsam                  (PID: 1045445) already exited.[0m
+2025-06-25 18:40:48,374 CPipe INFO [36mdino                     (PID: 1045448) already exited.[0m
+2025-06-25 18:40:48,375 CPipe INFO [36mCPipeInsight             (PID: 1045451) already exited.[0m
+2025-06-25 18:40:48,377 CPipe INFO [35m############################### Exit CPipe End (PID: 1045322) ###############################[0m

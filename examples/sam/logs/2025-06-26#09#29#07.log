@@ -1,0 +1,22 @@
+2025-06-26 09:29:08,046 CPipe INFO [36mLicense expiration time: 2025-12-03 16:01:16[0m
+2025-06-26 09:29:08,047 CPipe INFO [36mzhushitu: register event update_mask[0m
+2025-06-26 09:29:08,088 CPipe INFO [36mzhushitu(Streamer) reconnected: (1920,1080) 25fps => </mnt/d/videos/dengpao/hei/1802121J_20240323080000-20240323081500_1.mp4>[0m
+2025-06-26 09:29:08,341 CPipe INFO [36mfastsam: register event update_mask[0m
+2025-06-26 09:29:08,449 CPipe INFO [36mdino: register event update_mask[0m
+2025-06-26 09:29:08,549 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-26 09:29:08,586 CPipe INFO [36mzhushitu                 <<<<<< fastsam[0m
+2025-06-26 09:29:08,587 CPipe INFO [36mfastsam                  <<<<<< dino[0m
+2025-06-26 09:29:08,587 CPipe INFO [36mdino                     <<<<<< CPipeInsight[0m
+2025-06-26 09:29:08,588 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-26 09:29:08,600 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 1231718 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-26 09:29:08,630 CPipe INFO [35mNo.0: zhushitu(TYPE:Streamer, SM: 5.93Mb) PID:1231906 -> alive[0m
+2025-06-26 09:29:08,643 CPipe INFO [35mNo.1: fastsam(TYPE:Other, SM: 0.0Mb) PID:1231909 -> alive[0m
+2025-06-26 09:29:08,666 CPipe INFO [35mNo.2: dino(TYPE:Other, SM: 0.0Mb) PID:1231912 -> alive[0m
+2025-06-26 09:29:08,689 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-26 09:29:08,701 CPipe INFO [35mNo.3: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:1231915 -> alive[0m
+2025-06-26 09:29:21,566 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-26 09:29:22,072 CPipe INFO [36mzhushitu                 (PID: 1231906) already exited.[0m
+2025-06-26 09:29:22,210 CPipe INFO [36mfastsam                  (PID: 1231909) is running, force kill it![0m
+2025-06-26 09:29:22,220 CPipe INFO [36mdino                     (PID: 1231912) is running, force kill it![0m
+2025-06-26 09:29:22,223 CPipe INFO [36mCPipeInsight             (PID: 1231915) already exited.[0m
+2025-06-26 09:29:22,239 CPipe INFO [35m############################### Exit CPipe End (PID: 1231718) ###############################[0m

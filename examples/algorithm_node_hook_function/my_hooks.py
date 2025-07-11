@@ -1,19 +1,5 @@
 from cpipe.module.cdata import Box
-
-class CHook:
-    TYPE_INPUT = "input"
-    TYPE_OUTPUT = "output"
-
-    def __init__(self, hook_type: str):
-        """
-        CHook is the base class for all hooks.
-        Args:
-            hook_type: (str) CHook.TYPE_INPUT or CHook.TYPE_OUTPUT
-        """
-        self.hook_type = hook_type
-
-    def __call__(self, *args, **kwargs):
-        raise NotImplementedError("Not implemented yet")
+from cpipe.module.cinferencehook import CHook
 
 
 class HKI_CropImage(CHook):
@@ -35,15 +21,20 @@ class HKI_CropImage(CHook):
         if self.crop_factor[2] < 0 or self.crop_factor[3] > 1:
             raise ValueError("crop_factor[2] must be in the range of 0 to 1")
 
-    def __call__(self, image, box: Box = None):
+    def __call__(self, image, *args, **kwargs):
         """
         Crop the image according to the crop factor.
         Args:
             image: (numpy.ndarray) The image to be cropped.
             box: (Box) The box to be cropped. Just used in secondary mode.
+            streamer_node_name: (Str) The stream node name.
+            node: (Class) The InferenceEngine object.
         Returns:
             image: (numpy.ndarray) The cropped image. If box is None, dump the image.
         """
+        box = kwargs.get("box", None)
+        if box is not None and not isinstance(box, Box):
+            raise ValueError("box must be an instance of Box")
 
         if box is not None:
             tmp_img = image[int(box.box_coord[1]):int(box.box_coord[3]), int(box.box_coord[0]):int(box.box_coord[2])]
@@ -74,15 +65,21 @@ class HKI_DilateImage(CHook):
         if self.dilate_factor[0] < 0 or self.dilate_factor[1] < 0:
             raise ValueError("dilate_factor[0] and dilate_factor[1] must be greater than 1")
 
-    def __call__(self, image, box: Box):
+    def __call__(self, image, *args, **kwargs):
         """
         Dilate the image according to the dilate factor.
         Args:
             image: (numpy.ndarray) The image to be dilated.
             box: (Box) The box to be dilated.
+            streamer_node_name: (Str) The stream node name.
+            node: (Class) The InferenceEngine object.
         Returns:
             image: (numpy.ndarray) The dilated image.
         """
+
+        box = kwargs.get("box", None)
+        if box is not None and not isinstance(box, Box):
+            raise ValueError("box must be an instance of Box")
 
         box_h = int(box.box_coord[3]) - int(box.box_coord[1])
         box_w = int(box.box_coord[2]) - int(box.box_coord[0])
@@ -121,13 +118,16 @@ class HKO_DumpClass(CHook):
         self.dump_class_names = dump_class_names
         self.class_index = class_index
 
-    def __call__(self, predictions, frames, model_class_names):
+    def __call__(self, predictions, frames, model_class_names, *args, **kwargs):
         """
         This is a demo of the hook function of the outputs.
         Args:
             predictions: The output of the model.
             frames: The original image of each batch corresponding to the inference.
             model_class_names: The class names of the model.
+            box_idxes: The index of the box in the output.
+            boxes: The boxes of the output.
+            node: (Class) The InferenceEngine object.
         Returns:
             None
         """
@@ -158,13 +158,16 @@ class HKO_ClassNamesThresholdFilter(CHook):
         self.class_index = class_index
         self.confidence_index = confidence_index
 
-    def __call__(self, predictions, frames, model_class_names):
+    def __call__(self, predictions, frames, model_class_names, *args, **kwargs):
         """
         This is a demo of the hook function of the outputs.
         Args:
             predictions: The output of the model.
             frames: The original image of each batch corresponding to the inference.
             model_class_names: The class names of the model.
+            box_idxes: The index of the box in the output.
+            boxes: The boxes of the output.
+            node: (Class) The InferenceEngine object.
         Returns:
             None
         """

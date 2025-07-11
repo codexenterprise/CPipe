@@ -1,0 +1,25 @@
+# 注意: torch版本cuda版本需要和系统的系统安装的cuda版本一样
+# WSL 建议安装python3.12
+paho-mqtt
+websocket-client
+freetype-py
+pycryptodome
+websocket
+tensorrt
+getmac
+#  git clone https://github.com/NVIDIA-AI-IOT/torch2trt
+#  cd torch2trt
+#  python setup.py install
+torch2trt
+flask
+future
+shapely
+pyyaml
+onnx
+onnxruntime-gpu
+requests
+scipy
+filterpy
+opencv-python >= 4.10.0.84 # cuda(need videocodec) or no cuda
+scikit-image
+torch

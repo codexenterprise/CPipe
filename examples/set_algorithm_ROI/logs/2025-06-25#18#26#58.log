@@ -1,0 +1,35 @@
+2025-06-25 18:26:59,405 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-06-25 18:26:59,406 CPipe INFO [36mss: register event update_mask[0m
+2025-06-25 18:26:59,661 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-25 18:26:59,892 CPipe INFO [36mD1: register event update_mask[0m
+2025-06-25 18:27:00,037 CPipe INFO [36mD2: register event update_mask[0m
+2025-06-25 18:27:00,038 CPipe INFO [36mPreset mask p1 as required, new mask name: __p1__[0m
+2025-06-25 18:27:00,038 CPipe INFO [36mPreset mask p2 as optional[0m
+2025-06-25 18:27:00,039 CPipe INFO [36mPreset mask l1 as required, new mask name: __l1__[0m
+2025-06-25 18:27:00,039 CPipe INFO [36mPreset mask l2 as optional[0m
+2025-06-25 18:27:00,156 CPipe INFO [36mCPipeInsight: register event update_mask[0m
+2025-06-25 18:27:00,201 CPipe INFO [36mss                       <<<<<< D1[0m
+2025-06-25 18:27:00,202 CPipe INFO [36mD1                       <<<<<< D2[0m
+2025-06-25 18:27:00,203 CPipe INFO [36mD2                       <<<<<< CPipeInsight[0m
+2025-06-25 18:27:00,203 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-25 18:27:00,217 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 1027932 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-25 18:27:00,241 CPipe INFO [35mNo.0: ss(TYPE:Streamer, SM: 5.93Mb) PID:1028063 -> alive[0m
+2025-06-25 18:27:00,259 CPipe INFO [35mNo.1: D1(TYPE:Other, SM: 0.0Mb) PID:1028064 -> alive[0m
+2025-06-25 18:27:00,271 CPipe INFO [35mNo.2: D2(TYPE:Other, SM: 0.0Mb) PID:1028065 -> alive[0m
+2025-06-25 18:27:00,299 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-25 18:27:00,346 CPipe INFO [35mNo.3: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:1028066 -> alive[0m
+2025-06-25 18:27:00,451 CPipe INFO [36mss(Streamer): reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-25 18:27:00,451 CPipe INFO [36mss(Streamer): Waiting for all consumers ready, ['D1', 'D2'] are not ready![0m
+2025-06-25 18:27:10,899 CPipe INFO [36mD1(InferenceEngine): inputNames:(images), outputNames(output0), ONNX model <../../src/model_files/yolov10n.onnx> average time(20 times, batch size:1): 0.01166s[0m
+2025-06-25 18:27:11,007 CPipe INFO [36mD2(InferenceEngine): inputNames:(images), outputNames(output0), ONNX model <../../src/model_files/yolov10n.onnx> average time(20 times, batch size:1): 0.00969s[0m
+2025-06-25 18:27:11,104 CPipe INFO [35m↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ LAUNCH ALL NODES 1027932 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑[0m
+2025-06-25 18:27:11,141 CPipe INFO [36mss(Streamer): All consumers are ready![0m
+2025-06-25 18:34:06,301 CPipe ERROR [91mss(Streamer): Video resolution changed! 1920x1080->0x0, please restart cpipe![0m
+2025-06-25 18:34:08,518 CPipe INFO [35mss is dead, exit code: 0[0m
+2025-06-25 18:34:11,521 CPipe INFO [35mss is dead, exit code: 0[0m
+2025-06-25 18:34:13,413 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-25 18:34:13,916 CPipe INFO [36mss                       (PID: 1028063) already exited.[0m
+2025-06-25 18:34:13,917 CPipe INFO [36mD1                       (PID: 1028064) already exited.[0m
+2025-06-25 18:34:13,918 CPipe INFO [36mD2                       (PID: 1028065) already exited.[0m
+2025-06-25 18:34:13,918 CPipe INFO [36mCPipeInsight             (PID: 1028066) already exited.[0m
+2025-06-25 18:34:13,921 CPipe INFO [35m############################### Exit CPipe End (PID: 1027932) ###############################[0m

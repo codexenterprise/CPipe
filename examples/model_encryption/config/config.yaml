@@ -1,0 +1,28 @@
+#################################CPipe Configs#################################
+# Share memory mode, it can improve the speed of the algorithm.
+SHARE_MEMORY_MODE: False
+# If the memory sharing function is enabled among all nodes, it can prevent picture frame dislocation but increases CPU load.
+BETWEEN_NODES_SHARE_MEMORY_MODE: False
+# Enable video decode cuda acceleration.
+VIDEO_CUDA_MODE: False
+
+
+# Log level eg. DEBUG, INFO, WARNING, ERROR
+CLOGER_LEVEL: "DEBUG"
+# Interval for starting processes on all nodes. By default, the system waits 3 seconds before starting the next node.
+# If you have a lot of video streaming, it is recommended to increase the NODE_LAUNCH_INTERVAL_TIME value to prevent the system from starting too many processes at once and causing the CPipe to fail to start.
+NODE_LAUNCH_INTERVAL_TIME: 0.01
+
+
+# cmask yaml path.
+CMASK_YAML_PATH: "./cmask.yaml"
+# cmask yaml auto load.
+CMASK_YAML_AUTO_LOAD: True
+
+
+# CPipe Performance license file path.
+LICENSE_PATH: "./cpipe.license"
+# Performance license file password.
+LICENSE_PS: "1234567890123456"
+# CPipe Basic license file path.
+CODEX_LICENSE_PATH: "./codex.cpipe.license"

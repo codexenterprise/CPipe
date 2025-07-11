@@ -1,0 +1,24 @@
+2025-06-30 17:43:38,481 CPipe INFO [36mLicense expiration time: 2026-04-02 10:42:26[0m
+2025-06-30 17:43:38,695 CPipe INFO [36mss(Streamer) reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-30 17:43:39,018 CPipe INFO [36mss                       <<<<<< D1[0m
+2025-06-30 17:43:39,018 CPipe INFO [36mD1                       <<<<<< D2[0m
+2025-06-30 17:43:39,018 CPipe INFO [36mD2                       <<<<<< CPipeInsight[0m
+2025-06-30 17:43:39,019 CPipe WARNING [33m./cmask.yaml not exists[0m
+2025-06-30 17:43:39,028 CPipe INFO [35m↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ LAUNCH ALL NODES 96072 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓[0m
+2025-06-30 17:43:39,052 CPipe INFO [35mNo.0: ss(TYPE:Streamer, SM: 5.93Mb) PID:96129 -> alive[0m
+2025-06-30 17:43:39,072 CPipe INFO [35mNo.1: D1(TYPE:Other, SM: 0.0Mb) PID:96130 -> alive[0m
+2025-06-30 17:43:39,083 CPipe INFO [35mNo.2: D2(TYPE:Other, SM: 0.0Mb) PID:96131 -> alive[0m
+2025-06-30 17:43:39,106 CPipe INFO [36mCPipeInsight already running on http://0.0.0.0:9966 or http://127.0.0.1:9966[0m
+2025-06-30 17:43:39,125 CPipe INFO [35mNo.3: CPipeInsight(TYPE:Other, SM: 0.0Mb) PID:96142 -> alive[0m
+2025-06-30 17:43:39,217 CPipe INFO [36mss(Streamer): reconnected: (1920,1080) 25fps => <rtmp://192.168.8.7:1935/live/7777>[0m
+2025-06-30 17:43:39,218 CPipe INFO [36mss(Streamer): Waiting for all consumers ready, ['D1', 'D2'] are not ready![0m
+2025-06-30 17:43:46,570 CPipe INFO [36mD1(InferenceEngine): inputNames:(images), outputNames(['output0']), ONNX model <../../src/model_files/yolov10n.onnx> average time(20 times, batch size:1): 0.00731s[0m
+2025-06-30 17:43:46,628 CPipe INFO [36mD2(InferenceEngine): inputNames:(images), outputNames(['output0']), ONNX model <../../src/model_files/yolov10n.onnx> average time(20 times, batch size:1): 0.00633s[0m
+2025-06-30 17:43:46,660 CPipe INFO [35m↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ LAUNCH ALL NODES 96072 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑[0m
+2025-06-30 17:43:46,692 CPipe INFO [36mss(Streamer): All consumers are ready![0m
+2025-06-30 17:44:07,353 CPipe WARNING [33mReceive signal 2, exit CPipe![0m
+2025-06-30 17:44:07,856 CPipe INFO [36mss                       (PID: 96129) already exited.[0m
+2025-06-30 17:44:07,857 CPipe INFO [36mD1                       (PID: 96130) already exited.[0m
+2025-06-30 17:44:07,858 CPipe INFO [36mD2                       (PID: 96131) already exited.[0m
+2025-06-30 17:44:07,858 CPipe INFO [36mCPipeInsight             (PID: 96142) already exited.[0m
+2025-06-30 17:44:07,861 CPipe INFO [35m############################### Exit CPipe End (PID: 96072) ###############################[0m

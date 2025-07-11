@@ -27,13 +27,13 @@ if __name__ == "__main__":
     streamer_nodes = []
     streams_rtsp = []
     queue = multiprocessing.Queue(10)
-    stream = ImageStreamer("stream", queue, 3, output_wh=(1920, 1080), padding=True, play_interval=0.04, once_mode=False, ground_image_path="./data/img.png")
+    stream = ImageStreamer("stream", queue, 3, output_wh=(1920, 1080), padding=False, play_interval=0.04, once_mode=False, ground_image_path="./data/img.png")
 
-    p = multiprocessing.Process(target=thread_func, args=(queue, "./data"))
+    p = multiprocessing.Process(target=thread_func, args=(queue, "/mnt/d/to_upload"))
     p.start()
 
     detect = YOLOv10("YOLOv10",
-                     "./yolov10n.onnx",
+                     "src/model_files/yolov10n.onnx",
                      3,
                      (3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',

@@ -28,7 +28,7 @@ class my_node(Node):
             frames_stream_names = []
             streamer_names, boxes = new_cdata.get_bboxes()
             for idx_img, one_image_boxes in enumerate(boxes):
-                img, m_time = self.get_streamer_frame(streamer_names[idx_img], new_cdata.images[streamer_names[idx_img]])
+                img, m_time = self.get_streamer_frame(cimage=new_cdata.images[streamer_names[idx_img]])
                 for idx_box, one_box in enumerate(one_image_boxes):
                     box_images.append(img[int(one_box.box_coord[1]):int(one_box.box_coord[3]), int(one_box.box_coord[0]):int(one_box.box_coord[2])])
                     box_idxes.append([idx_img, idx_box])
