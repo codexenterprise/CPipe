@@ -49,7 +49,7 @@ CPipe框架功能:
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
-### 更新内容：V3.7.0 （2025-7-10）注: MCP功能必须Python3.10及以上版本可以使用
+### 更新内容：V3.7.1 （2025-7-11）注: MCP功能必须Python3.10及以上版本可以使用
 1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[create_MCPStreamer](examples/create_MCPStreamer)[imageStreamer_demo](examples/streamer/imageStreamer_demo.py)
 2. 新增MCPReport节点用于配对MCPStreamer完成数据上报功能(利用CEvent完成数据在各个节点之间传递)
 3. 优化Node页面显示, 调整Queue显示逻辑: 下游节点剩余queue数/下游节点最大queue数(下游节点正常推理帧数/下游节点到达总帧数)
