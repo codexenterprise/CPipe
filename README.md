@@ -49,6 +49,21 @@ CPipe框架功能:
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
+### 更新内容：V3.7.2 （2025-7-16)
+1. 新增装饰器: Node.on_startup(order=0) 用于设置节点在每个节点启动进程后再执行_start()方法前运行相关代码, 默认0, 越小越早启动.
+    ```python
+    @Node.on_startup(1)
+    def before_start(self):
+        print("before_start")
+    ```
+    现在无需显示调用ready()/before_start()/get_streamer_area()/_loadModel()等方法, 框架已经通过Node.on_startup注册.
+2. 新增装饰器: Node.event(func_name) 用于注册节点事件, 例如:
+   ```python
+   @Node.event("print_event")
+   def print_event(self, data):
+       print(f"print_event: {data}")
+   ```
+
 ### 更新内容：V3.7.1 （2025-7-11）注: MCP功能必须Python3.10及以上版本可以使用
 1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[MCPStreamer](examples/MCPStreamer)
 2. 新增MCPReport节点用于配对MCPStreamer完成数据上报功能(利用CEvent完成数据在各个节点之间传递)
