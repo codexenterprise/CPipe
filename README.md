@@ -1,5 +1,7 @@
 #### CPipe是基于Python编写的AI视觉算法快速部署框架.本框架基于Node思想,将所有视频流/视频文件/AI算法/上报信息以及逻辑代码块等抽象成一个Node节点.节点之间可以自由连接.
 
+最新版本: V3.7.2(2025-7-23)
+
 CPipe框架功能:
 - 支持Node节点网页可视化
 - 支持算法推理结果网页实时可视化
@@ -49,7 +51,7 @@ CPipe框架功能:
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
-### 更新内容：V3.7.2 （2025-7-16)
+### 更新内容：V3.7.2 （2025-7-23)
 1. 新增装饰器: Node.on_startup(order=0) 用于设置节点在每个节点启动进程后再执行_start()方法前运行相关代码, 默认0, 越小越早启动.
     ```python
     @Node.on_startup(1)
@@ -63,6 +65,7 @@ pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
    def print_event(self, data):
        print(f"print_event: {data}")
    ```
+3. 修复部分Bug
 
 ### 更新内容：V3.7.1 （2025-7-11）注: MCP功能必须Python3.10及以上版本可以使用
 1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[MCPStreamer](examples/MCPStreamer)
