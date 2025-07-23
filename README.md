@@ -1,11 +1,18 @@
 <img width="1920" height="1080" alt="vlcsnap-2025-07-23-15h12m11s153" src="https://github.com/user-attachments/assets/9ec52958-e516-4d0b-a92c-cc712bdbc6f5" />#### CPipe是基于Python编写的AI视觉算法快速部署框架.本框架基于Node思想,将所有视频流/视频文件/AI算法/上报信息以及逻辑代码块等抽象成一个Node节点.节点之间可以自由连接.
+
 ### 视频演示
-- [视频演示1 - 中长跑项目](https://www.bilibili.com/video/BV1ep8czHEKu)
-- [视频演示2 - 人体检测&人体关键点](https://www.bilibili.com/video/BV1LJ8czWEnY)
-- [视频演示3 - 物料跟踪](https://www.bilibili.com/video/BV1vJ8czWE79)
-- [视频演示4 - 物理实验](https://www.bilibili.com/video/BV15J8czWEXE)
-- [视频演示5 - 50米短跑](https://www.bilibili.com/video/BV15J8czWE9U)
-CPipe框架功能:
+- 中长跑项目
+   [![中长跑项目](doc/play_logo_5.png)](https://www.bilibili.com/video/BV1ep8czHEKu)
+- 人体检测&人体关键点
+   [![人体检测&人体关键点](doc/play_logo_6.png)](https://www.bilibili.com/video/BV1LJ8czWEnY)
+- 物料跟踪
+   [![物料跟踪](doc/play_logo_2.png)](https://www.bilibili.com/video/BV1vJ8czWE79)
+- 物理实验
+   [![物理实验](doc/play_logo_3.png)](https://www.bilibili.com/video/BV15J8czWEXE)
+- 50米短跑
+   [![50米短跑](doc/play_logo_5.png)](https://www.bilibili.com/video/BV15J8czWE9U)
+   
+### CPipe框架功能:
 - 支持Node节点网页可视化
 - 支持算法推理结果网页实时可视化
 - 支持一键快速部署
