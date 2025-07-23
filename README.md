@@ -1,5 +1,9 @@
 #### CPipe是基于Python编写的AI视觉算法快速部署框架.本框架基于Node思想,将所有视频流/视频文件/AI算法/上报信息以及逻辑代码块等抽象成一个Node节点.节点之间可以自由连接.
-
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114901162987338&bvid=BV1ep8czHEKu&cid=31224497432&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114901129366455&bvid=BV1LJ8czWEnY&cid=31224497552&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114901129432229&bvid=BV1vJ8czWE79&cid=31224497418&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114901129366939&bvid=BV15J8czWEXE&cid=31224826474&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114901129366860&bvid=BV15J8czWE9U&cid=31224497249&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 最新版本: V3.7.2(2025-7-23)
 
 CPipe框架功能:
