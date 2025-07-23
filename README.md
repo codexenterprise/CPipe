@@ -10,7 +10,7 @@
 - 物理实验
    [![物理实验](doc/play_logo_3.png)](https://www.bilibili.com/video/BV15J8czWEXE)
 - 50米短跑
-   [![50米短跑](doc/play_logo_5.png)](https://www.bilibili.com/video/BV15J8czWE9U)
+   [![50米短跑](doc/play_logo_1.png)](https://www.bilibili.com/video/BV15J8czWE9U)
 
 ### CPipe框架功能:
 - 支持Node节点网页可视化
