@@ -11,7 +11,7 @@ mcpstreamer = MCPStreamer(
     queue_size=128,
     mcp_transport="streamable-http",
     mcp_host="localhost",
-    mcp_port=19966,
+    mcp_port=19967,
     block_mode=True,
 )
 

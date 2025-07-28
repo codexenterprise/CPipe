@@ -6,9 +6,14 @@ from cpipe.module.node import Node
 
 if __name__ == "__main__":
     # stream = VideoStreamer("ss", "rtsp://admin:tp123456@192.168.8.199:554/Streaming/Channels/101", 3, 1)
-    stream = VideoStreamer("ss", "rtmp://192.168.8.7:1935/live/7777", 3, 1)
+    stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    stream2 = VideoStreamer("ss2", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    stream3 = VideoStreamer("ss3", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    stream4 = VideoStreamer("ss4", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    stream5 = VideoStreamer("ss5", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    stream6 = VideoStreamer("ss6", "/mnt/d/videos/other/face_2.mp4", 3, 1)
     detect = YOLOv10("D1",
-                    "src/model_files/yolov10n.onnx",
+                    "/home/zhouhe/workspace/cpipe2.0/src/model_files/yolov10n.onnx",
                     3,
                     (3, 640, 640),
                     class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
@@ -45,14 +50,14 @@ if __name__ == "__main__":
     #                  )
     #------------------method 1: set mask for other nodes through streamer node--------------------------------
     # set one polygon mask(for YOLOv10 Node)
-    stream.cmask.add_polygon("D1", "area", [[0.1, 0.1], [0.9, 0.1], [0.9, 0.9], [0.1, 0.9]])
+    stream1.cmask.add_polygon("D1", "area", [[0.1, 0.1], [0.9, 0.1], [0.9, 0.9], [0.1, 0.9]])
     # set one polygon(for YOLOv10 Node), but not provide polygon coordinates, draw on web
-    stream.cmask.add_polygon("D1", "__area1__") # this is a required mask
+    stream1.cmask.add_polygon("D1", "__area1__") # this is a required mask
 
     # set one line mask(for YOLOv10 Node)
-    stream.cmask.add_line("D1", "line", [[0.3, 0.3], [0.4, 0.4]])
+    stream1.cmask.add_line("D1", "line", [[0.3, 0.3], [0.4, 0.4]])
     # set one line(for YOLOv10 Node), but not provide line coordinates, draw on web
-    stream.cmask.add_line("D1", "__line1__") # this is a required mask
+    stream1.cmask.add_line("D1", "__line1__") # this is a required mask
 
 
     # #------------------method 2: set mask for algorithm(or custom node) node--------------------------------
@@ -69,7 +74,12 @@ if __name__ == "__main__":
 
 
 
-    stream += [detect, cpipeinsight]
+    stream1 += [detect, cpipeinsight]
+    stream2 += [detect, cpipeinsight]
+    stream3 += [detect, cpipeinsight]
+    stream4 += [detect, cpipeinsight]
+    stream5 += [detect, cpipeinsight]
+    stream6 += [detect, cpipeinsight]
 
     # launch all initialized nodes
     Node.launch(check_node=True, auto_restart=False)

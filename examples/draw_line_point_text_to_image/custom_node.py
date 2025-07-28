@@ -10,8 +10,6 @@ class my_node(Node):
 
     def _start(self):
 
-        self.ready()
-
         while True:
             new_cdata = self.get_frames()
 

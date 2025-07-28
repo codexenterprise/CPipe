@@ -21,16 +21,14 @@ rf = RetinafaceTRT(
     # secondary_class_names=["person"],
 )
 
-rf.loadModel()
+rf.load_model()
 
 for idx, one in enumerate(person_images_files):
     one_path = os.path.join(person_images_path, one)
     img = cv2.imread(one_path)
     frames = [img]
-    new_cdata = CData(rf.nodeName)
-    pred = rf.forward(frames)
-    rf.to_cdata(pred, new_cdata, frames, ["1"])
-    for one_box in new_cdata.bboxes["1"]:
+    cdata = rf(frames, return_cdata_format=True, frames_stream_names=["1"])
+    for one_box in cdata.bboxes["1"]:
         face_img = img[int(one_box.box_coord[1]):int(one_box.box_coord[3]), int(one_box.box_coord[0]):int(one_box.box_coord[2])]
         cv2.imwrite(os.path.join(save_face_images_path, one), face_img)
     print(f"{idx}/{len(person_images_files)} done")

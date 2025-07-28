@@ -31,11 +31,7 @@ class ShuffleNetCut(ShuffleNet):
         Returns: None
 
         """
-        self._loadModel(self._modelPath)
 
-        self.get_streamer_area()
-        self.before_start()
-        self.ready()
         while True:
             new_cdata = self.get_frames()
 

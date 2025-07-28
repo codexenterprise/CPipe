@@ -21,7 +21,7 @@ ada = Adaface(
     face_quality_model_path="../../src/model_files/face_quality_batch64_GPU3070.engine",
 )
 
-ada._loadModel()
+ada.load_model()
 
 for idx, one in enumerate(face_images_files):
     if one.endswith(".pkl"):
@@ -29,10 +29,8 @@ for idx, one in enumerate(face_images_files):
     one_path = os.path.join(face_images_path, one)
     img = cv2.imread(one_path)
     frames = [img]
-    new_cdata = CData(ada.nodeName)
-    pred = ada.forward(frames, box_kps=None)
-    ada.to_cdata(pred, new_cdata, frames, ["1"])
-    fe = new_cdata.bboxes['1'][0].person.face_embedding
+    cdata = ada(frames, return_cdata_format=True, frames_stream_names=["1"], box_kps=None)
+    fe = cdata.bboxes["1"][0].person.face_embedding
     # pickle.dump(fe, open(os.path.join(save_embedding_images_path, one.replace('.jpg', '.pkl')), "wb"))
     with open(os.path.join(save_embedding_images_path, one.replace('.jpg', '.pkl')), "wb") as f:
         pickle.dump(fe, f)

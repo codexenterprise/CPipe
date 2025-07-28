@@ -5,16 +5,13 @@ from cpipe.config.config import CLOGER_LEVEL, CLOGER_LEVEL_DEBUG
 class my_node(Node):
     def __init__(self, nodeName, queue_size):
         super().__init__(nodeName, queue_size)
-        self.event_register("print_event", self.print_event)
 
+    @Node.event("print_event")
     def print_event(self, data):
         self.logger.info(f"{self.nodeName}: {data}")
 
 
     def _start(self):
-
-        self.ready()
-
         while True:
             new_cdata = self.get_frames()
 

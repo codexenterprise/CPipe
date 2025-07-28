@@ -61,7 +61,7 @@
 例子:
 pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
 
-### 更新内容：V3.7.2 （2025-7-23)
+### 更新内容：V3.7.2 （2025-7-28)
 1. 新增装饰器: Node.on_startup(order=0) 用于设置节点在每个节点启动进程后再执行_start()方法前运行相关代码, 默认0, 越小越早启动.
     ```python
     @Node.on_startup(1)
@@ -75,7 +75,15 @@ pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
    def print_event(self, data):
        print(f"print_event: {data}")
    ```
-3. 修复部分Bug
+3. 新增CPipeInsight.get_current_show_image()方法, 用于获取当前显示的图片, 例如:[get_cpipeinsight_result](examples/get_cpipeinsight_result)
+   ```python
+   result = cpipeinsight.get_current_show_image("streamers")
+   if result is not None:
+       cv2.imshow("result", result)
+       cv2.waitKey(1)
+   ```
+4. 优化Tensorrt模型推理流程, 现在无需安装torch2trt库. 无需按手动安装cuda和cudnn
+   - 直接安装: python pip install torch tensorrt
 
 ### 更新内容：V3.7.1 （2025-7-11）注: MCP功能必须Python3.10及以上版本可以使用
 1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[MCPStreamer](examples/MCPStreamer)
