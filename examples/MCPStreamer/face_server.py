@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     rf = Retinaface(
         "retinaface",
-        "/home/zhouhe/workspace/cpipe2.0/src/model_files/416x416-det_10g_batch.engine.cpipe",
+        "/home/zhouhe/workspace/cpipe2.0/src/model_files/416x416-det_10g_batch.engine",
         7,
         (3, 416, 416),
         max_batch_size=16,
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     ada = Adaface(
         "adaface",
-        "/home/zhouhe/workspace/cpipe2.0/src/model_files/adaface_ir101_webface12m.engine.cpipe",
+        "/home/zhouhe/workspace/cpipe2.0/src/model_files/adaface_ir101_webface12m.engine",
         6,
         [3, 112, 112],
         max_batch_size=16,
