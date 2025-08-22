@@ -59,7 +59,24 @@
 采用pip安装指令,支持Python 3.8及以上,并提供相关Docker镜像.
 
 例子:
-pip install cpipe-3.0.0-cp39-cp39-linux_x86_64.whl
+pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
+
+### 更新内容：V3.7.4 （2025-8-22)
+1. 新增VideoStreamer支持视频旋转功能, 通过rotate参数设置, 例如:
+   ```python
+   stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1, rotate=90) # 顺时针旋转 90 180 270
+   ```
+2. 节点的 event 支持双向传递数据, 例如: [send_events_to_node](examples/send_events_to_node)
+   ```python
+   @Node.event("print_event")
+   def print_event(self, data):
+       print(f"print_event: {data}")
+       return "hello world"
+   ret = self.event_send("print_event", "hello")
+   print(ret)
+   ```
+3. 优化cv2导致内存泄漏问题
+
 
 ### 更新内容：V3.7.2 （2025-7-28)
 1. 新增装饰器: Node.on_startup(order=0) 用于设置节点在每个节点启动进程后再执行_start()方法前运行相关代码, 默认0, 越小越早启动.

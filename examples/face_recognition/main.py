@@ -14,10 +14,10 @@ from cpipe.module.node import Node
 if __name__ == "__main__":
     streamer_nodes = []
     streams_rtsp = []
-    stream = VideoStreamer("stream", "rtmp://192.168.8.122:1935/live/7777", 3, 1, once_mode=True)
+    stream = VideoStreamer("stream", "rtmp://192.168.10.7:1935/live/7777", 3, 1, once_mode=True)
 
     detect = YOLOv7("YOLOv7",
-                     "../../src/model_files/yolov7-tiny_office_batch4_GPU3070_0.65_0.45.engine",
+                     "src/model_files/yolov7-tiny_office_0.65_0.45.engine",
                      3,
                      (3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     rf = Retinaface(
         "retinaface",
-        "../../src/model_files/416x416-det_10g_batch.engine",
+        "src/model_files/416x416-det_10g_batch.engine",
         3,
         (3, 416, 416),
         ["face"],
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     fr = FaceRecognition(
         "adaface",
-        "../../src/model_files/adaface_ir101_webface12m_batch64_GPU3070.engine",
+        "src/model_files/adaface_ir101_webface12m.engine",
         3,
         [3, 112, 112],
         max_batch_size=64,

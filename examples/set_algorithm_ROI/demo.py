@@ -8,10 +8,10 @@ if __name__ == "__main__":
     # stream = VideoStreamer("ss", "rtsp://admin:tp123456@192.168.8.199:554/Streaming/Channels/101", 3, 1)
     stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1)
     stream2 = VideoStreamer("ss2", "/mnt/d/videos/other/face_2.mp4", 3, 1)
-    stream3 = VideoStreamer("ss3", "/mnt/d/videos/other/face_2.mp4", 3, 1)
-    stream4 = VideoStreamer("ss4", "/mnt/d/videos/other/face_2.mp4", 3, 1)
-    stream5 = VideoStreamer("ss5", "/mnt/d/videos/other/face_2.mp4", 3, 1)
-    stream6 = VideoStreamer("ss6", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    # stream3 = VideoStreamer("ss3", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    # stream4 = VideoStreamer("ss4", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    # stream5 = VideoStreamer("ss5", "/mnt/d/videos/other/face_2.mp4", 3, 1)
+    # stream6 = VideoStreamer("ss6", "/mnt/d/videos/other/face_2.mp4", 3, 1)
     detect = YOLOv10("D1",
                     "/home/zhouhe/workspace/cpipe2.0/src/model_files/yolov10n.onnx",
                     3,
@@ -76,10 +76,10 @@ if __name__ == "__main__":
 
     stream1 += [detect, cpipeinsight]
     stream2 += [detect, cpipeinsight]
-    stream3 += [detect, cpipeinsight]
-    stream4 += [detect, cpipeinsight]
-    stream5 += [detect, cpipeinsight]
-    stream6 += [detect, cpipeinsight]
+    # stream3 += [detect, cpipeinsight]
+    # stream4 += [detect, cpipeinsight]
+    # stream5 += [detect, cpipeinsight]
+    # stream6 += [detect, cpipeinsight]
 
     # launch all initialized nodes
-    Node.launch(check_node=True, auto_restart=False)
+    Node.launch(check_node=True, auto_restart=False, agent=True)

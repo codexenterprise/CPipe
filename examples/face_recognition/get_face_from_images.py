@@ -2,18 +2,18 @@ import os
 import cv2
 
 from cpipe.module.cdata import CData
-from cpipe.module.model.retinaface import RetinafaceTRT
+from cpipe.module.model.retinaface import Retinaface
 
-person_images_path = "/mnt/d/dataset/NBJB"
+person_images_path = "/mnt/d/faces"
 person_images_files = os.listdir(person_images_path)
 
 save_face_images_path = "./face_images"
 if not os.path.exists(save_face_images_path):
     os.makedirs(save_face_images_path)
 
-rf = RetinafaceTRT(
+rf = Retinaface(
     "retinaface",
-    "../../src/model_files/416x416-det_10g_batch.engine",
+    "src/model_files/416x416-det_10g_batch.engine",
     3,
     (3, 416, 416),
     ["face"],

@@ -10,7 +10,8 @@ import numpy as np
 def one_thread():
     i = 0
     while True:
-        Node.__allNodes__["text_show"].event_send("print_event", {"msg": f"hello world{i}", "ndarray": np.array([1, 2, 3])})
+        ret = Node.__allNodes__["text_show"].event_send("print_event", {"msg": f"hello world{i}", "ndarray": np.array([1, 2, 3])})
+        print("event_send ret:", ret)
         time.sleep(1)
         i += 1
 

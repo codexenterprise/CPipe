@@ -10,15 +10,17 @@ face_images_path = "./face_images"
 face_images_files = os.listdir(face_images_path)
 
 save_embedding_images_path = "./face_embeddings"
+if not os.path.exists(save_embedding_images_path):
+    os.makedirs(save_embedding_images_path)
 
 
 ada = Adaface(
     "adaface",
-    "../../src/model_files/adaface_ir101_webface12m_batch64_GPU3070.engine",
+    "src/model_files/adaface_ir101_webface12m.engine",
     3,
     [3, 112, 112],
     max_batch_size=8,
-    face_quality_model_path="../../src/model_files/face_quality_batch64_GPU3070.engine",
+    face_quality_model_path="src/model_files/face_quality_batch.onnx.cpipe",
 )
 
 ada.load_model()

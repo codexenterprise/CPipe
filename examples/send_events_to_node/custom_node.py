@@ -9,6 +9,7 @@ class my_node(Node):
     @Node.event("print_event")
     def print_event(self, data):
         self.logger.info(f"{self.nodeName}: {data}")
+        return "print_event : hello world"
 
 
     def _start(self):
