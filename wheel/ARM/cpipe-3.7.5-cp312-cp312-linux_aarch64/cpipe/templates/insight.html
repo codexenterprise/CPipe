@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+        }
+        .video-container {
+            flex: 3;
+        }
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <img id="video-stream" src="/show/{{ nodeName }}" style="width: 100%;">
+    </div>
+    <div class="text-container">
+        <div id="dynamic-text">Loading...</div>
+    </div>
+    <script>
+        function fetchText() {
+            fetch('/debug_message/{{ nodeName }}')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.text) {
+                            document.getElementById('dynamic-text').innerText = new Date().toLocaleString() + ": \n\n" + data.text;
+                        }
+                });
+        }
+
+        setInterval(fetchText, 250); // 每秒更新一次文本
+    </script>
+</body>
+</html>

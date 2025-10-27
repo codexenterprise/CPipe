@@ -1,0 +1,19 @@
+import tensorrt as trt
+from _typeshed import Incomplete
+
+__all__ = ['DEFAULT_CALIBRATION_ALGORITHM', 'DatasetCalibrator']
+
+DEFAULT_CALIBRATION_ALGORITHM: Incomplete
+
+class DatasetCalibrator(trt.IInt8Calibrator):
+    dataset: Incomplete
+    algorithm: Incomplete
+    count: int
+    cache_file: Incomplete
+    flattener: Incomplete
+    def __init__(self, dataset, algorithm=..., cache_file=None, flattener=None) -> None: ...
+    def get_batch(self, *args, **kwargs): ...
+    def get_algorithm(self): ...
+    def get_batch_size(self): ...
+    def read_calibration_cache(self, *args, **kwargs): ...
+    def write_calibration_cache(self, cache, *args, **kwargs) -> None: ...

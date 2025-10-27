@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPipe Node</title>
+    <script src="/static/js/x6.js"></script>
+    <script src="/static/js/graphlib.js"></script>
+    <script src="/static/js/layout.js"></script>
+    <script src="/static/js/x6_plugin_keyboard.js"></script>
+    <script src="/static/js/x6_plugin_clipboard.js"></script>
+{#    <script src="https://unpkg.com/@antv/x6-plugin-transform@latest/dist/index.js"></script>#}
+    <script src="/static/js/x6_plugin_selection.js"></script>
+    <script src="/static/js/x6_plugin_snapline.js"></script>
+    <script src="/static/js/x6_plugin_history.js"></script>
+    <style>
+        #container {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+
+        }
+    </style>
+</head>
+<body>
+{#    <button id="submit-graph">保存</button>#}
+    <button id="arrange-graph">整理</button>
+    <div id="container"></div>
+
+    <script type="module">
+        const { Graph, Edge } = window.X6;
+        const { DagreLayout } = window.Layout;
+        {#const { Transform } = window.X6PluginTransform;#}
+        const { Selection } = window.X6PluginSelection;
+        const { Snapline } = window.X6PluginSnapline;
+        const { Keyboard } = window.X6PluginKeyboard;
+        const { Clipboard } = window.X6PluginClipboard;
+        const { History } = window.X6PluginHistory;
+
+
+        const graph = new Graph({
+            container: document.getElementById('container'),
+            grid: true,
+            connecting: {
+                validateConnection({ sourceCell, targetCell }) {
+                    // 同一个节点无法生成连接线
+                    return sourceCell.id !== targetCell.id;
+                },
+
+                createEdge() {
+                    return new Edge({
+                        attrs: {
+                            line: {
+                                stroke: '#d8d8d8',
+                                strokeWidth: 2,
+                                targetMarker: {
+                                    name: 'block',
+                                    width: 12,
+                                    height: 8,
+                                },
+                            },
+                            label: {
+                                text: '',
+                                fill: '#eceaea',
+                                fontSize: 12,
+                                textAnchor: 'middle',
+                                textVerticalAnchor: 'middle',
+                                refY: 10,
+                            },
+                        },
+                    });
+                },
+            },
+        });
+
+        let sourceNode = null;
+
+        graph
+          {#.use(#}
+          {#  new Transform({#}
+          {#    resizing: true,#}
+          {#    rotating: true,#}
+          {#  }),#}
+          {#)#}
+          .use(
+            new Selection({
+              rubberband: true,
+              showNodeSelectionBox: true,
+            }),
+          )
+          .use(new Snapline())
+          .use(new Keyboard())
+          .use(new Clipboard())
+          .use(new History())
+
+
+
+        graph.bindKey(['meta+v', 'ctrl+v'], () => {
+          if (!graph.isClipboardEmpty()) {
+            const cells = graph.paste({ offset: 32 })
+            graph.cleanSelection()
+            graph.select(cells)
+          }
+          return false
+        })
+
+        graph.bindKey(['meta+c', 'ctrl+c'], () => {
+          const cells = graph.getSelectedCells()
+          if (cells.length) {
+            graph.copy(cells)
+          }
+          return false
+        })
+
+        {#// delete#}
+        {#    graph.bindKey('del', () => {#}
+        {#      const cells = graph.getSelectedCells()#}
+        {#      if (cells.length) {#}
+        {#        graph.removeCells(cells)#}
+        {#      }#}
+        {#    })#}
+
+
+{#        // 画布空白位置右键添加节点, 修改弹窗名称#}
+{#        document.getElementById('container').addEventListener('contextmenu', (event) => {#}
+{#            event.preventDefault();#}
+{#            customPrompt('新增节点', '节点名称:', (nodeName) => {#}
+{#                if (nodeName) {#}
+{#                    graph.addNode({#}
+{#                        x: event.offsetX,#}
+{#                        y: event.offsetY,#}
+{#                        width: 120,#}
+{#                        height: 60,#}
+{#                        label: nodeName,#}
+{#                        id: nodeName,#}
+{#                        shape: 'ellipse',#}
+{#                        attrs: {#}
+{#                            body: {#}
+{#                                stroke: '#5F95FF',#}
+{#                                strokeWidth: 1,#}
+{#                                fill: '#EFF4FF',#}
+{#                            },#}
+{#                            label: {#}
+{#                                text: nodeName,#}
+{#                                fill: '#262626',#}
+{#                                fontSize: 12,#}
+{#                            },#}
+{#                        },#}
+{#                    });#}
+{#                }#}
+{#            });#}
+{#        });#}
+{##}
+{#        // 自定义 prompt 函数#}
+{#// 自定义 prompt 函数#}
+{#function customPrompt(title, message, callback) {#}
+{#    // 创建模态框元素#}
+{#    const modal = document.createElement('div');#}
+{#    modal.style.position = 'fixed';#}
+{#    modal.style.left = '50%';#}
+{#    modal.style.top = '50%';#}
+{#    modal.style.transform = 'translate(-50%, -50%)';#}
+{#    modal.style.backgroundColor = 'white';#}
+{#    modal.style.padding = '20px';#}
+{#    modal.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';#}
+{#    modal.style.zIndex = '1000';#}
+{#    modal.style.width = '300px'; // 增加模态框宽度#}
+{##}
+{#    // 创建标题#}
+{#    const titleElement = document.createElement('h4');#}
+{#    titleElement.textContent = title;#}
+{#    titleElement.style.margin = '20';#}
+{#    titleElement.style.padding = '10';#}
+{#    titleElement.style.textAlign = 'left';#}
+{#    modal.appendChild(titleElement);#}
+{##}
+{#    // 点击非模态框区域关闭模态框#}
+{#    modal.onclick = (event) => {#}
+{#        if (event.target === modal) {#}
+{#            document.body.removeChild(modal);#}
+{#        }#}
+{#    };#}
+{##}
+{#    // 创建节点名称输入框#}
+{#    const inputNodeName = document.createElement('input');#}
+{#    inputNodeName.type = 'text';#}
+{#    inputNodeName.placeholder = '节点名称';#}
+{#    inputNodeName.style.width = '100%'; // 使输入框宽度为100%#}
+{#    modal.appendChild(inputNodeName);#}
+{##}
+{#    // 创建流地址输入区域#}
+{#    const streamContainer = document.createElement('div');#}
+{#    modal.appendChild(streamContainer);#}
+{##}
+{#    // 添加流地址输入框#}
+{#    function addStreamInput() {#}
+{#        const streamInput = document.createElement('input');#}
+{#        streamInput.type = 'text';#}
+{#        streamInput.placeholder = '流地址';#}
+{#        streamInput.style.width = 'calc(100% - 50px)'; // 使输入框宽度为100%减去按钮宽度#}
+{#        streamContainer.appendChild(streamInput);#}
+{#    }#}
+{##}
+{#    // 初始添加一个流地址输入框#}
+{#    addStreamInput();#}
+{##}
+{#    // 创建 "+" 按钮#}
+{#    const addButton = document.createElement('button');#}
+{#    addButton.textContent = '+';#}
+{#    addButton.onclick = addStreamInput;#}
+{#    modal.appendChild(addButton);#}
+{##}
+{#    // 创建 "-" 按钮#}
+{#    const removeButton = document.createElement('button');#}
+{#    removeButton.textContent = '-';#}
+{#    removeButton.onclick = () => {#}
+{#        const inputs = streamContainer.getElementsByTagName('input');#}
+{#        if (inputs.length > 1) {#}
+{#            streamContainer.removeChild(inputs[inputs.length - 1]);#}
+{#        }#}
+{#    };#}
+{#    modal.appendChild(removeButton);#}
+{##}
+{#    // 创建确定按钮#}
+{#    const button = document.createElement('button');#}
+{#    button.textContent = '确定';#}
+{#    button.onclick = () => {#}
+{#        const streamUrls = Array.from(streamContainer.getElementsByTagName('input')).map(input => input.value);#}
+{#        callback(inputNodeName.value, streamUrls);#}
+{#        document.body.removeChild(modal);#}
+{#    };#}
+{#    modal.appendChild(button);#}
+{##}
+{#    // 添加模态框到文档#}
+{#    document.body.appendChild(modal);#}
+{#}#}
+
+        {#document.getElementById('submit-graph').addEventListener('click', () => {#}
+        {#    const nodes = graph.getNodes().map(node => ({#}
+        {#        id: node.id,#}
+        {#        label: node.getLabel(),#}
+        {#        shape: node.shape,#}
+        {#        position: node.getPosition(),#}
+        {#    }));#}
+        {#    const edges = graph.getEdges().map(edge => ({#}
+        {#        source: edge.getSourceCellId(),#}
+        {#        target: edge.getTargetCellId(),#}
+        {#        label: edge.attr('label/text'),#}
+        {#    }));#}
+        {#    fetch('/upload_node_info', {#}
+        {#        method: 'POST',#}
+        {#        headers: {#}
+        {#            'Content-Type': 'application/json',#}
+        {#        },#}
+        {#        body: JSON.stringify({ nodes, edges }),#}
+        {#    }).then(response => response.json())#}
+        {#      .then(data => alert('提交成功!'));#}
+        {#});#}
+
+        document.getElementById('arrange-graph').addEventListener('click', () => {
+            const nodes1 = graph.getNodes().map(node => ({
+                id: node.id,
+                label: node.getLabel(),
+                x: node.getPosition().x,
+                y: node.getPosition().y,
+                width: node.size().width,
+                height: node.size().height,
+            }));
+            const edges2 = graph.getEdges().map(edge => ({
+                id: edge.id,
+                source: edge.getSourceCellId(),
+                target: edge.getTargetCellId(),
+            }));
+
+            const layout = new DagreLayout({
+                type: 'dagre',
+                rankdir: 'LR',
+                align: 'DL',
+                nodesep: 250,
+                ranksep: 250,
+            });
+            const graph1 = new window.GraphLib.Graph({nodes: nodes1, edges: edges2});
+            const positions = layout.execute(graph1);
+
+            positions.then((positions) => {
+                const positions_nodes_dict = [];
+                for (let key in positions["nodes"]){
+                    const id = positions["nodes"][key]["id"];
+                    positions_nodes_dict[id] = positions["nodes"][key];
+                }
+                graph.getNodes().forEach(node => {
+                    const id = node.id;
+                    const position = positions_nodes_dict[id];
+                    if (position){
+                        node.position(position.data.x, position.data.y);
+                    }
+                });
+            });
+
+            // 自适应画布到所有节点，并多出200个点的空间
+            graph.zoomToFit({
+                padding: 25,
+                useCellGeometry: true,
+
+            });
+
+        });
+        // 右击节点连接线
+        {#graph.on('node:click', ({ node }) => {#}
+        {#    if (sourceNode) {#}
+        {#        if (sourceNode.id !== node.id) {#}
+        {#            const existingEdges = graph.getEdges();#}
+        {#            let edgeExists = false;#}
+        {#            existingEdges.forEach(e => {#}
+        {#                if (e.getSourceCellId() === sourceNode.id && e.getTargetCellId() === node.id) {#}
+        {#                    edgeExists = true;#}
+        {#                }#}
+        {#                if (e.getSourceCellId() === node.id && e.getTargetCellId() === sourceNode.id) {#}
+        {#                    edgeExists = true;#}
+        {#                }#}
+        {#            });#}
+        {#            if (!edgeExists) {#}
+        {#                graph.addEdge({#}
+        {#                    source: sourceNode.id,#}
+        {#                    target: node.id,#}
+        {#                    attrs: {#}
+        {#                        label: {#}
+        {#                            text: '996',#}
+        {#                        },#}
+        {#                        line: {#}
+        {#                            stroke: '#d8d8d8',#}
+        {#                            strokeWidth: 1.5,#}
+        {#                        },#}
+        {#                    },#}
+        {#                });#}
+        {#            }#}
+        {#        }#}
+        {#        sourceNode = null;#}
+        {#    } else {#}
+        {#        sourceNode = node;#}
+        {#    }#}
+        {#});#}
+
+        {#// 鼠标右键双击节点删除节点, 并弹出一个确认框#}
+        {#graph.on('node:dblclick', ({ node }) => {#}
+        {#    if (confirm('确定要删除该节点吗?')) {#}
+        {#        graph.removeNode(node);#}
+        {#    }#}
+        {#});#}
+
+        {#graph.on('edge:dblclick', ({ edge }) => {#}
+        {#    graph.removeEdge(edge);#}
+        {#});#}
+
+        window.addEventListener('load', () => {
+            fetch('/load_node_info')
+                .then(response => response.json())
+                .then(data => {
+                    data.nodes.forEach(node => {
+                        let stroke = '#00FF00';
+                        let fill = '#c8f1c8';
+                        if(node.state === "D"){
+                            stroke = '#FF0000';
+                            fill = '#ecc6c6';
+                        }
+                        else if(node.state === "R"){
+                            stroke = '#818181';
+                            fill = '#dcdcdc';
+                        }
+
+                        graph.addNode({
+                            id: node.id,
+                            x: node.position.x,
+                            y: node.position.y,
+                            width: node.width,
+                            height: node.height,
+                            label: node.label,
+                            shape: node.shape,
+                            attrs: {
+                                body: {
+                                    stroke: stroke,
+                                    strokeWidth: 1,
+                                    fill: fill,
+                                },
+                                label: {
+                                    text: node.label,
+                                    fill: '#af66a5',
+                                    fontSize: 12,
+                                },
+                            },
+                        });
+                    });
+                    data.edges.forEach(edge => {
+                        graph.addEdge({
+                            id: edge.id,
+                            source: edge.source,
+                            target: edge.target,
+                            attrs: {
+                                label: {
+                                    text: edge.label,
+                                    //颜色
+                                    fill: '#eceaea',
+                                },
+                                line: {
+                                    stroke: '#d8d8d8',
+                                    strokeWidth: 1.5,
+                                },
+                            },
+                        });
+                    });
+                });
+            // 休眠1秒后再次触发整理
+            setTimeout(() => {
+                document.getElementById('arrange-graph').click();
+            }, 100);
+            setTimeout(() => {
+                document.getElementById('arrange-graph').click();
+            }, 100);
+        });
+
+        // 每隔1秒钟请求一次 /get_data 并更新连接线上的文字内容  edge.setLabels([{ attrs: { text: { text: label } } }]);
+                // 每隔1秒钟请求一次 /get_data 并更新连接线上的文字内容
+        setInterval(() => {
+            fetch('/get_data')
+                .then(response => response.json())
+                .then(data => {
+                    graph.getEdges().forEach(edge => {
+                        let label = data["edges"][edge.id].label || '';
+                        edge.setLabels([{ attrs: { text: { text: label, fill: '#949494' } } }]);
+                    });
+
+
+                    graph.getNodes().forEach(node => {
+                        let one_node = data["nodes"][node.id];
+
+                        let stroke = '#00FF00';
+                        let fill = '#c8f1c8';
+                        if(one_node.state === "D"){
+                            stroke = '#FF0000';
+                            fill = '#ecc6c6';
+                        }
+                        else if(one_node.state === "R"){
+                            stroke = '#818181';
+                            fill = '#dcdcdc';
+                        }
+                        // node设置修改结果并结果实时生效
+                        node.attr({
+                            body: {
+                                stroke: stroke,
+                                fill: fill,
+                            },
+                            label: {
+                                text: one_node.label,
+                            },
+                        });
+                    });
+                });
+        }, 1000);
+
+    </script>
+</body>
+</html>

@@ -61,6 +61,34 @@
 例子:
 pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
 
+### 更新内容：V3.7.6 （2025-10-27)
+1. 新增HKO_AddBoxes钩子函数, 用于将box添加到输出中
+   ```python
+   hook_outputs=HKO_AddBoxes(-1, {"streamers1": [[0, 0, 100, 100, 0.5, 0], [100, 100, 200, 200, 0.6, 1]]}) # xyxy score class
+   ```
+2. 升级及优化websocket功能,CWebsocket增加接受回调函数功能
+3. 优化mmshufflnet预处理bug
+4. videostreamer 增加short_connection_delay动态修改功能
+5. 新增部署平台功能
+6. 优化部分功能: 视频保存功能等
+7. 增加更多的ARM版本的wheel文件
+
+### 更新内容：V3.7.5 （2025-8-22)
+1. 新增VideoStreamer支持视频旋转功能, 通过rotate参数设置, 例如:
+   ```python
+   stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1, rotate=90) # 顺时针旋转 90 180 270
+   ```
+2. 节点的 event 支持双向传递数据, 例如: [send_events_to_node](examples/send_events_to_node)
+   ```python
+   @Node.event("print_event")
+   def print_event(self, data):
+       print(f"print_event: {data}")
+       return "hello world"
+   ret = self.event_send("print_event", "hello")
+   print(ret)
+   ```
+3. 优化cv2导致内存泄漏问题
+
 ### 更新内容：V3.7.4 （2025-8-22)
 1. 新增VideoStreamer支持视频旋转功能, 通过rotate参数设置, 例如:
    ```python

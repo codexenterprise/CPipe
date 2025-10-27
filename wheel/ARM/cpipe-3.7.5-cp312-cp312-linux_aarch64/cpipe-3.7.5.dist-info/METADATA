@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: cpipe
+Version: 3.7.5
+Requires-Python: >=3
+Dynamic: requires-python
