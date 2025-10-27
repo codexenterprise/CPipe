@@ -62,9 +62,9 @@
 pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
 
 ### Docker镜像使用方法:
-wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe3.7.4_4090_570.195.03.tar
-docker load -i cpipe3.7.4_4090_570.195.03.tar
-sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
+1. wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe3.7.4_4090_570.195.03.tar
+2. docker load -i cpipe3.7.4_4090_570.195.03.tar
+3. sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
 
 ### 更新内容：V3.7.6 （2025-10-27)
 1. 新增HKO_AddBoxes钩子函数, 用于将box添加到输出中
