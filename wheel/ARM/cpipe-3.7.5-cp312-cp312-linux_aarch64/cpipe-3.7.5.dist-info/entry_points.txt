@@ -1,2 +1,0 @@
-[console_scripts]
-cpipe = cpipe.cpipe:main
