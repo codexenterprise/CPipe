@@ -66,6 +66,42 @@ pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
 2. docker load -i cpipe3.7.4_4090_570.195.03.tar
 3. sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
 
+
+### 版本更新记录
+CPIPE4.0版本: 仅支持python3.10以上版本  快速安装教程见examples/cpipe_install_from_uv目录
+1. MCP添加: create_node/create_edge/get model file info list/get node class parameters/get node support type list/get nodes info/get nodes mask/set node mask/set show arguments
+2. 系统提示词优化及添加
+3. 将flask相关API迁移到fastapi
+4. 集成agent代码到CPipe
+5. 优化及测试人脸识别工作量MCP提示词
+6. 优化pydantic相关入参检测功能
+7. 解决编译wheel包后参数说明无法显示问题
+8. 解决编译wheel包后agent模式和insight显示冲突问题
+9. 优化agent携程模式下, MCP context 夸携程释放问题
+10. 新增算法PPHGNet 用于人员属性识别, 同时新增Box.person.person_attribute字段
+11. 人脸识别算法: 增加支持删除和添加人脸功能
+12. Web增加聊天页面功能: 直接在cpipe页面可以进行agent相关聊天功能以及文件上传功能
+13. 新增音频播放report节点: audioreport. 支持TTS算法kokoro-82M
+14. 新增多线程同时保存多路视频录像功能
+15. 新增websocket-flv拉流功能
+16. 新增HKO_AddBoxes
+17. 升级及优化websocket功能,CWebsocket增加接受回调函数功能
+18. 优化mmshufflnet预处理bug
+19. videostreamer 增加short_connection_delay动态修改功能
+20. 新增部署平台功能：增加对接部署平台的算法配置参数解析功能，增加对接部署平台算法结果上报功能
+21. 新增VideoMAE算法节点
+22. 新增Yolov11Pose算法节点
+23. 构建python3.10版本的CPipe dokcer镜像
+24. 新增SAM3算法节点（支持文本提示）
+25. 所有节点自己pause事件 @event(EVENT_PAUSE_NODE)， 可用event_send("pause_node", True)暂停工作状态节点，event_send("pause_node", False)恢复节点工作状态
+26. 所有节点新增pause功能,用于暂停节点的工作暂停
+27. 升级所有report节点,支持其它节点和report节点的双向通信功能
+28. 优化升级insight视频保存功能,增加视频动态保存和启动功能.
+29. VideoStreamer 本地文件模式支持快进快退功能,不再需要用OBS推流
+30. CPipe安装新增UV快速安装模式,相关教程见examples/cpipe_install_from_uv目录
+
+
+
 ### 更新内容：V3.7.6 （2025-10-27)
 1. 新增HKO_AddBoxes钩子函数, 用于将box添加到输出中
    ```python

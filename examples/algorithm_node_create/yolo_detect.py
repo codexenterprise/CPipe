@@ -7,14 +7,11 @@ from cpipe.module.streamer import VideoStreamer
 
 if __name__ == "__main__":
 
-    stream = VideoStreamer("stream", "rtmp://192.168.8.122:1935/live/7777", 3, 1)
+    stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.8.122:1935/live/7777", process_frame_interval=3)
 
-    # detect = YOLOv7("YOLOv7",
-    # detect = YOLOv11("YOLOv11",
-    detect = YOLOv10("YOLOv10",
-                     "../../models/yolov10n.onnx",
-                     3,
-                     (3, 640, 640),
+    detect = YOLOv10(node_name="YOLOv10",
+                     model_path="../../models/yolov10n.onnx",
+                     input_size=(3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                                   'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                                   'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',

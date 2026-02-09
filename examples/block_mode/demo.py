@@ -5,12 +5,11 @@ from cpipe.module.node import Node
 
 
 if __name__ == "__main__":
-    # stream = VideoStreamer("ss", "rtsp://admin:tp123456@192.168.8.199:554/Streaming/Channels/101", 3, 1)
-    stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1)
-    detect = YOLOv10("D1",
-                    "/home/zhouhe/workspace/cpipe2.0/src/model_files/yolov10n.onnx",
-                    3,
-                    (3, 640, 640),
+    # stream = VideoStreamer(node_name="ss", stream="rtsp://admin:tp123456@192.168.8.199:554/Streaming/Channels/101", process_frame_interval=3)
+    stream1 = VideoStreamer(node_name="ss1", stream="/mnt/d/videos/other/face_2.mp4", process_frame_interval=3)
+    detect = YOLOv10(node_name="D1",
+                    model_path="/home/zhouhe/workspace/cpipe2.0/src/model_files/yolov10n.onnx",
+                    input_size=(3, 640, 640),
                     class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                                 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                                 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',

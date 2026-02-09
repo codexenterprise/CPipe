@@ -1,60 +1,40 @@
 # cython:language_level=3
+from typing import Annotated, Any
 import numpy as np
+from pydantic import Field
 import torch
 
 from cpipe.module.cmodel import Cmodel
-from cpipe.module.dataprocessing import preprocess_yolov7, scale_coords, preprocess_yolov7_rknn
+from cpipe.module.cvalidator import CIntList, CNone
+from cpipe.module.dataprocessing import scale_coords, preprocess_yolov7_rknn
 from cpipe.module.cinferencer import CDetector
 
 
 class YOLOv7(CDetector):
-    def __init__(self, nodeName, modelPath, queue_size, inputSize, class_names, valid_class_names=None, max_batch_size=1, conf_thres=0.25, iou_thres=0.45, anchor=None,
-                 warmup=True, device="cuda:0", threading_num=4, save_top_n_objects=None, area_flag=False, secondary_class_names=None, input_names=None, output_names=None, gray_mode=False):
-        """
-        YOLOv7 is a class for YOLOv7 model.
+    """
+    YOLOv7 can detect the objects in the image.
+    """
+    
+    anchor: Annotated[CIntList | CNone, "The anchor of the model."] = Field(default=None)
 
-        Args:
-            nodeName: (str) The name of the node.
-            modelPath: (str) The path of the model.
-            queue_size: (int) The queue size.
-            inputSize: (list) The input size. e.g. [3, 416, 416]
-            class_names: (list) The class names.
-            valid_class_names: (list) The valid class names.
-            max_batch_size: (int) The max batch size.
-            conf_thres: (float) The confidence threshold.
-            iou_thres: (float) The iou threshold.
-            anchor: (list) The anchor. e.g. np.array([12.0, 16.0, 19.0, 36.0, 40.0, 28.0, 36.0, 75.0, 76.0, 55.0, 72.0, 146.0, 142.0, 110.0, 192.0, 243.0, 459.0, 401.0]).reshape(3, -1, 2).tolist()
-            warmup: (bool) The warmup flag.
-            device: (str) The device.
-            threading_num: (int) The threading number.
-            save_top_n_objects: (int) The save top n objects.
-            area_flag: (bool) The area flag.
-            secondary_class_names: (list) The secondary class names.
-            input_names: (list) The input names.
-            output_names: (list) The output names.
-            gray_mode: (bool) Whether to use gray mode.
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-        Returns: None
+        if self.anchor is not None:
+            if not isinstance(self.anchor, np.ndarray):
+                self.anchor = np.array(self.anchor)
 
-        """
-
-        super().__init__(nodeName, modelPath, queue_size, inputSize, class_names, valid_class_names, max_batch_size, conf_thres, iou_thres,
-                         warmup, device, threading_num, save_top_n_objects, area_flag, secondary_class_names, input_names, output_names, gray_mode)
-
-        self.preprocessor = preprocess_yolov7
-        self.anchor = anchor
-
-        if Cmodel.get_model_type(modelPath) == Cmodel.MODEL_TYPE_RKNN:
-            if self._max_batch_size > 1:
+        if Cmodel.get_model_type(self.model_path) == Cmodel.MODEL_TYPE_RKNN:
+            if self.max_batch_size > 1:
                 self.logger.warning("rknn model only support batch size 1")
             self.preprocessor = preprocess_yolov7_rknn
             self.infer = self.infer_onnx
-            if not self.anchor:
+            if self.anchor is None:
                 raise Exception("anchor is required for rknn model")
 
-        if Cmodel.get_model_type(modelPath) == Cmodel.MODEL_TYPE_ONNX:
+        if Cmodel.get_model_type(self.model_path) in [Cmodel.MODEL_TYPE_ONNX, Cmodel.MODEL_TYPE_OM]:
             self.infer = self.infer_onnx
-            if not self.anchor:
+            if self.anchor is None:
                 raise Exception("anchor is required for onnx model")
 
     def infer(self, inputs, *args, **kwargs):
@@ -88,15 +68,15 @@ class YOLOv7(CDetector):
                 bx_ = det_boxes[i, 0:int(num_dets[i]), :]
                 sc_ = det_scores[i, 0:int(num_dets[i])]
                 cls_ = det_classes[i, 0:int(num_dets[i])]
-                save_idxes = sc_ > self.conf_threshold
+                save_idxes = sc_ > self.conf_thres
                 bx = bx_[save_idxes]
                 sc = sc_[save_idxes]
                 cls = cls_[save_idxes]
-                if self._area_flag and frames_stream_names[i] in self._area_info.keys():
-                    img_shape = self._area_info[frames_stream_names[i]][1].shape[:2]
-                    bx = scale_coords([self._inputSize[2], self._inputSize[1]], bx, img_shape)
+                if self.area_flag and frames_stream_names[i] in self.area_info.keys():
+                    img_shape = self.area_info[frames_stream_names[i]][1].shape[:2]
+                    bx = scale_coords([self.input_size[2], self.input_size[1]], bx, img_shape)
                 else:
-                    bx = scale_coords([self._inputSize[2], self._inputSize[1]], bx, origin_imgs[i].shape[:2])
+                    bx = scale_coords([self.input_size[2], self.input_size[1]], bx, origin_imgs[i].shape[:2])
                 bxs = np.concatenate((bx, sc.reshape(-1, 1), cls.reshape(-1, 1)), axis=1)
                 if self.save_top_n_objects is not None:
                     boxes_list.append(bxs[:self.save_top_n_objects])
@@ -112,7 +92,7 @@ class YOLOv7(CDetector):
         col = col.reshape(1, 1, 1, grid_h, grid_w)
         row = row.reshape(1, 1, 1, grid_h, grid_w)
         grid = np.concatenate((col, row), axis=2)
-        stride = np.array([self._inputSize[2] // grid_h, self._inputSize[1] // grid_w]).reshape(1, 1, 2, 1, 1)
+        stride = np.array([self.input_size[2] // grid_h, self.input_size[1] // grid_w]).reshape(1, 1, 2, 1, 1)
 
         col = col.repeat(len(anchors), axis=1)
         row = row.repeat(len(anchors), axis=1)
@@ -157,7 +137,7 @@ class YOLOv7(CDetector):
         result_box_confidences = []
         result_box_class_probs = []
         for i in range(batch_size):
-            _box_pos = np.where(box_confidences[i] >= self.conf_threshold)
+            _box_pos = np.where(box_confidences[i] >= self.conf_thres)
             # boxes = boxes[i][_box_pos]
             tmp_boxes = boxes[i][_box_pos]
             tmp_box_confidences = box_confidences[i][_box_pos]
@@ -168,7 +148,7 @@ class YOLOv7(CDetector):
 
             class_max_score = np.max(tmp_box_class_probs, axis=-1)
             classes = np.argmax(tmp_box_class_probs, axis=-1)
-            _class_pos = np.where(class_max_score * tmp_box_confidences >= self.conf_threshold)
+            _class_pos = np.where(class_max_score * tmp_box_confidences >= self.conf_thres)
 
             tmp_boxes = tmp_boxes[_class_pos]
             classes = classes[_class_pos]
@@ -212,7 +192,7 @@ class YOLOv7(CDetector):
             inter = w1 * h1
 
             ovr = inter / (areas[i] + areas[order[1:]] - inter)
-            inds = np.where(ovr <= self.iou_threshold)[0]
+            inds = np.where(ovr <= self.iou_thres)[0]
             order = order[inds + 1]
         keep = np.array(keep)
         return keep
@@ -251,7 +231,10 @@ class YOLOv7(CDetector):
             boxes = batch_boxes[b_idx]
             classes = batch_classes[b_idx]
             scores = batch_scores[b_idx]
-            valid_classes = self.valid_class_idx if len(self.valid_class_idx) > 0 else classes
+            if self.valid_class_idx is not None:
+                valid_classes = self.valid_class_idx
+            else:
+                valid_classes = classes
             for c in set(valid_classes):
                 inds = np.where(classes == c)
                 b = boxes[inds]
@@ -299,15 +282,15 @@ class YOLOv7(CDetector):
                 bx_ = det_boxes[i][:, :]
                 sc_ = det_scores[i]
                 cls_ = det_classes[i]
-                save_idxes = sc_ > self.conf_threshold
+                save_idxes = sc_ > self.conf_thres
                 bx = bx_[save_idxes]
                 sc = sc_[save_idxes]
                 cls = cls_[save_idxes]
-                if self._area_flag and frames_stream_names[i] in self._area_info.keys():
-                    img_shape = self._area_info[frames_stream_names[i]][1].shape[:2]
-                    bx = scale_coords([self._inputSize[2], self._inputSize[1]], bx, img_shape)
+                if self.area_flag and frames_stream_names[i] in self.area_info.keys():
+                    img_shape = self.area_info[frames_stream_names[i]][1].shape[:2]
+                    bx = scale_coords([self.input_size[2], self.input_size[1]], bx, img_shape)
                 else:
-                    bx = scale_coords([self._inputSize[2], self._inputSize[1]], bx, origin_imgs[i].shape[:2])
+                    bx = scale_coords([self.input_size[2], self.input_size[1]], bx, origin_imgs[i].shape[:2])
                 bxs = np.concatenate((bx, sc.reshape(-1, 1), cls.reshape(-1, 1)), axis=1)
                 if self.save_top_n_objects is not None:
                     boxes_list.append(bxs[:self.save_top_n_objects])

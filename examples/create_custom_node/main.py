@@ -4,9 +4,9 @@ from cpipe.module.node import Node
 from custom_node import my_node
 if __name__ == "__main__":
 
-    stream = VideoStreamer("vs1", "./text.mp4", 3, 1)
+    stream = VideoStreamer(node_name="vs1", stream="./text.mp4", process_frame_interval=3)
 
-    mn = my_node("text_show", 3)
+    mn = my_node(node_name="text_show", queue_size=3)
 
     cpipeinsight = CPipeInsight(http_insight=True)
 

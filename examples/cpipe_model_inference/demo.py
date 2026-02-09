@@ -6,12 +6,10 @@ if __name__ == "__main__":
     # !!!!!!!!need license!!!!!!!!!!
     # need set SHARE_MEMORY_MODE=True
 
-    ce_det = YOLOv8obb("zhu_det",
-                        "../../project/dengpao_realtime/models/dengpao_zhu_12.20_batch8.engine",
-                        3,
-                        (3, 640, 640),
+    ce_det = YOLOv8obb(node_name="zhu_det",
+                        model_path="../../project/dengpao_realtime/models/dengpao_zhu_12.20_batch8.engine",
+                        input_size=(3, 640, 640),
                         warmup=True,
-                        max_batch_size=1,
                         class_names=['开关座', '手', '接线柱红', '接线柱黑', '滑动变阻器', "滑片", '灯泡座', '电压表', '电流表', '电源'],
                         conf_thres=0.5, iou_thres=0.5)
 

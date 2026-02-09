@@ -8,7 +8,7 @@ from cpipe.module.streamer import MCPStreamer
 
 if __name__ == "__main__":
     mcpstreamer1 = MCPStreamer(
-        nodeName="MCPStreamer1",
+        node_name="MCPStreamer1",
         mcp_tool_name="face_server1",
         queue_size=8,
         mcp_transport="streamable-http",
@@ -18,30 +18,27 @@ if __name__ == "__main__":
     )
 
     rf = Retinaface(
-        "retinaface",
-        "/home/zhouhe/workspace/cpipe2.0/src/model_files/416x416-det_10g_batch.engine",
-        7,
-        (3, 416, 416),
+        model_path="/home/zhouhe/workspace/cpipe2.0/src/model_files/416x416-det_10g_batch.engine",
+        queue_size=7,
+        input_size=(3, 416, 416),
         max_batch_size=16,
     )
 
     ada = Adaface(
-        "adaface",
-        "/home/zhouhe/workspace/cpipe2.0/src/model_files/adaface_ir101_webface12m.engine",
-        6,
-        [3, 112, 112],
+        model_path="/home/zhouhe/workspace/cpipe2.0/src/model_files/adaface_ir101_webface12m.engine",
+        queue_size=6,
+        input_size=(3, 112, 112),
         max_batch_size=16,
         secondary_class_names=["face"],
         # face_quality_model_path="src/model_files/face_quality_batch64_GPU3070.engine",
     )
 
     mcpreport = MCPReport(
-        nodeName="MCPReport",
+        node_name="MCPReport",
         queue_size=5,
     )
 
-    cpipeinsight = CPipeInsight(
-        nodeName="CPipeInsight", http_insight=True
+    cpipeinsight = CPipeInsight(http_insight=True
     )
 
     mcpstreamer1 += [rf, ada]

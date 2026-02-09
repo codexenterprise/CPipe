@@ -1,34 +1,33 @@
 import os
 import cv2
 
-from cpipe.module.cdata import CData
 from cpipe.module.model.retinaface import Retinaface
 
-person_images_path = "/mnt/d/faces"
-person_images_files = os.listdir(person_images_path)
+if __name__ == "__main__":
+    person_images_path = "/mnt/d/faces"
+    person_images_files = os.listdir(person_images_path)
 
-save_face_images_path = "./face_images"
-if not os.path.exists(save_face_images_path):
-    os.makedirs(save_face_images_path)
+    save_face_images_path = "./face_images"
+    if not os.path.exists(save_face_images_path):
+        os.makedirs(save_face_images_path)
 
-rf = Retinaface(
-    "retinaface",
-    "src/model_files/416x416-det_10g_batch.engine",
-    3,
-    (3, 416, 416),
-    ["face"],
-    max_batch_size=64,
-    # secondary_class_names=["person"],
-)
+    rf = Retinaface(
+        node_name="retinaface",
+        model_path="src/model_files/416x416-det_10g_batch.engine",
+        input_size=(3, 416, 416),
+        class_names=["face"],
+        max_batch_size=64,
+        # secondary_class_names=["person"],
+    )
 
-rf.load_model()
+    rf.load_model()
 
-for idx, one in enumerate(person_images_files):
-    one_path = os.path.join(person_images_path, one)
-    img = cv2.imread(one_path)
-    frames = [img]
-    cdata = rf(frames, return_cdata_format=True, frames_stream_names=["1"])
-    for one_box in cdata.bboxes["1"]:
-        face_img = img[int(one_box.box_coord[1]):int(one_box.box_coord[3]), int(one_box.box_coord[0]):int(one_box.box_coord[2])]
-        cv2.imwrite(os.path.join(save_face_images_path, one), face_img)
-    print(f"{idx}/{len(person_images_files)} done")
+    for idx, one in enumerate(person_images_files):
+        one_path = os.path.join(person_images_path, one)
+        img = cv2.imread(one_path)
+        frames = [img]
+        cdata = rf(frames, return_cdata_format=True, frames_stream_names=["1"])
+        for one_box in cdata.bboxes["1"]:
+            face_img = img[int(one_box.box_coord[1]):int(one_box.box_coord[3]), int(one_box.box_coord[0]):int(one_box.box_coord[2])]
+            cv2.imwrite(os.path.join(save_face_images_path, one), face_img)
+        print(f"{idx}/{len(person_images_files)} done")

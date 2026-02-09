@@ -1,11 +1,12 @@
 import threading
+import time
+import numpy as np
 
 from cpipe.module.streamer import VideoStreamer
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.node import Node
 from custom_node import my_node
-import time
-import numpy as np
+
 
 def one_thread():
     i = 0
@@ -16,9 +17,9 @@ def one_thread():
         i += 1
 
 if __name__ == "__main__":
-    stream = VideoStreamer("vs1", "rtmp://192.168.8.7:1935/live/7777", 3, 1)
+    stream = VideoStreamer(stream="rtmp://192.168.8.7:1935/live/7777", process_frame_interval=1)
 
-    mn = my_node("text_show", 3)
+    mn = my_node(node_name="text_show", queue_size=3)
 
     t = threading.Thread(target=one_thread, daemon=True)
     t.start()

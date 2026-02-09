@@ -1,12 +1,12 @@
 import numpy as np
 
-from cpipe.module.node import Node
+from cpipe.module.logic import Logic
 from cpipe.config.config import CLOGER_LEVEL, CLOGER_LEVEL_DEBUG
 
 
-class my_node(Node):
-    def __init__(self, nodeName, queue_size):
-        super().__init__(nodeName, queue_size)
+class my_node(Logic):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def _start(self):
 

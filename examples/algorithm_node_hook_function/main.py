@@ -8,13 +8,11 @@ from cpipe.module.model.shufflenet import ShuffleNet
 
 
 if __name__ == "__main__":
-    stream = VideoStreamer("stream", "rtmp://192.168.8.121:1935/live/7777", 3, 1)
+    stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.8.121:1935/live/7777", process_frame_interval=3)
 
-    zhu_det = YOLOv8obb("zhu_det",
-                        # "./src/dengpao/dengpao_zhu11.12_batch1.engine",
-                        "project/dct/models/dct_batch.engine",
-                        3,
-                        (3, 640, 640),
+    zhu_det = YOLOv8obb(node_name="zhu_det",
+                        model_path="project/dct/models/dct_batch.engine",
+                        input_size=(3, 640, 640),
                         max_batch_size=1,
                         class_names=['大电磁铁', '小电磁铁', '开关座', '手', '接线柱红', "接线柱黑", '滑动变阻器', '滑片', '电流表', '电源', "钉子", "钉盒"],
                         conf_thres=0.5, iou_thres=0.5,
@@ -24,12 +22,10 @@ if __name__ == "__main__":
                         )
 
 
-    xian = ShuffleNet("xian",
-                      "project/fuanfa/models/zhuzi_1_6_batch32.engine",
-                      3,
-                      inputSize=(3, 96, 96),
+    xian = ShuffleNet(node_name="xian",
+                      model_path="project/fuanfa/models/zhuzi_1_6_batch32.engine",
+                      input_size=(3, 96, 96),
                       class_names=[['OK', 'NG']],
-                      max_batch_size=32,
                       warmup=True,
                       secondary_class_names=['接线柱红', '接线柱黑'],
                       device="cuda:0",
@@ -37,10 +33,9 @@ if __name__ == "__main__":
                       )
 
     dianbiao = MoveNet(
-        "dianbiao",
-        "project/fuanfa/models/dianbiao_192_4.30.engine",
-        3,
-        (3, 192, 192),
+        node_name="dianbiao",
+        model_path="project/fuanfa/models/dianbiao_192_4.30.engine",
+        input_size=(3, 192, 192),
         # (3, 320, 320),
         class_names=['1', "2", "3", "4", "5", "6"],
         center_weight_path="project/fuanfa/models/center_weight_origin.npy",

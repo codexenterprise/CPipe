@@ -5,13 +5,11 @@ from cpipe.module.insight import CPipeInsight
 from cpipe.module.streamer import VideoStreamer
 
 if __name__ == "__main__":
-    stream = VideoStreamer("stream", "../../../PAPER_20250331141736_20210204_D5.mp4", 3, 0)
+    stream = VideoStreamer(node_name="stream", stream="../../../PAPER_20250331141736_20210204_D5.mp4", process_frame_interval=1, pause=0)
 
-
-    zhu_det = YOLOv7("YOLOv7",
-                     "../../../models/yolov7-tiny_rknn_om_batch4.om",
-                     3,
-                     (3, 640, 640),
+    zhu_det = YOLOv7(node_name="YOLOv7",
+                     model_path="../../../models/yolov7-tiny_rknn_om_batch4.om",
+                     input_size=(3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                                   'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                                   'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',

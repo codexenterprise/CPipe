@@ -10,15 +10,16 @@ from cpipe.module.model.mmsegmentation import MMSemanticSegmentation
 
 # 初始化TensorRT插件
 # need install tensorrt, cuda, cuDNN, torch2trt
-MODEL_PATH = "src/model_files/yolov7-tiny_office_0.65_0.45.onnx"
+# MODEL_PATH = "model_files/416x416-det_10g_batch.onnx"
+MODEL_PATH = "/mnt/d/kunshi2025.4.22.onnx"
 # MODEL_PATH = "/home/zhouhe/workspace/cpipe2.0/__OTHERS__/demo_person/movenet_person_pose.onnx.cpipe"
 
 # with dynamic batch size
-YOLOv7.onnx2tensorrt(MODEL_PATH, input_names=["images"], min_shapes=[(1, 3, 640, 640)], opt_shapes=[(1, 3, 640, 640)], max_shapes=[(1, 3, 640, 640)])
+# YOLOv10.onnx2tensorrt(MODEL_PATH, input_names=["tokens", "style", "speed"], min_shapes=[(1, 128), (1, 256), 1], opt_shapes=[(1, 128), (1, 256), 1], max_shapes=[(1, 512), (1, 256), 1])
 
 # YOLOv10.onnx2tensorrt(MODEL_PATH, max_batch_size=16, input_height=640, input_width=640)
 
-# YOLOv11.onnx2tensorrt(MODEL_PATH, input_names=["images"], min_shapes=[(1, 3, 640, 640)], opt_shapes=[(1, 3, 640, 640)], max_shapes=[(1, 3, 640, 640)])
+YOLOv11.onnx2tensorrt(MODEL_PATH, input_names=["images"], min_shapes=[(1, 3, 640, 640)], opt_shapes=[(1, 3, 640, 640)], max_shapes=[(1, 3, 640, 640)])
 
 # YOLOv8obb.onnx2tensorrt(MODEL_PATH, max_batch_size=16, input_height=640, input_width=640)
 

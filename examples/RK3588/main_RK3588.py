@@ -1,6 +1,5 @@
 import os
 import pickle
-
 import numpy as np
 
 from cpipe.module.model.facematching import FaceLibrary
@@ -15,8 +14,7 @@ from cpipe.module.node import Node
 if __name__ == "__main__":
     streamer_nodes = []
     streams_rtsp = []
-    # stream = VideoStreamer("stream", "/data/face_2.mp4", 3, 0)
-    stream = VideoStreamer("stream", "rtmp://192.168.8.122:1935/live/7777", 3, 24)
+    stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.8.122:1935/live/7777", process_frame_interval=24, once_mode=True)
     class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                    'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                    'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
@@ -35,9 +33,11 @@ if __name__ == "__main__":
     #                     NPU_CORE_0_1_2 = 7                                   # run on NPU core 1 and core 2 and core 3.
     #                     NPU_CORE_ALL   = 0xffff                              # run on all NPU cores.
     # y:  0.07101058959960938
-    detect = YOLOv7("YOLOv10",
-                    "/home/rockchip/zh/cpipe2.0/examples/face_recognition/model/yolov7-tiny_batch_std255.rknn", 3, (3, 640, 640), class_names,
-                    max_batch_size=1,  # 必须为1 多batch有问题
+    detect = YOLOv7(
+                    model_path="/home/rockchip/zh/cpipe2.0/examples/face_recognition/model/yolov7-tiny_batch_std255.rknn", 
+                    input_size=(3, 640, 640), 
+                    class_names=class_names,
+                    max_batch_size=1,  # "rknn model only support batch size 1"
                     valid_class_names=["person"],
                     save_top_n_objects=32,
                     area_flag=True,
@@ -47,15 +47,13 @@ if __name__ == "__main__":
                     anchor=np.array([12.0, 16.0, 19.0, 36.0, 40.0, 28.0, 36.0, 75.0, 76.0, 55.0, 72.0, 146.0, 142.0, 110.0, 192.0, 243.0, 459.0, 401.0]).reshape(3, -1, 2).tolist()
                     )
 
-    tk = Tracker("tracker1", 3, tacker_type='ocsort', scale_ratio=4.0, secondary_class_names=["person"], dump_images=True)
+    tk = Tracker(node_name="tracker1", tacker_type='ocsort', scale_ratio=4.0, secondary_class_names=["person"], dump_images=True)
 
     # r:  0.29663944244384766
     rf = Retinaface(
-        "retinaface",
-        "/home/rockchip/zh/cpipe2.0/examples/face_recognition/model/416x416-det_10g_batch_std255.rknn",
-        3,
-        (3, 416, 416),
-        ["face"],
+        model_path="/home/rockchip/zh/cpipe2.0/examples/face_recognition/model/416x416-det_10g_batch_std255.rknn",
+        input_size=(3, 416, 416),
+        class_names=["face"],
         max_batch_size=16,
         secondary_class_names=["person"],
         device="rknn:0",
@@ -74,10 +72,9 @@ if __name__ == "__main__":
 
     # f:  0.2530810832977295
     fr = FaceRecognition(
-        "adaface",
-        "/home/rockchip/zh/cpipe2.0/examples/face_recognition/model/adaface_ir101_webface12m.rknn",
-        3,
-        [3, 112, 112],
+        node_name="adaface",
+        model_path="/home/rockchip/zh/cpipe2.0/examples/face_recognition/model/adaface_ir101_webface12m.rknn",
+        input_size=(3, 112, 112),
         max_batch_size=16,
         secondary_class_names=["person"],
         faces_library=fl,

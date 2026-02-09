@@ -19,13 +19,12 @@ if __name__ == "__main__":
                 cv2.waitKey(1)
                 # print(result.shape)
 
-    # 视频流模式
-    streamer1 = VideoStreamer("streamer1", "rtmp://192.168.10.7:1935/live/7777", 3, 1)
+    # video stream mode
+    streamer1 = VideoStreamer(node_name="streamer1", stream="rtmp://192.168.10.7:1935/live/7777", process_frame_interval=3)
 
-    detect = YOLOv10("YOLOv10",
-                     "src/model_files/yolov10n.onnx",
-                     3,
-                     (3, 640, 640),
+    detect = YOLOv10(node_name="YOLOv10",
+                     model_path="src/model_files/yolov10n.onnx",
+                     input_size=(3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                                   'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                                   'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
@@ -41,11 +40,11 @@ if __name__ == "__main__":
                      area_flag=True
                      )
 
-    cpipeinsight = CPipeInsight(http_insight=True, save_video=True)  # save_video必须为True
+    cpipeinsight = CPipeInsight(http_insight=True, save_video=True)  # save_video must be True
 
     streamer1 += [detect, cpipeinsight]
 
     t = threading.Thread(target=get_result, args=(cpipeinsight,))
     t.start()
 
-    Node.launch(check_node=True, check_interval=5, auto_restart=False)  # auto_restart必须为False
+    Node.launch(check_node=True, check_interval=5, auto_restart=False)  # auto_restart must be False

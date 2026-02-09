@@ -14,12 +14,11 @@ from cpipe.module.node import Node
 if __name__ == "__main__":
     streamer_nodes = []
     streams_rtsp = []
-    stream = VideoStreamer("stream", "rtmp://192.168.10.7:1935/live/7777", 3, 1, once_mode=True)
+    stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.10.7:1935/live/7777", process_frame_interval=1, once_mode=True)
 
-    detect = YOLOv7("YOLOv7",
-                     "src/model_files/yolov7-tiny_office_0.65_0.45.engine",
-                     3,
-                     (3, 640, 640),
+    detect = YOLOv7(node_name="YOLOv7",
+                     model_path="src/model_files/yolov7-tiny_office_0.65_0.45.engine",
+                     input_size=(3, 640, 640),
                      class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                                   'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                                   'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
@@ -36,11 +35,10 @@ if __name__ == "__main__":
                      )
 
     rf = Retinaface(
-        "retinaface",
-        "src/model_files/416x416-det_10g_batch.engine",
-        3,
-        (3, 416, 416),
-        ["face"],
+        node_name="retinaface",
+        model_path="src/model_files/416x416-det_10g_batch.engine",
+        input_size=(3, 416, 416),
+        class_names=["face"],
         max_batch_size=64,
         secondary_class_names=["person"],
     )
@@ -56,10 +54,9 @@ if __name__ == "__main__":
     fl = FaceLibrary(face_embeddings, face_names)
 
     fr = FaceRecognition(
-        "adaface",
-        "src/model_files/adaface_ir101_webface12m.engine",
-        3,
-        [3, 112, 112],
+        node_name="adaface",
+        model_path="src/model_files/adaface_ir101_webface12m.engine",
+        input_size=(3, 112, 112),
         max_batch_size=64,
         # face_quality_model_path="../../src/model_files/face_quality_batch64_GPU3070.engine",
         secondary_class_names=["person"],
@@ -67,9 +64,9 @@ if __name__ == "__main__":
         matching_score_thresh=0.1
     )
 
-    cpipeinsight = CPipeInsight(http_insight=True, show_key_points=False, save_video=True)
+    cpipeinsight = CPipeInsight(http_insight=True, show_key_points=False, save_video=False)
 
     stream += [detect, rf, fr, cpipeinsight]
 
-    #  启动所有初始化过的节点
+    #  launch all initialized nodes
     Node.launch(check_node=True, auto_restart=False)

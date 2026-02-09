@@ -1,4 +1,3 @@
-from cpipe.module.model.yolov7 import YOLOv7
 from cpipe.module.model.adaface import Adaface
 from cpipe.module.model.retinaface import Retinaface
 

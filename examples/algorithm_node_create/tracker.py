@@ -6,19 +6,17 @@ from cpipe.module.node import Node
 
 if __name__ == "__main__":
 
-    streamer1 = VideoStreamer("streamers","rtmp://192.168.8.7:1935/live/7777", 3, 1)
+    streamer1 = VideoStreamer(node_name="streamers", stream="rtmp://192.168.8.7:1935/live/7777", process_frame_interval=3)
 
-    chache = YOLOv7("chache",
-                       "../../src/dongsheng/dongsheng_huowu_new.engine",
-                       3,
-                       inputSize=(3, 640, 640),
+    chache = YOLOv7(node_name="chache",
+                       model_path="../../src/dongsheng/dongsheng_huowu_new.engine",
+                       input_size=(3, 640, 640),
                        class_names=['materials'],
                        max_batch_size=1,
                        conf_thres=0.4,
                        )
 
-    tk = Tracker("tracker",
-                 3,
+    tk = Tracker(node_name="tracker",
                  scale_ratio=5,
                  config_tracker={
                                 'det_thresh': 0.25,  # 目标检测阈值
