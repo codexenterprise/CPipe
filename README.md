@@ -1,360 +1,296 @@
-#### CPipe是基于Python编写的AI视觉算法快速部署框架.本框架基于Node思想,将所有视频流/视频文件/AI算法/上报信息以及逻辑代码块等抽象成一个Node节点.节点之间可以自由连接.
+<p align="center">
+  <!-- TODO: 替换成你的项目 Logo -->
+  <img src="doc/favicon.svg" alt="CPipe Logo" width="180"/>
+</p>
 
-### 视频演示(点击图片跳转视频)
-- 中长跑项目
-   [![中长跑项目](doc/play_logo_5.png)](https://www.bilibili.com/video/BV1ep8czHEKu)
-- 人体检测&人体关键点
-   [![人体检测&人体关键点](doc/play_logo_6.png)](https://www.bilibili.com/video/BV1LJ8czWEnY)
-- 物料跟踪
-   [![物料跟踪](doc/play_logo_2.png)](https://www.bilibili.com/video/BV1vJ8czWE79)
-- 物理实验
-   [![物理实验](doc/play_logo_3.png)](https://www.bilibili.com/video/BV15J8czWEXE)
-- 50米短跑
-   [![50米短跑](doc/play_logo_1.png)](https://www.bilibili.com/video/BV15J8czWE9U)
+<p align="center">
+  CPipe 是基于 Python 的 AI 视觉算法快速部署框架
+</p>
 
-### CPipe框架功能:
-- 支持Node节点网页可视化
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-%3E%3D3.10-3776AB?logo=python&logoColor=white">
+  <img alt="Architecture" src="https://img.shields.io/badge/Architecture-Node%20Pipeline-6A5ACD">
+  <img alt="MCP" src="https://img.shields.io/badge/MCP-Supported-FF6B35">
+  <img alt="Agent" src="https://img.shields.io/badge/Agent-Supported-FF6B35">
+  <img alt="RAG" src="https://img.shields.io/badge/RAG-Supported-FF6B35">
+</p>
+
+<p align="center">
+  <a href="#项目简介">项目简介</a> ·
+  <a href="#核心能力">核心能力</a> ·
+  <a href="#视频演示">视频演示</a> ·
+  <a href="#安装与部署">安装与部署</a> ·
+  <a href="#版本更新">版本更新</a> ·
+  <a href="#联系方式">联系方式</a>
+</p>
+
+---
+
+## 项目简介
+
+CPipe 是基于 Python 的 AI 视觉算法快速部署框架。  
+框架采用 Node 思想，将视频流/视频文件/AI 算法/上报信息/业务逻辑统一抽象为 `Node` 节点，并通过连线自由组合成业务 Pipeline。
+
+## 核心能力
+
+- 支持 Node 节点网页可视化编排
 - 支持算法推理结果网页实时可视化
-- 支持一键快速部署
-- 支持GPU视频解码加速
+- 支持一键快速部署与 Docker 交付
+- 支持 GPU 视频解码加速
 - 支持页面添加/删除视频流节点
-- 支持页面配置算法区域功能
-- 支持AI模型格式TensorRT/ONNX/PyTorch等
-- 支持各类AI算法(目标检测/旋转目标检测/分类/人脸识别/人脸质量评估/关键点检测/人流统计/目标跟踪/REID/视频时序分类/OCR等)
-- 支持视频类型:RTSP/RTMP/本地视频文件/本地图片
-- 支持日志本地存储/日志云端上报/日志网页实时显示
-- 支持AI模型文件加密功能
-- 支持MCP协议(必须python3.10及以上版本可以使用)
+- 支持页面配置算法区域（ROI）
+- 支持模型格式：TensorRT / ONNX / PyTorch 等
+- 支持算法类型：目标检测、旋转检测、分类、人脸识别、质量评估、关键点、跟踪、ReID、OCR、视频时序分类等
+- 支持输入源：RTSP / RTMP / 本地视频 / 本地图片
+- 支持日志本地存储、云端上报、网页实时显示
+- 支持模型文件加密
+- 支持 MCP 协议（需 Python 3.10+）
 - 支持云端推理
 
+## 框架优势
 
-### 框架优势
-| 内容 | 使用前 | 使用CPipe+训练平台 |
+| 内容 | 使用前 | 使用 CPipe + 训练平台 |
 | --- | --- | --- |
-| 算法工程师经验 | 3年以上 | 1年以上 |
-| 开发周期缩减 | 无 | 缩减80%以上 |
-| 算法部署环境 | 需要搭建 | 框架提供Docker镜像 |
+| 算法工程师经验 | 3 年以上 | 1 年以上 |
+| 开发周期缩减 | 无 | 缩减 80% 以上 |
+| 算法部署环境 | 需要自行搭建 | 框架提供 Docker 镜像 |
 | 算法硬件加速 | 需要自己编写代码 | 框架自带 |
-| 视频编解码加速 | 需要自己编译相关硬件库 | 框架自带 |
-| 视频流批量推理 | 需要编写相关并发代码 | 框架自带 |
+| 视频编解码加速 | 需要自行编译硬件库 | 框架自带 |
+| 视频流批量推理 | 需要并发开发 | 框架自带 |
 | 一键无代码部署 | 无 | 框架自带 |
 | 算法性能可视化 | 无 | 框架自带 |
-| 算法结果实时Web可视化 | 需要前端工程师参与编写代码 | 框架自带 |
-| 默认算法支持 | 无 | 框架自带十几种算法 |
-| 算法文件加密 | 需要编写加密程序 | 框架自带 |
-| 日志 | 需要编写日志程序 | 框架自带 |
+| 算法结果实时 Web 可视化 | 需要前端参与 | 框架自带 |
+| 默认算法支持 | 无 | 自带十几种算法 |
+| 算法文件加密 | 需要自研加密程序 | 框架自带 |
+| 日志系统 | 需要自研 | 框架自带 |
 
-价值:
-降低研发成本/减少开发周期/提供稳定且高性能的AI算法推理引擎/提供高并发视频流实时算法推理/提供算法模型机代码加密安全
+**业务价值：** 降低研发成本、减少开发周期、提供稳定高性能推理引擎、支持高并发视频流实时推理、增强模型安全。
 
+## 可视化效果
+
+### 框架总览
 ![cpipe.jpg](doc%2Fcpipe.jpg)
 
-### 基于CPipe SDK 在Web页面上实时显示效果:
+### Web 实时显示效果
 ![demo1.jpg](doc%2Fdemo1.jpg)
 
-### 详细使用手册见:
-[CPipe使用手册v3.3.0.docx](doc%2FCPipe%CA%B9%D3%C3%CA%D6%B2%E1v3.3.0.docx)
+## 视频演示
 
-### CPipe安装方法:
-采用pip安装指令,支持Python 3.8及以上,并提供相关Docker镜像.
+> 点击图片可跳转视频
 
-例子:
+| 场景 | 演示 |
+| --- | --- |
+| 中长跑项目 | [![中长跑项目](doc/play_logo_5.png)](https://www.bilibili.com/video/BV1ep8czHEKu) |
+| 人体检测 & 人体关键点 | [![人体检测&人体关键点](doc/play_logo_6.png)](https://www.bilibili.com/video/BV1LJ8czWEnY) |
+| 物料跟踪 | [![物料跟踪](doc/play_logo_2.png)](https://www.bilibili.com/video/BV1vJ8czWE79) |
+| 物理实验 | [![物理实验](doc/play_logo_3.png)](https://www.bilibili.com/video/BV15J8czWEXE) |
+| 50 米短跑 | [![50米短跑](doc/play_logo_1.png)](https://www.bilibili.com/video/BV15J8czWE9U) |
+
+## 文档手册
+
+- 使用手册：[CPipe 使用手册 v3.3.0](doc%2FCPipe%CA%B9%D3%C3%CA%D6%B2%E1v3.3.0.docx)
+
+## 安装与部署
+
+### 环境要求
+
+- Python `>= 3.10`（4.x 推荐）
+
+### Wheel 安装示例
+
+```bash
 pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
-
-### Docker镜像使用方法:
-1. wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe3.7.4_4090_570.195.03.tar
-2. docker load -i cpipe3.7.4_4090_570.195.03.tar
-3. sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
-
-
-### 版本更新记录
-CPIPE4.0版本: 仅支持python3.10以上版本  快速安装教程见examples/cpipe_install_from_uv目录
-1. MCP添加: create_node/create_edge/get model file info list/get node class parameters/get node support type list/get nodes info/get nodes mask/set node mask/set show arguments
-2. 系统提示词优化及添加
-3. 将flask相关API迁移到fastapi
-4. 集成agent代码到CPipe
-5. 优化及测试人脸识别工作量MCP提示词
-6. 优化pydantic相关入参检测功能
-7. 解决编译wheel包后参数说明无法显示问题
-8. 解决编译wheel包后agent模式和insight显示冲突问题
-9. 优化agent携程模式下, MCP context 夸携程释放问题
-10. 新增算法PPHGNet 用于人员属性识别, 同时新增Box.person.person_attribute字段
-11. 人脸识别算法: 增加支持删除和添加人脸功能
-12. Web增加聊天页面功能: 直接在cpipe页面可以进行agent相关聊天功能以及文件上传功能
-13. 新增音频播放report节点: audioreport. 支持TTS算法kokoro-82M
-14. 新增多线程同时保存多路视频录像功能
-15. 新增websocket-flv拉流功能
-16. 新增HKO_AddBoxes
-17. 升级及优化websocket功能,CWebsocket增加接受回调函数功能
-18. 优化mmshufflnet预处理bug
-19. videostreamer 增加short_connection_delay动态修改功能
-20. 新增部署平台功能：增加对接部署平台的算法配置参数解析功能，增加对接部署平台算法结果上报功能
-21. 新增VideoMAE算法节点
-22. 新增Yolov11Pose算法节点
-23. 构建python3.10版本的CPipe dokcer镜像
-24. 新增SAM3算法节点（支持文本提示）
-25. 所有节点自己pause事件 @event(EVENT_PAUSE_NODE)， 可用event_send("pause_node", True)暂停工作状态节点，event_send("pause_node", False)恢复节点工作状态
-26. 所有节点新增pause功能,用于暂停节点的工作暂停
-27. 升级所有report节点,支持其它节点和report节点的双向通信功能
-28. 优化升级insight视频保存功能,增加视频动态保存和启动功能.
-29. VideoStreamer 本地文件模式支持快进快退功能,不再需要用OBS推流
-30. CPipe安装新增UV快速安装模式,相关教程见examples/cpipe_install_from_uv目录
-
-
-
-### 更新内容：V3.7.6 （2025-10-27)
-1. 新增HKO_AddBoxes钩子函数, 用于将box添加到输出中
-   ```python
-   hook_outputs=HKO_AddBoxes(-1, {"streamers1": [[0, 0, 100, 100, 0.5, 0], [100, 100, 200, 200, 0.6, 1]]}) # xyxy score class
-   ```
-2. 升级及优化websocket功能,CWebsocket增加接受回调函数功能
-3. 优化mmshufflnet预处理bug
-4. videostreamer 增加short_connection_delay动态修改功能
-5. 新增部署平台功能
-6. 优化部分功能: 视频保存功能等
-7. 增加更多的ARM版本的wheel文件
-
-### 更新内容：V3.7.5 （2025-8-22)
-1. 新增VideoStreamer支持视频旋转功能, 通过rotate参数设置, 例如:
-   ```python
-   stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1, rotate=90) # 顺时针旋转 90 180 270
-   ```
-2. 节点的 event 支持双向传递数据, 例如: [send_events_to_node](examples/send_events_to_node)
-   ```python
-   @Node.event("print_event")
-   def print_event(self, data):
-       print(f"print_event: {data}")
-       return "hello world"
-   ret = self.event_send("print_event", "hello")
-   print(ret)
-   ```
-3. 优化cv2导致内存泄漏问题
-
-### 更新内容：V3.7.4 （2025-8-22)
-1. 新增VideoStreamer支持视频旋转功能, 通过rotate参数设置, 例如:
-   ```python
-   stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1, rotate=90) # 顺时针旋转 90 180 270
-   ```
-2. 节点的 event 支持双向传递数据, 例如: [send_events_to_node](examples/send_events_to_node)
-   ```python
-   @Node.event("print_event")
-   def print_event(self, data):
-       print(f"print_event: {data}")
-       return "hello world"
-   ret = self.event_send("print_event", "hello")
-   print(ret)
-   ```
-3. 优化cv2导致内存泄漏问题
-
-
-### 更新内容：V3.7.2 （2025-7-28)
-1. 新增装饰器: Node.on_startup(order=0) 用于设置节点在每个节点启动进程后再执行_start()方法前运行相关代码, 默认0, 越小越早启动.
-    ```python
-    @Node.on_startup(1)
-    def before_start(self):
-        print("before_start")
-    ```
-    现在无需显示调用ready()/before_start()/get_streamer_area()/_loadModel()等方法, 框架已经通过Node.on_startup注册.
-2. 新增装饰器: Node.event(func_name) 用于注册节点事件, 例如:
-   ```python
-   @Node.event("print_event")
-   def print_event(self, data):
-       print(f"print_event: {data}")
-   ```
-3. 新增CPipeInsight.get_current_show_image()方法, 用于获取当前显示的图片, 例如:[get_cpipeinsight_result](examples/get_cpipeinsight_result)
-   ```python
-   result = cpipeinsight.get_current_show_image("streamers")
-   if result is not None:
-       cv2.imshow("result", result)
-       cv2.waitKey(1)
-   ```
-4. 优化Tensorrt模型推理流程, 现在无需安装torch2trt库. 无需按手动安装cuda和cudnn
-   - 直接安装: python pip install torch tensorrt
-
-### 更新内容：V3.7.1 （2025-7-11）注: MCP功能必须Python3.10及以上版本可以使用
-1. 新增MCPStreamer(必须结合MCPReport节点使用)节点, CPipe全面支持LLM MCP协议, 案例见[MCPStreamer](examples/MCPStreamer)
-2. 新增MCPReport节点用于配对MCPStreamer完成数据上报功能(利用CEvent完成数据在各个节点之间传递)
-3. 优化Node页面显示, 调整Queue显示逻辑: 下游节点剩余queue数/下游节点最大queue数(下游节点正常推理帧数/下游节点到达总帧数)
-4. 优化链路阻塞模式, 新增BLOCKING_MODE_TIMEOUT参数, 用于设置阻塞模式超时时间, 默认10秒, 超过10秒后会自动回收共享内存.
-5. CPipe现在可以通过MCP协议完成云端推理功能, 案例见[MCPStreamer](examples/MCPStreamer)
-    - yolov8OBB 云端推理服务demo[face_server.py](examples/MCPStreamer/face_server.py)
-    - 人脸检测机转向量服务[face_server.py](examples/MCPStreamer/face_server.py)
-6. 新增算法节点支持单独推理功能见[demo.py](examples/cpipe_model_inference/demo.py)
-7. 新增节点画有效区域/线功能案例代码[set_algorithm_ROI](examples/set_algorithm_ROI)
-8. 新增fastsam算法节点, 案例见[sam](examples/sam)
-9. 新增Web页面画区域实时生效功能
-10. 新增节点event功能(通过event可以给节点发送信号和任何数据), 案例见[send_events_to_node](examples/send_events_to_node)
-11. 优化hook接口增加更多参数
-12. 优化dino COS函数采用batch模式
-13. CMask类全部改造成共享内存模式, 用于多进程共享, 提高效率
-14. CPipe全面支持动态视频分辨率, 视频/RTSP/RTMP改变其分辨率, 所有节点自动适配, 无需重启CPipe
-15. 支持CPipe启动时视频流节点无法正常连接, 但依然可以启动CPipe, Node.launch后会自动重试连接
-
-
-### 更新内容：V3.6.0 （2025-5-30）
-1. 新增更多代码案例[examples](examples):
-   - 节点程序编译, 主程序main.py编译. [compile_custom_node](examples%2Fcompile_custom_node)
-   - 画面添加自定义内容 [draw_line_point_text_to_image](examples%2Fdraw_line_point_text_to_image)
-   - 自定义算法节点 [custom_algorithm_node](examples%2Fcustom_algorithm_node)
-   - 日志使用方法 [log_test](examples%2Flog_test)
-   - 自定义节点 [create_custom_node](examples%2Fcreate_custom_node)
-   - RK3588 代码案例 [RK3588](examples/RK3588)
-   - 华为昇腾300芯片 代码案例 [atlas300i_pro](examples/atlas300i_pro)
-   - 算法节点指定有效推理区域 [set_algo_crop_area](examples%2Fset_algo_crop_area)
-   - Web页面增加文本显示 [show_text_on_web](examples%2Fshow_text_on_web)
-   - 增加给类算法节点创建方式demo [algorithm_node_create](examples/algorithm_node_create)
-2. 所有算法节点增加hook_inputs/hook_outputs参数:
-   - 用于对算法输入的每张图片做逻辑预处理(例如裁剪部分区域做推理) [algorithm_node_hook_function](examples%2Falgorithm_node_hook_function)
-   - 新增from cpipe.module.cinferencehooks import HKI_DilateImage, HKI_CropImage, HKO_ClassNamesThresholdFilter, HKO_DumpClass
-     - HKI_DilateImage: 基于box的WH扩张图片的算法推理区域
-     - HKI_CropImage: 基于box裁剪需要的算法推理区域
-     - HKO_ClassNamesThresholdFilter: 过滤掉置信度低于阈值的box
-     - HKO_DumpClass: 过滤掉不需要的box
-3. 优化本地文件模式下streamer帧率
-4. yolov8OBB增加角度结果到Box.box_angle参数下
-5. 增加还是华为昇腾300芯片适配, 已经验证模型包括:
-   - 已适配yolov7
-   - 已适配yolov8OBB
-   - 已适配movenet
-   - 已适配RTMPOSE
-   - 已适配MMshufflenet/shufflenet
-6. 增加华为Ascend框架模型动态BatchSize库CACLModel(from cpipe.module.thirdparty.acl.cacl import CACLModel). 注: 值依赖Ascend的acl(python库)
-7. 增加日志文件名添加标识符功能: 
-    ```python
-        from cpipe.module.clogger import CLogger
-        CLogger.set_file_name_mark("996")
-    ```
-8. 增加OCR识别[ocr_recognition](examples/ocr_recognition). 注: 目前只支持识别, 按不支持检测和矫正
-   - 新增Box对象字段box_text用于存储OCR结果
-
-### 更新内容：V3.5.8 （2025-4-29）
-1. 新增支持所有模型onnx转tensorrt,见[demo.py](examples%2Fonnx2tensorrt%2Fdemo.py)
-2. 增加CTRL + C退出时释放相关资源
-3. 优化CTRL + C退出是卡死的问题
-4. 增加MMResenet50模型节点
-
-### 更新内容：V3.5.6 （2025-3-x）
-1. 增加cpipe格式加密模型(cpipe模型可以再cpipe框架下运行, 不依赖设备license, codex模型依赖设备license). demo见[demo.py](examples%2Fmodel_encryption%2Fdemo.py)
-2. 新增VideoStreamer支持本地USB摄像头. demo见[demo.py](examples%2Fstreamer%2Fdemo.py)
-3. 增加部分案例[examples](examples)
-4. 适配onnxruntime新版本
-
-### 更新内容：V3.5.5 （2025-3-26）
-1. 优化麒麟系统插拔U盘导致license失效问题
-2. retinafaceTRT节点增加支持一阶段检测功能(具体代码见[face_recognition](examples%2Fface_recognition))
-3. 新增[examples](examples)目录, 用于存放示例代码
-4. 新增CPipeTools类
-   ```python
-   from cpipe.tools.cpipetools import CPipeTools
-   # 模型加密方法
-   CPipeTools.encrypt_models("./movenet_person_pose.onnx","1234567890123456",
-   "./1234567890123456.cpipe.license") # 文件模式
-   CPipeTools.encrypt_models("./models","1234567890123456",
-   "./1234567890123456.cpipe.license") # 文件夹模式
-   ```
-5. 增加硬件RK3588适配: 案例代码见[main_RK3588.py](examples%2Fface_recognition%2Fmain_RK3588.py)
-   - 已适配yolov7 (删除yolov7TRT, 统一到yolov7)
-   - 已适配retinaface
-   - 已适配adaface
-   - 已适配facerecognition
-   - 
-6. yolov7 增加 ONNX模型适配, 模型结构必须满足如下:
-
-   ![yolov7.jpg](doc%2Fyolov7.jpg)
-
-7. 优化WSL license问题
-8. 增加retinaface ONNX模型适配(删除RetinafaceTRT类, 统一到Retinaface)
-
-
-
-### 更新内容：V3.5.0 （2025-3-11）
-1. 优化VideoStreamer节点, 支持动态设置process_frame_interval参数, 用于调整推理速度.
-   使用方法: streamer = VideoStreamer(name, one, queue_size, process_frame_interval=1)
-            streamer.process_frame_interval = 2
-2. 新增DinoEmbedding算法模型
-3. 新增DinoClassifier分类算法模型
-4. Box类新增box_embedding/box_embedding_name/box_embedding_score 用于存储box的embedding信息
-5. 新增yolov11TRT节点(目标检测)
-6. 新增YOLOv11InstanceSeg 实例分割算法模型(易金城)
-7. 新增MoveNetPersonPose节点
-8. 新增日志文件名添加标识功能:
-   注:在所有CPipe类初始化前优先初始化项目代码生效:
-   import cpipe.config.config
-   cpipe.config.config.CLOGER_FILE_NAME_MARK = "996+996"  # 
-9. ImageStreamer新增动态喂图功能: 通过Queue传入图片路径或者numpy array
-10. 新增CImage类 info 成员变量, 用于存储图片信息(dict)
-11. 解决WSL重启系统后license失效问题
-12. 解决国产麒麟系统重启后license失效问题
-
-
-### 更新内容：V3.2.2 （2024-12-25）
-1. 优化CPipe退出机制: Cpipe.exit()/Cpipe.terminate()/linux kill指令/ctrl+c等退出方式, 会自动退出所有子进程,并执行所有Node的lastly方法.
-2. 新增Node可配置daemon参数, 用于设置Node是否为守护进程, 默认为True. 注:对于需要在Node中创建子进程的情况, 需要设置为False.
-3. logger增加warning方法; logger日志信息取消调用函数定位显示
-4. 将SaveInsight整合到CPipeInsight中, 通过参数save_video=True开启功能, 取消SaveInsight节点
-5. 将UIinsight整合到CPipeInsight中, 通过参数ui_insight=True开启功能, 取消UIInsight节点
-```python
-    cpipeinsight = CPipeInsight(
-                                  http_insight=True,
-    
-                                  ui_insight=True,
-          
-                                  save_video=True, auto_exit=True, save_file_names={stream_zhu.nodeName: student_id},
-                                  save_duration_seconds=int(30),
-                                  save_path="/mnt/d/save_stream"
-     )
 ```
 
-6. moveNet节点新增支持不同输入尺寸(需结合相关训练代码).
-7. 增加https支持, 通过参数ssl=True开启, 默认为False.
-8. 合并LocalVideoStreamer和VideoStreamer, 统一通过VideoStreamer 自动识别本地文件和网络流地址.
-9. 增加VideoStreamer动态设置流地址功能, 通过reset_stream方法设置.(如果共享内存模式下(SHARE_MEMORY_MODE=True),流分辨率不变)
+### Docker 使用示例
 
-### 更新内容：V3.2.0 （2024-12-2）
-1. 所有模型增加灰度模式支持
-2. 新增手掌关键点模型RTMPOSE
-3. 修复日志部分bug
-4. Node类增加lastly方法, 用于进程退出时调用， 
-   signal.signal(signal.SIGINT, self.lastly)  # 退出时调用lastly方法
-5. 增加 CPipeInsight 参数：
-show_polygon_box: self.kwargs.get("show_polygon_box", False)
-show_box: self.kwargs.get("show_box", True)
-show_box_name: self.kwargs.get("show_box_name", True)
-show_polygon: self.kwargs.get("show_polygon", True)
-show_mask: self.kwargs.get("show_mask", True)
-show_key_points: self.kwargs.get("show_key_points", True)
-show_person: self.kwargs.get("show_person", True)
-show_classification: self.kwargs.get("show_classification", True)
-show_track: self.kwargs.get("show_track", True)
+```bash
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe3.7.4_4090_570.195.03.tar
+docker load -i cpipe3.7.4_4090_570.195.03.tar
+sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
+```
 
+### 快速安装
 
-### 更新内容：V3.1.1 （2024-11-15）
-1. 所有代码增加注释
-2. 增加分割模型支持
-3. 修復bug
+- CPipe 4.x 新增 UV 快速安装模式，教程见 `examples/cpipe_install_from_uv`。
 
+## 版本更新
 
-### 更新内容：V3.0.0 （2024-10-18）
-1. 所有现有推理模型全波统一推理框架:
-   - 大部分模型直接支持onnx/TRT/torch jit模型文件输入: 
-   - 新增 Cmodel/InferenceEngine/CDetector/COBBDetector/CClassifier/CFace/CEmbedding基础类
-2. 优化跳帧显示逻辑, 无需每个node单独写捕获逻辑代码,框架自动完成
-3. 优化node显示页面, 采用antv x6框架
-4. 新增支持快速配置框架功能: 通过一个配置文件([launch.yaml](config%2Flaunch.yaml))直接生成node链接关系, 无需多余代码.
-    - cpipe ./config/launch.yaml
-5. 调整cmask标定功能, 默认所有算法支持标定功能:
-    - Node.special_mask = {"polygons": [], "lines": []} 可以指定画的cmask区域
-6. 新增: 可以通过页面添加streamer功能, 支持自动识别流类型,自动选择streamer子类.
-7. 增加cpu 拉流和cuda拉流并存模式
-8. 增加日志不同等级不同颜色
-9. 调整TRT/ONNX模型支持多GPU功能,无需设置环境变量CUDA_VISIBLE_DEVICES
-    - 通过device参数: cuda:x 和 cpu 指定
-10. 增加streamer支持指定gpu
-    - 通过device参数: cuda:x 和 cpu 指定
+### CPipe 4.0（仅支持 Python 3.10+）
 
+1. MCP 添加：`create_node` / `create_edge` / `get model file info list` / `get node class parameters` / `get node support type list` / `get nodes info` / `get nodes mask` / `set node mask` / `set show arguments`
+2. 系统提示词优化及添加
+3. Flask API 迁移到 FastAPI
+4. 集成 agent 代码到 CPipe
+5. 优化人脸识别工作量 MCP 提示词
+6. 优化 Pydantic 入参检测
+7. 修复 wheel 包参数说明显示问题
+8. 修复 wheel 包后 agent 模式与 insight 显示冲突
+9. 优化 agent 协程模式 MCP context 跨协程释放问题
+10. 新增 PPHGNet 节点和 `Box.person.person_attribute` 字段
+11. 人脸识别支持删除与添加人脸
+12. Web 增加聊天页（支持对话与文件上传）
+13. 新增 `audioreport`，支持 `kokoro-82M` TTS
+14. 支持多线程多路视频录像
+15. 新增 websocket-flv 拉流
+16. 新增 `HKO_AddBoxes`
+17. 升级 websocket，`CWebsocket` 支持接收回调
+18. 优化 mmshufflnet 预处理 bug
+19. `videostreamer` 支持 `short_connection_delay` 动态修改
+20. 新增部署平台对接能力（参数解析与结果上报）
+21. 新增 `VideoMAE` 节点
+22. 新增 `Yolov11Pose` 节点
+23. 构建 Python 3.10 版 Docker 镜像
+24. 新增 `SAM3` 节点（支持文本提示）
+25. 全节点支持 pause 事件 `event_send("pause_node", True/False)`
+26. 升级所有 report 节点，支持双向通信
+27. 优化 insight 视频动态保存和启动
+28. `VideoStreamer` 本地文件模式支持快进快退
+29. 新增 UV 快速安装教程和 4.0 示例风格更新
+
+<details>
+<summary><strong>历史版本（3.7.6 ~ 3.0.0）</strong></summary>
+
+### V3.7.6（2025-10-27）
+- 新增 `HKO_AddBoxes` 钩子函数  
+  ```python
+  hook_outputs = HKO_AddBoxes(-1, {"streamers1": [[0, 0, 100, 100, 0.5, 0], [100, 100, 200, 200, 0.6, 1]]})
+  ```
+- 升级 websocket，`CWebsocket` 增加接收回调
+- 优化 mmshufflnet 预处理 bug
+- `videostreamer` 增加 `short_connection_delay` 动态修改
+- 新增部署平台功能
+- 优化视频保存等部分功能
+- 增加更多 ARM 版本 wheel 文件
+
+### V3.7.5 / V3.7.4（2025-08-22）
+- `VideoStreamer` 支持 `rotate` 参数（90/180/270）
+  ```python
+  stream1 = VideoStreamer("ss1", "/mnt/d/videos/other/face_2.mp4", 3, 1, rotate=90)
+  ```
+- 节点 event 支持双向返回
+  ```python
+  @Node.event("print_event")
+  def print_event(self, data):
+      print(f"print_event: {data}")
+      return "hello world"
+
+  ret = self.event_send("print_event", "hello")
+  print(ret)
+  ```
+- 优化 cv2 内存泄漏问题
+
+### V3.7.2（2025-07-28）
+- 新增 `Node.on_startup(order=0)` 启动前装饰器
+  ```python
+  @Node.on_startup(1)
+  def before_start(self):
+      print("before_start")
+  ```
+- 新增 `Node.event(func_name)` 装饰器
+- 新增 `CPipeInsight.get_current_show_image()` 获取当前显示图像
+- 优化 TensorRT 推理流程，减少手动依赖安装
+
+### V3.7.1（2025-07-11）
+- 新增 `MCPStreamer` / `MCPReport`，支持 MCP 协议链路
+- 优化 Node 页面 Queue 显示逻辑
+- 新增阻塞超时参数 `BLOCKING_MODE_TIMEOUT`
+- 支持 MCP 云端推理示例
+- 新增模型单独推理示例、区域绘制示例、`fastsam` 节点
+- 新增 Web 页面画区域实时生效
+- 新增节点 event 功能并扩展 hook 参数
+- `CMask` 改造为共享内存模式
+- 支持动态视频分辨率自动适配
+- 支持流启动失败自动重试连接
+
+### V3.6.0（2025-05-30）
+- 新增大量示例：编译、绘制、自定义节点、日志、RK3588、Atlas300、ROI、Web 文本显示等
+- 所有算法节点支持 `hook_inputs` / `hook_outputs`
+- 新增 `HKI_DilateImage`、`HKI_CropImage`、`HKO_ClassNamesThresholdFilter`、`HKO_DumpClass`
+- 优化本地文件模式帧率
+- `yolov8OBB` 增加 `Box.box_angle`
+- 增强华为昇腾 300 芯片适配（yolov7 / yolov8OBB / movenet / RTMPOSE / MMshufflenet）
+- 新增动态 BatchSize 的 `CACLModel`
+- 新增 OCR 识别能力与 `box_text` 字段
+
+### V3.5.8（2025-04-29）
+- 支持所有模型 ONNX 转 TensorRT（见 `examples/onnx2tensorrt/demo.py`）
+- 增强 Ctrl+C 退出资源释放并修复卡死
+- 新增 `MMResenet50` 模型节点
+
+### V3.5.6（2025-03）
+- 增加 cpipe 格式加密模型能力
+- `VideoStreamer` 支持本地 USB 摄像头
+- 新增部分示例并适配 onnxruntime 新版本
+
+### V3.5.5（2025-03-26）
+- 优化麒麟系统 U 盘插拔导致 license 失效
+- `retinafaceTRT` 支持一阶段检测
+- 新增 `examples` 目录与 `CPipeTools` 类
+  ```python
+  from cpipe.tools.cpipetools import CPipeTools
+  CPipeTools.encrypt_models("./movenet_person_pose.onnx", "1234567890123456", "./1234567890123456.cpipe.license")
+  CPipeTools.encrypt_models("./models", "1234567890123456", "./1234567890123456.cpipe.license")
+  ```
+- 增加 RK3588 适配（yolov7 / retinaface / adaface / facerecognition）
+- 增加 yolov7 ONNX 结构适配说明
+  ![yolov7.jpg](doc%2Fyolov7.jpg)
+- 优化 WSL license 问题
+- 增加 retinaface ONNX 模型适配
+
+### V3.5.0（2025-03-11）
+- `VideoStreamer` 支持动态 `process_frame_interval`
+- 新增 `DinoEmbedding` / `DinoClassifier`
+- `Box` 新增 embedding 相关字段
+- 新增 `yolov11TRT`、`YOLOv11InstanceSeg`、`MoveNetPersonPose`
+- 新增日志文件名标识配置
+- `ImageStreamer` 支持动态喂图（路径或 numpy array）
+- 新增 `CImage.info` 字段
+- 修复 WSL 与麒麟系统重启后 license 失效
+
+### V3.2.2（2024-12-25）
+- 优化 CPipe 退出机制，统一回收子进程并执行 `Node.lastly`
+- 新增 Node `daemon` 参数
+- logger 新增 warning 并优化显示
+- 将 `SaveInsight` / `UIInsight` 整合进 `CPipeInsight`
+- moveNet 支持不同输入尺寸
+- 新增 https 支持（`ssl=True`）
+- 合并 `LocalVideoStreamer` 与 `VideoStreamer`
+- `VideoStreamer` 支持 `reset_stream` 动态改流
+
+### V3.2.0（2024-12-02）
+- 所有模型支持灰度模式
+- 新增 RTMPOSE 手掌关键点
+- 修复日志 bug
+- Node 类新增 `lastly` 退出回调
+- `CPipeInsight` 增加多项显示控制参数
+
+### V3.1.1（2024-11-15）
+- 增加代码注释
+- 增加分割模型支持
+- 修复 bug
+
+### V3.0.0（2024-10-18）
+- 统一推理框架，新增基础类 `Cmodel` / `InferenceEngine` / `CDetector` / `COBBDetector` / `CClassifier` / `CFace` / `CEmbedding`
+- 优化跳帧显示逻辑和 Node 页面（antv x6）
+- 支持通过 `config/launch.yaml` 快速生成 Node 链路
+- 默认支持 CMask 标定能力
+- 支持页面动态添加 streamer 并自动识别流类型
+- 增加 CPU/CUDA 拉流并存模式
+- 增加日志分级颜色显示
+- TRT/ONNX 支持多 GPU（`device=cuda:x/cpu`）
+
+</details>
+
+## 联系方式
 
 ![contact1.jpg](doc%2Fcontact1.jpg)
 ![contact2.jpg](doc%2Fcontact2.jpg)
 
-邮箱: 9838465@qq.com
+- 邮箱：`9838465@qq.com`
 
+---
+
+<p align="center">
+  如果这个项目对你有帮助，欢迎点个 Star ⭐
+</p>

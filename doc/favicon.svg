@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="265px" height="39px" viewBox="0 0 265 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 7</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#151A1A" offset="0%"></stop>
+            <stop stop-color="#BD228F" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="50%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#151A1A" offset="0%"></stop>
+            <stop stop-color="#5C6EFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#151A1A" offset="0%"></stop>
+            <stop stop-color="#01B5F2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="92.159454%" x2="-3.33066907e-13%" y2="92.159454%" id="linearGradient-4">
+            <stop stop-color="#151A1A" offset="0%"></stop>
+            <stop stop-color="#F6871E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板备份-2" transform="translate(-34.000000, -55.000000)">
+            <g id="编组-7" transform="translate(34.000000, 55.000000)">
+                <rect id="矩形备份-39" fill="#151A1A" x="232" y="14" width="33" height="11"></rect>
+                <rect id="矩形备份-40" fill="url(#linearGradient-1)" x="232" y="14" width="21" height="11"></rect>
+                <rect id="矩形备份-34" fill="#151A1A" x="55" y="14" width="16" height="11"></rect>
+                <rect id="矩形备份-41" fill="#151A1A" x="136" y="0" width="11" height="39"></rect>
+                <rect id="矩形备份-42" fill="url(#linearGradient-2)" fill-rule="nonzero" x="136" y="0" width="11" height="39"></rect>
+                <path d="M265,0 L265,10 L232.5,10 C227.343755,10 223.146961,14.1078939 223.003776,19.2295213 L223,19.5 C223,24.7467051 227.253295,29 232.5,29 L265,29 L265,39 L232.5,39 C221.730447,39 213,30.2695526 213,19.5 C213,8.73044738 221.730447,0 232.5,0 L265,0 Z" id="形状结合备份-12" fill="#151A1A"></path>
+                <path d="M85,39 L75,39 L75,0 L115,0 C122.179702,-1.77635684e-15 128,5.82029825 128,13 C128,20.1797017 122.179702,26 115,26 L88,26 L88,16 L115,16 C116.656854,16 118,14.6568542 118,13 C118,11.3431458 116.656854,10 115,10 L85,10 L85,39 Z" id="形状结合备份-2" fill="#151A1A"></path>
+                <path d="M116.000901,15.8289758 L116.00057,25.962067 C115.670342,25.9872024 115.336666,26 115,26 L88,26 L88,16 L115,16 C115.350972,16 115.687867,15.9397302 116.000901,15.8289758 Z" id="形状结合备份-3" fill="url(#linearGradient-3)"></path>
+                <path d="M165,39 L155,39 L155,0 L195,0 C202.179702,-1.77635684e-15 208,5.82029825 208,13 C208,20.1797017 202.179702,26 195,26 L168,26 L168,16 L195,16 C196.656854,16 198,14.6568542 198,13 C198,11.3431458 196.656854,10 195,10 L165,10 L165,39 Z" id="形状结合备份-4" fill="#151A1A"></path>
+                <path d="M196.000901,15.8289758 L196.00057,25.962067 C195.670342,25.9872024 195.336666,26 195,26 L168,26 L168,16 L195,16 C195.350972,16 195.687867,15.9397302 196.000901,15.8289758 Z" id="形状结合备份-5" fill="url(#linearGradient-4)" fill-rule="nonzero"></path>
+                <path d="M51,0 L51,10 L19.5,10 C14.2532949,10 10,14.2532949 10,19.5 C10,24.7467051 14.2532949,29 19.5,29 L51,29 L51,39 L19.5,39 C8.73044738,39 4.58300065e-13,30.2695526 4.54747351e-13,19.5 C4.54747351e-13,8.73044738 8.73044738,0 19.5,0 L51,0 Z" id="形状结合备份-9" fill-opacity="0.637893357" fill="#001CFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
