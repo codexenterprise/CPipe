@@ -1,6 +1,5 @@
 <p align="center">
-  <!-- TODO: 替换成你的项目 Logo -->
-  <img src="doc/favicon.svg" alt="CPipe Logo" width="180"/>
+  <img src="/doc/favicon.svg" alt="CPipe Logo" width="180"/>
 </p>
 
 <p align="center">
@@ -86,9 +85,10 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 | 物理实验 | [![物理实验](doc/play_logo_3.png)](https://www.bilibili.com/video/BV15J8czWEXE) |
 | 50 米短跑 | [![50米短跑](doc/play_logo_1.png)](https://www.bilibili.com/video/BV15J8czWE9U) |
 
-## 文档手册
+## 使用教程
 
-- 使用手册：[CPipe 使用手册 v3.3.0](doc%2FCPipe%CA%B9%D3%C3%CA%D6%B2%E1v3.3.0.docx)
+- 使用手册：可以参考examples目录下的示例代码，以及doc目录下的文档手册
+- 可以通过网页RAG问答功能，可以快速解决用户问题
 
 ## 安装与部署
 
@@ -99,7 +99,7 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 ### Wheel 安装示例
 
 ```bash
-pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
+pip install cpipe-4.2.0-cp310-cp310-linux_x86_64.whl
 ```
 
 ### Docker 使用示例
@@ -107,7 +107,14 @@ pip install cpipe-3.7.4-cp310-cp310-linux_x86_64.whl
 ```bash
 wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe3.7.4_4090_570.195.03.tar
 docker load -i cpipe3.7.4_4090_570.195.03.tar
-sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
+sudo docker run --name cpipe3 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
+```
+### 4.2版本使用示例
+
+```bash
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.tar
+docker load -i cpipe4.2.tar
+sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe4.2 /bin/bash
 ```
 
 ### 快速安装
@@ -115,6 +122,31 @@ sudo docker run --name vllm --runtime=nvidia --net=host -e TZ=Asia/Shanghai --en
 - CPipe 4.x 新增 UV 快速安装模式，教程见 `examples/cpipe_install_from_uv`。
 
 ## 版本更新
+
+### 版本更新记录
+
+### CPIPE4.2.1版本:
+1. 新增支持opencv cuda pip安装包直接安装无需编译(基于nvidia pip安装环境)
+2. 优化wheel安装包, 现在默认一个cpipe-4.**-cp310-abi3-linux_x86_64.whl包就可以在python3.10及以上版本直接安装
+3. 优化agent采用deepagents库
+
+### CPIPE4.2版本:
+1. 升级agent库langchain到1.2.9版本
+2. 优化agent对话页面效果, 支持页面实时显示agent创建的新节点.
+3. 新增feishu report节点, 支持飞书消息上报功能
+4. agent聊天支持飞书机器人模式,可直接通过飞书机器人进行图片/文字聊天
+5. 飞书机器人增加STT本地模型(基于onnx int8模型),同时增加语音聊天功能
+6. 调整agent逻辑代码增加CAgent模块
+7. cpipe增加RAG问答功能
+8. 所有Node新增Node.EVENT_SET_UNWORKING_CONSUMER_NAMES事件, 支持设置当前节点不工作的消费者节点名称列表(不往下传递CData数据)
+9. 调整 agent tool 工具注册方式, 使用 @Node.agent_tool(name="tool_name", description="The description of the tool.", parameters={}) 装饰器注册 agent 工具
+```python
+from cagent.core.tools import ToolResult
+
+@Node.agent_tool(name="tool_name", description="The description of the tool.", parameters={})
+def tool_name() -> ToolResult:
+    return ToolResult(success=True, output="tool_name")
+```
 
 ### CPipe 4.0（仅支持 Python 3.10+）
 
