@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  CPipe 是基于 Python 的 AI 视觉算法快速部署框架
+  CPipe(最新版本V4.2.4) 是基于 Python 的 AI 视觉算法快速部署框架
 </p>
 
 <p align="center">
@@ -35,16 +35,19 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持 Node 节点网页可视化编排
 - 支持算法推理结果网页实时可视化
 - 支持一键快速部署与 Docker 交付
-- 支持 GPU 视频解码加速
+- 支持 GPU / NPU 视频解码加速
 - 支持页面添加/删除视频流节点
 - 支持页面配置算法区域（ROI）
-- 支持模型格式：TensorRT / ONNX / PyTorch 等
+- 支持模型格式：TensorRT / ONNX / PyTorch / RKNN / OM 等
 - 支持算法类型：目标检测、旋转检测、分类、人脸识别、质量评估、关键点、跟踪、ReID、OCR、视频时序分类等
-- 支持输入源：RTSP / RTMP / 本地视频 / 本地图片
+- 支持输入源：RTSP / RTMP / WebSocketFLV / 本地视频 / 本地图片
 - 支持日志本地存储、云端上报、网页实时显示
 - 支持模型文件加密
 - 支持 MCP 协议（需 Python 3.10+）
 - 支持云端推理
+- 支持VLM模型推理
+- 支持Agent对话功能
+- 支持Feishu / MQTT / WebSocket / HTTP消息上报功能
 
 ## 框架优势
 
@@ -99,7 +102,10 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 ### Wheel 安装示例
 
 ```bash
-pip install cpipe-4.2.0-cp310-cp310-linux_x86_64.whl
+# x86_64
+pip install cpipe-4.2.4-cp310-abi3-linux_x86_64.whl
+# ARM
+pip install cpipe-4.2.4-cp310-abi3-linux_aarch64.whl
 ```
 
 ### Docker 使用示例
@@ -112,9 +118,10 @@ sudo docker run --name cpipe3 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 ### 4.2版本使用示例
 
 ```bash
-wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.tar
-docker load -i cpipe4.2.tar
-sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe4.2 /bin/bash
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.1.tar
+# wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/rk3588_cpipe4.2.3.tar
+docker load -i cpipe4.2.1.tar # rk3588_cpipe4.2.3.tar
+sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe4.2.1 /bin/bash # rk3588_cpipe4.2.3 /bin/bash
 ```
 
 ### 快速安装
@@ -126,13 +133,12 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 ### 版本更新记录
 
 ### CPIPE4.2.4版本:
-1. CPipe如何创建一个算法节点及分类/目标检测等算法讲解。
+1. 新增VLM功能节点(支持大小模型推理), Box信息中新增llm_info字段, 支持VLM模型推理
 2. MCPStreamer优化支持fastmcp3.0版本
 3. CPipe4.2.3版本适配RK3588环境,新增RK3588 docker镜像(自带cpipe4.2.3和GStreamer硬解码)
 4. VideoStreamer(默认FFMPEG) 新增支持RK3588 GStreamer模式并提供硬件解码功能
 5. ShuffleNet(MMShuffleNet已经支持)/YOLOV10/YOLOV26支持RKNN模型推理
 6. 修复VideoStreamer 在cuda模式 + 本地文件模式下,在我网页上视频快进时报错问题.
-7. 新增VLM功能节点(支持大小模型推理)
 
 ### CPIPE4.2.1版本:
 1. 新增支持opencv cuda pip安装包直接安装无需编译(基于nvidia pip安装环境)
