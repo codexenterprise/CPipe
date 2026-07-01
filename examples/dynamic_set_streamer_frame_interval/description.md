@@ -1,0 +1,1 @@
+介绍CPipe如何动态修改VideoStreamer的跳帧间隔。

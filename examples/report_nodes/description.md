@@ -1,0 +1,1 @@
+介绍CPipe中如何把工作流相关日志信息或报警信息上报到HTTP、MQTT、Websocket等服务器。

@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # if you need to set the log file name mark, you need to set it before all nodes
     # CLogger.set_file_name_mark("996")
 
-    stream = VideoStreamer(node_name="vs1", stream="./text.mp4", process_frame_interval=3)
+    stream = VideoStreamer(node_name="vs1", stream="./text.mp4", process_frame_interval=1)
 
     mn = my_node(node_name="text_logger", queue_size=3)
 

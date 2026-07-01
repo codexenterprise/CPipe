@@ -1,0 +1,1 @@
+介绍如何使用cpipe的单独模型推理功能(不需要创建完整的CPipe的workflow).

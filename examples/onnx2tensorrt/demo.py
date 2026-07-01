@@ -10,8 +10,8 @@ from cpipe.module.model.mmsegmentation import MMSemanticSegmentation
 
 # 初始化TensorRT插件
 # need install tensorrt, cuda, cuDNN, torch2trt
-# MODEL_PATH = "model_files/416x416-det_10g_batch.onnx"
-MODEL_PATH = "/mnt/d/kunshi2025.4.22.onnx"
+MODEL_PATH = "model_files/yolo26x.onnx"
+# MODEL_PATH = "/mnt/d/kunshi2025.4.22.onnx"
 # MODEL_PATH = "/home/zhouhe/workspace/cpipe2.0/__OTHERS__/demo_person/movenet_person_pose.onnx.cpipe"
 
 # with dynamic batch size

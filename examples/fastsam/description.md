@@ -1,0 +1,1 @@
+介绍CPipe如何使用fastsam模型进行目标检测(通过目标图片的embedding进行目标检测)。

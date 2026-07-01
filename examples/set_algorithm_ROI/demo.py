@@ -17,15 +17,7 @@ if __name__ == "__main__":
                     model_path="/home/zhouhe/workspace/cpipe2.0/src/model_files/yolov10n.onnx",
                     # queue_size=3,
                     # input_size=[3, 640, 640],
-                    class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
-                                'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
-                                'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
-                                'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard',
-                                'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple',
-                                'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch',
-                                'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone',
-                                'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear',
-                                'hair drier', 'toothbrush'],
+                    # class_names=['person', ...],
                     # max_batch_size=1,
                     valid_class_names=["person"],
                     save_top_n_objects=32,
@@ -35,15 +27,7 @@ if __name__ == "__main__":
     #                  "../../src/model_files/yolov10n.onnx",
     #                  3,
     #                  (3, 640, 640),
-    #                  class_names=['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
-    #                               'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
-    #                               'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
-    #                               'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard',
-    #                               'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple',
-    #                               'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch',
-    #                               'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone',
-    #                               'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear',
-    #                               'hair drier', 'toothbrush'],
+    #                  class_names=['person', ...],
     #                  max_batch_size=1,
     #                  valid_class_names=["person"],
     #                  save_top_n_objects=32,
@@ -73,8 +57,6 @@ if __name__ == "__main__":
 
     cpipeinsight = CPipeInsight(http_insight=True, show_scale=2)
 
-
-
     stream1 += [detect, cpipeinsight]
     stream2 += [detect, cpipeinsight]
     # stream3 += [detect, cpipeinsight]
@@ -83,4 +65,4 @@ if __name__ == "__main__":
     # stream6 += [detect, cpipeinsight]
 
     # launch all initialized nodes
-    Node.launch(check_node=True, auto_restart=False, agent=False)
+    Node.launch(check_node=True, auto_restart=False)

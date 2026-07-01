@@ -1,0 +1,1 @@
+介绍CPipe通过代码获取设备码(用于注册CPipe的license用)的方法。

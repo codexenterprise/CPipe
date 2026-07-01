@@ -49,27 +49,3 @@ class MMShuffleNet(CClassifier):
         if type(ret) == list:
             return torch.from_numpy(ret[0])
         return ret
-
-
-class ShuffleNet(CClassifier):
-    """
-    ShuffleNet can classify the image.
-    """
-    
-    preprocessor: Annotated[Any, "The preprocessor of the node."] = Field(default=class_preprocess, json_schema_extra={'readOnly': True})
-
-    def infer(self, inputs, *args, **kwargs):
-        """
-        The infer function of the model
-        Args:
-            inputs: inputs[0]: batch_imgs, inputs[1]: original image, inputs[2]: batch_size
-            *args:
-            **kwargs:
-
-        Returns: The result of the model.
-
-        """
-        ret = self.model(inputs[0])
-        if isinstance(ret, list):
-            return torch.from_numpy(ret[0])
-        return ret

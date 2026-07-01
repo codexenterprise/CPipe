@@ -1,0 +1,1 @@
+介绍CPipe中如何使用PPLCNet进行ReID识别。

@@ -8,7 +8,7 @@ from cpipe.module.model.shufflenet import ShuffleNet
 
 
 if __name__ == "__main__":
-    stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.8.121:1935/live/7777", process_frame_interval=3)
+    stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.8.121:1935/live/7777", process_frame_interval=1)
 
     zhu_det = YOLOv8obb(node_name="zhu_det",
                         model_path="project/dct/models/dct_batch.engine",

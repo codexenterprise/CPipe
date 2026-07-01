@@ -1,0 +1,1 @@
+介绍CPipe如何动态修改VideoStreamer的视频流地址。

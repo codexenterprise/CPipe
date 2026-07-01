@@ -1,0 +1,1 @@
+介绍CPipe中使用MCPStreamer功能给其他系统提供推理服务(基于MCP协议)。

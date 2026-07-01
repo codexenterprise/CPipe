@@ -1,0 +1,1 @@
+介绍CPipe中如何使用华为Atlas NPU芯片创建workflow。

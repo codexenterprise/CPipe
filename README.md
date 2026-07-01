@@ -125,6 +125,15 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 
 ### 版本更新记录
 
+### CPIPE4.2.4版本:
+1. CPipe如何创建一个算法节点及分类/目标检测等算法讲解。
+2. MCPStreamer优化支持fastmcp3.0版本
+3. CPipe4.2.3版本适配RK3588环境,新增RK3588 docker镜像(自带cpipe4.2.3和GStreamer硬解码)
+4. VideoStreamer(默认FFMPEG) 新增支持RK3588 GStreamer模式并提供硬件解码功能
+5. ShuffleNet(MMShuffleNet已经支持)/YOLOV10/YOLOV26支持RKNN模型推理
+6. 修复VideoStreamer 在cuda模式 + 本地文件模式下,在我网页上视频快进时报错问题.
+7. 新增VLM功能节点(支持大小模型推理)
+
 ### CPIPE4.2.1版本:
 1. 新增支持opencv cuda pip安装包直接安装无需编译(基于nvidia pip安装环境)
 2. 优化wheel安装包, 现在默认一个cpipe-4.**-cp310-abi3-linux_x86_64.whl包就可以在python3.10及以上版本直接安装

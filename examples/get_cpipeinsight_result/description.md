@@ -1,0 +1,1 @@
+介绍CPipe如何实时获取CPipeInsight处理后的每帧画面。
