@@ -43,7 +43,7 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持输入源：RTSP / RTMP / WebSocketFLV / 本地视频 / 本地图片
 - 支持日志本地存储、云端上报、网页实时显示
 - 支持模型文件加密
-- 支持 MCP 协议（需 Python 3.10+）
+- 支持 MCP 协议
 - 支持云端推理
 - 支持VLM模型推理
 - 支持Agent对话功能
@@ -65,6 +65,8 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 | 默认算法支持 | 无 | 自带十几种算法 |
 | 算法文件加密 | 需要自研加密程序 | 框架自带 |
 | 日志系统 | 需要自研 | 框架自带 |
+| 消息上报系统 | 需要自研 | 框架自带 |
+| 部署平台对接 | 需要前后端自研对接 | 框架自带 |
 
 **业务价值：** 降低研发成本、减少开发周期、提供稳定高性能推理引擎、支持高并发视频流实时推理、增强模型安全。
 
@@ -132,6 +134,15 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 
 ### 版本更新记录
 
+### CPIPE4.2.5版本:
+1. 优化event_send函数, 支持设置超时时间(默认120秒), 同时支持并发调用
+2. 调整yolov26导入改成yolo26
+3. 新增HOOK: HKI_SkipStreamers, 支持跳过指定摄像头不处理
+4. 优化Node页面抛帧显示逻辑
+5. 优化VideoMAE算法节点, 增加CUDA预处理流程(会增加消耗GPU算力)
+6. CData: 增加box_unique_id和box_parent_unique_id字段, 用于支持二阶段模式下, 子Box与父Box的关联
+7. 预增华为显卡拉流解码能力: 待批量验证
+
 ### CPIPE4.2.4版本:
 1. 新增VLM功能节点(支持大小模型推理), Box信息中新增llm_info字段, 支持VLM模型推理
 2. MCPStreamer优化支持fastmcp3.0版本
@@ -145,7 +156,7 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 2. 优化wheel安装包, 现在默认一个cpipe-4.**-cp310-abi3-linux_x86_64.whl包就可以在python3.10及以上版本直接安装
 3. 优化agent采用deepagents库
 
-### CPIPE4.2版本:
+### CPIPE4.2.0版本:
 1. 升级agent库langchain到1.2.9版本
 2. 优化agent对话页面效果, 支持页面实时显示agent创建的新节点.
 3. 新增feishu report节点, 支持飞书消息上报功能
