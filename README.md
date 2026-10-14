@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  CPipe(最新版本V4.2.4) 是基于 Python 的 AI 视觉算法快速部署框架
+  CPipe(最新版本V4.3.0) 是基于 Python 的 AI 视觉算法快速部署框架
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持页面配置算法区域（ROI）
 - 支持模型格式：TensorRT / ONNX / PyTorch / RKNN / OM 等
 - 支持算法类型：目标检测、旋转检测、分类、人脸识别、质量评估、关键点、跟踪、ReID、OCR、视频时序分类等
-- 支持输入源：RTSP / RTMP / WebSocketFLV / 本地视频 / 本地图片
+- 支持输入源：RTSP / RTMP / WebSocketFLV / 本地视频 / 本地图片 / 支持海康平台拉流
 - 支持日志本地存储、云端上报、网页实时显示
 - 支持模型文件加密
 - 支持 MCP 协议
@@ -120,10 +120,10 @@ sudo docker run --name cpipe3 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 ### 4.2版本使用示例
 
 ```bash
-wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.1.tar
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.6.tar.zst
 # wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/rk3588_cpipe4.2.3.tar
-docker load -i cpipe4.2.1.tar # rk3588_cpipe4.2.3.tar
-sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe4.2.1 /bin/bash # rk3588_cpipe4.2.3 /bin/bash
+docker load -i cpipe4.2.6.tar.zst # rk3588_cpipe4.2.3.tar
+sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe:jp721-py312-gst /bin/bash # rk3588_cpipe4.2.3 /bin/bash
 ```
 
 ### 快速安装
@@ -134,6 +134,18 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 
 ### 版本更新记录
 
+
+### CPIPE4.3.0版本:
+1. 新增Logic节点自带方法get_cmask_info, 用于获取Web页面绘制的检查框信息
+2. examples目录现在直接内嵌到cpipe中.可以在cpipe.examples下找到所有案例代码
+3. 新增算法节点PaddleOCRv6, 同时新增支持文字方向分类模型, 支持PP-OCRv6模型推理案例: cpipe/examples/paddleocrv6
+4. 新增算法节点PaddleOCRDet, 支持文字检测, 支持PP-OCRv6文字检测模型推理案例: cpipe/examples/paddleocrv6
+5. 新增算法节点PaddlePlate, 支持车牌识别模型推理案例: cpipe/examples/license_plate
+6. 新增算法节点PPHuman, 支持人体ReID模型推理案例: cpipe/examples/reid
+7. 优化Node启动逻辑, 支持动态修改Node启动超时时间(默认30秒).注: 部分RK3588模型加载失败会卡死, 可以自动杀死并重启, 避免卡死
+8. 新增算法节点YOLO26InstanceSeg, 支持实例分割模型推理案例: cpipe/examples/yolo26_seg
+9. 新增算法节点YOLO26Pose, 支持姿态估计模型推理案例: cpipe/examples/yolo26_pose
+
 ### CPIPE4.2.5版本:
 1. 优化event_send函数, 支持设置超时时间(默认120秒), 同时支持并发调用
 2. 调整yolov26导入改成yolo26
@@ -142,6 +154,7 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 5. 优化VideoMAE算法节点, 增加CUDA预处理流程(会增加消耗GPU算力)
 6. CData: 增加box_unique_id和box_parent_unique_id字段, 用于支持二阶段模式下, 子Box与父Box的关联
 7. 预增华为显卡拉流解码能力: 待批量验证
+8. 修复VideoStreamer在reconnect failed时 动态修改steam失败问题
 
 ### CPIPE4.2.4版本:
 1. 新增VLM功能节点(支持大小模型推理), Box信息中新增llm_info字段, 支持VLM模型推理

@@ -1,3 +1,35 @@
+import time
+from typing import Optional
+import numpy as np
+
+from cpipe.config.config import SHARE_MEMORY_MODE, CPIPE_BLOCKING_MODE
+
+class LLMInfo:
+    def __init__(self, system_prompt=None, user_prompt=None, file_path=None, response=None):
+        """
+        A LLMInfo object in CPipe corresponds to the LLM model data.
+        Attributes:
+        system_prompt: The system prompt of the LLM model.
+        user_prompt: The user prompt of the LLM model.
+        file_path: The file path of the image(can be a list of file paths or a single file path or numpy.ndarray or list of numpy.ndarray).
+        response: The response of the LLM model. The default value is None.
+        """
+        self.system_prompt = system_prompt
+        self.user_prompt = user_prompt
+        self.file_path = file_path
+        self.response = response
+    
+    def to_json(self):
+        """
+        Convert the VLM object to a JSON object.
+        Returns: The JSON object.
+        """
+        return {
+            "system_prompt": self.system_prompt,
+            "user_prompt": self.user_prompt,
+            "file_path": self.file_path,
+            "response": self.response
+        }
 
 class Tracker:
     def __init__(self):
@@ -11,6 +43,17 @@ class Tracker:
         self.track_id = 0
         self.track_history = []
         self.velocity = None
+    
+    def to_json(self):
+        """
+        Convert the Tracker object to a JSON object.
+        Returns: The JSON object.
+        """
+        return {
+            "track_id": int(self.track_id),
+            "velocity": self.velocity.tolist() if self.velocity is not None else None
+            # "track_history": list(self.track_history),
+        }
 
 
 class Person:
@@ -55,6 +98,31 @@ class Person:
         self.person_attribute = []
 
         self.track: Optional[Tracker] = None
+    
+    def to_json(self, result_embedding=True):
+        """
+        Convert the Person object to a JSON object.
+        Args:
+            result_embedding: (bool) Whether to return the embedding(512/768).
+        Returns: The JSON object.
+        """
+        json_dict = {
+            "person_box_coord": np.array(self.person_box_coord, dtype=np.int32).tolist(),
+            "person_box_score": round(float(self.person_box_score), 3),
+            "person_embedding": np.array(self.person_embedding).tolist() if self.person_embedding is not None and result_embedding else None,
+            "person_score": round(float(self.person_score),3),
+            "person_name": self.person_name,
+            "face_box_coord": np.array(self.face_box_coord, dtype=np.int32).tolist(),
+            "face_box_score": round(float(self.face_box_score),3),
+            "face_key_points": np.array(self.face_key_points, dtype=np.int32).tolist(),
+            "face_embedding": np.array(self.face_embedding).tolist() if self.face_embedding is not None and result_embedding else None,
+            "face_score": round(float(self.face_score),3),
+            "face_name": self.face_name,
+            "face_img": self.face_img.tolist() if self.face_img is not None else None,
+            "track": self.track.to_json() if self.track else None,
+        }
+
+        return json_dict
 
 
 class Classification:
@@ -71,9 +139,21 @@ class Classification:
         self.names = []
         self.scores = []
         self.classes = []
+    
+    def to_json(self):
+        """
+        Convert the Classification object to a JSON object.
+        Returns: The JSON object.
+        """
+        return {
+            "names": self.names,
+            "scores": np.array(self.scores).tolist(),
+            "classes": np.array(self.classes).tolist(),
+        }
 
 
 class Box:
+
     def __init__(self):
         """
         Box class is a core data storage class of CPipe, which is used to store the output results of all detection, recognition, tracking, and other model and logic codes.
@@ -120,21 +200,174 @@ class Box:
 
         self.person: Optional[Person] = None
         self.track: Optional[Tracker] = None
+        self.llm_info: Optional[LLMInfo] = None
     
+    def to_json(self, result_embedding=True):
+        """
+        Convert the Box object to a JSON object.
+        Args:
+            result_embedding: (bool) Whether to return the embedding(512/768).
+        Returns: The JSON object.
+        """
+        json_dict = {
+            "box_coord": np.array(self.box_coord, dtype=np.int32).tolist(),
+            "box_polygon_coord": np.array(self.box_polygon_coord, dtype=np.int32).tolist(),
+            "box_angle": round(float(self.box_angle),3),
+            "box_score": round(float(self.box_score),3),
+            "box_class": int(self.box_class),
+            "box_class_name": self.box_class_name,
+            "box_img": self.box_img.tolist() if self.box_img is not None else None,
+            "box_key_points": np.array(self.box_key_points).tolist() if self.box_key_points is not None else None,
+            "box_key_point_scores": np.array(self.box_key_point_scores).tolist() if self.box_key_point_scores is not None else None,
+            "box_key_point_names": self.box_key_point_names,
+            "box_mask": np.array(self.box_mask, dtype=np.uint8).tolist() if self.box_mask is not None else None,
+            "box_embedding": np.array(self.box_embedding).tolist() if self.box_embedding is not None and result_embedding else None,
+            "box_embedding_name": self.box_embedding_name,
+            "box_embedding_score": round(float(self.box_embedding_score),3) if self.box_embedding_score is not None else None,
+            "box_text": self.box_text,
+            "classification": self.classification.to_json() if self.classification else None,
+            "person": self.person.to_json(result_embedding) if self.person else None,
+            "track": self.track.to_json() if self.track else None,
+            "llm_info": self.llm_info.to_json() if self.llm_info else None,
+        }
+
+        return json_dict
 
 
 class CImage:
-    pass
+    def __init__(self, streamer_name=None):
+        """
+        Used to store the image data of a Streamer in CPipe.
+
+        Args:
+            streamer_name: The streamer name of the Streamer. The default value is None. 
+
+        Attributes:
+        frame_total: Streamer total frame number. The default value is 0. Only the video stream read by Streamer has this attribute.
+        frame_current_idx: The current frame index of the Streamer. The default value is 0. Only the video stream read by Streamer has this attribute.
+        image_marker: The marker of the image. The default value is None. 
+        streamer_name: The streamer name of the Streamer. The default value is None. 
+        cbuffer_main_name: The main name of the shared memory buffer. The default value is None.
+        cbuffer_sub_name: The sub name of the shared memory buffer. The default value is None.
+        info: The information of the Streamer. The default value is an empty dictionary.
+
+        """
+        self.__share_m_flag = SHARE_MEMORY_MODE
+        self.__image = None
+        self.__image_timestamp = -1
+        self.__share_m_idx = 0
+        self.frame_total = 0
+        self.frame_current_idx = 0
+        self.image_marker = None
+        self.streamer_name = streamer_name
+        self.cbuffer_main_name = None
+        self.cbuffer_sub_name = None
+        self.info = {}
+    
+    def copy_image_info(self, cimage):
+        """
+        Copy the image info from the cimage object.
+        Args:
+            cimage: The cimage object to copy the image info from.
+        """
+        self.image_marker = cimage.image_marker
+        self.streamer_name = cimage.streamer_name
+        self.info = cimage.info
+        self.frame_total = cimage.frame_total
+        self.frame_current_idx = cimage.frame_current_idx
+        self.image_timestamp = cimage.image_timestamp
+
+    def share_m_idx(self):
+        """
+        Get the shared memory index of the image data.
+        Returns: The shared memory index of the image data.
+
+        """
+        return self.__share_m_idx
+
+    def get_image(self, node_buffers, shape=None):
+        """
+        Get the image data.
+        Args:
+            node_buffers: The node buffers.
+            shape: The shape of the image data.
+
+        Returns: The image data.
+
+        """
+        if self.__share_m_flag:
+            cbuffer = node_buffers[self.cbuffer_main_name][self.cbuffer_sub_name]
+            return cbuffer.data(self.__share_m_idx, shape=shape)
+        else:
+            if self.__image is not None:
+                return self.__image
+            else:
+                raise ValueError("Image is None")
+
+    def free(self, node_buffers, consumer_name):
+        """
+        Free the image data.
+        Args:
+            node_buffers: The node buffers.
+            consumer_name: The name of the consumer.
+        """
+        if CPIPE_BLOCKING_MODE:
+            if self.__share_m_flag:
+                cbuffer = node_buffers[self.cbuffer_main_name][self.cbuffer_sub_name]
+                cbuffer.free(self.__share_m_idx, consumer_name)
+    
+    def malloc(self, cbuffer, cbuffer_sub_name, value=None, shape=None):
+        """
+        Malloc the image data.
+        Args:
+            cbuffer: The shared memory buffer object.
+            cbuffer_sub_name: The sub name of the shared memory buffer.
+            value: The image data.
+            shape: The shape of the image data. [height, width, channel]
+        """
+        if value is None and shape is None:
+            raise ValueError("value and shape cannot be None at the same time")
+        
+        if self.__share_m_flag:
+            share_memory, self.__share_m_idx = cbuffer.malloc(value, shape)
+            self.cbuffer_main_name = cbuffer.name
+            self.cbuffer_sub_name = cbuffer_sub_name
+            return share_memory
+        else:
+            self.__image = value
+            self.__image_timestamp = time.time()
+            return self.__image
+    
+    @property
+    def image_timestamp(self):
+        """
+        Get the timestamp of the image data.
+        Returns: The timestamp of the image data.
+
+        """
+        return self.__image_timestamp
+
+    @image_timestamp.setter
+    def image_timestamp(self, value):
+        """
+        Set the timestamp of the image data.
+        Args:
+            value: The timestamp of the image data.
+
+        Returns:
+
+        """
+        self.__image_timestamp = value
 
 
 class CData:
-    def __init__(self, createNodeName):
+    def __init__(self, create_node_name):
         """
         CData is the core data storage class of CPipe, which is used to store the output results of all detection, recognition, tracking, and other model and logic codes.
         Any image inference result and logic result should be converted into a Box object data and then stored in the CData object.
 
         Args:
-        createNodeName: The name of the node that generates the CData object.
+        create_node_name: The name of the node that generates the CData object.
 
         Attributes:
         timestamp: The timestamp of the CData object.
@@ -162,9 +395,10 @@ class CData:
                }.
         bboxes: The Box data of the CData object. The format is {"stream_name": [Box, Box, Box, ...]}.
         audio_texts: The audio data of the CData object. The format is {"stream_name1": "this is text", "stream_name2": "this is text", ...}.
+        llm_infos: The LLM data of the CData object. The format is {"stream_name": [LLMInfo, LLMInfo, LLMInfo, ...], "stream_name2": [LLMInfo, LLMInfo, LLMInfo, ...], ...}.
 
         """
-        self.createNodeName = createNodeName
+        self.create_node_name = create_node_name
         self.timestamp = 0
 
         self.json = {}
@@ -174,6 +408,31 @@ class CData:
         self.messages = {}
         self.bboxes = {}
         self.audio_texts = {}
+        self.llm_infos = {}
+    
+    def is_empty(self):
+        """
+        Check if the CData object is empty.
+        Returns: True if the CData object is empty, False otherwise.
+        """
+        return len(self.bboxes) == 0 and len(self.images) == 0 and len(self.json) == 0 and len(self.states) == 0 and len(self.shows) == 0 and len(self.messages) == 0 and len(self.audio_texts) == 0
+
+    def add_bboxes(self, streamer_name, boxes):
+        """
+        Add Box data to the CData object.
+        Args:
+            streamer_name: The streamer name corresponding to these Box data.
+            boxes: The Box data. The format is [Box, Box, Box, ...].
+
+        Returns: None
+
+        """
+        if streamer_name not in self.bboxes.keys():
+            self.bboxes[streamer_name] = []
+        if isinstance(boxes, list):
+            self.bboxes[streamer_name].extend(boxes)
+        else:
+            self.bboxes[streamer_name].append(boxes)
 
     def get_bboxes(self):
         """
@@ -182,3 +441,26 @@ class CData:
 
         """
         return list(self.bboxes.keys()), list(self.bboxes.values())
+
+    def merge(self, cdata):
+        """
+        Merge the CData object.
+        Args:
+        cdata: The CData object to be merged.
+
+        """
+        self.timestamp = time.time()
+
+        for one in cdata.bboxes.keys():
+            self.add_bboxes(one, cdata.bboxes[one])
+
+        self.images.update(cdata.images)
+
+        self.json.update(cdata.json)
+        self.states.update(cdata.states)
+        self.shows.update(cdata.shows)
+        self.messages.update(cdata.messages)
+        self.audio_texts.update(cdata.audio_texts)
+        self.llm_infos.update(cdata.llm_infos)
+
+        return self

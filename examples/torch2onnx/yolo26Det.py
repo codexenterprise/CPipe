@@ -13,19 +13,19 @@ from ultralytics import YOLO
 
 
 # Load the YOLO11 model
-# model = YOLO("model_files/yolo26n.pt")
+model = YOLO("/mnt/d/tmp/yolo26n_person_best.pt")
 
 # # Export the model to ONNX format opt 19
-# model.export(format="onnx", dynamic=True, imgsz=(640, 640), opset=19)
-# model.export(format="rknn", imgsz=(640, 640), name="rk3588")
+model.export(format="onnx", dynamic=True, imgsz=(640, 640), opset=19)
+# model.export(format="rknn", imgsz=(416, 416), name="rk3588")
 
 
 # Load the exported RKNN model
-model = YOLO("./model_files/yolo26n_rknn_model")
+# model = YOLO("./model_files/yolo26n_rknn_model")
 
 # Run inference
-results = model("https://ultralytics.com/images/bus.jpg")
-print(results)
+# results = model("https://ultralytics.com/images/bus.jpg")
+# print(results)
 # Load the exported ONNX model
 # onnx_model = YOLO("model_files/yolo26n.onnx", task="detect")
 # print(onnx_model)

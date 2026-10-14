@@ -1,0 +1,152 @@
+{
+    "nodes": [
+        {
+            "id": "CPipeInsight",
+            "type": "custom",
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "data": {
+                "label": "CPipeInsight",
+                "type": "Insight",
+                "params": {
+                    "http_insight": true,
+                    "task_type": "CPipeInsight"
+                },
+                "processId": "11940(11878)",
+                "processStatus": "dead"
+            },
+            "className": "CPipeNode Insight",
+            "width": 150,
+            "height": 45,
+            "positionAbsolute": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "id": "df326f68-e6ee-4d16-9aa8-aadf2a891aa6",
+            "type": "custom",
+            "position": {
+                "x": -206.50003051757812,
+                "y": -270.0000305175781
+            },
+            "data": {
+                "label": "s1",
+                "type": "Streamer",
+                "params": {
+                    "task_type": "VideoStreamer",
+                    "stream": "./video_files/demo1.mp4",
+                    "process_frame_interval_value": 0,
+                    "queue_size": 3,
+                    "all_ready": "True",
+                    "device": "cuda:0",
+                    "capture_mode": "FFMPEG",
+                    "cv_open_timeout_ms": 6000,
+                    "cv_read_timeout_ms": 3000,
+                    "hikvision_platform": "False",
+                    "base_url": "",
+                    "appKey": "",
+                    "appSecret": "",
+                    "short_connection_delay_value": 0,
+                    "sleep_time": "",
+                    "block_mode": "False",
+                    "once_mode": "False",
+                    "delay_start_time": 0,
+                    "rotate": 0,
+                    "router": null
+                },
+                "processId": "?",
+                "resolution": "?*?/?"
+            },
+            "className": "CPipeNode Streamer",
+            "width": 150,
+            "height": 89,
+            "positionAbsolute": {
+                "x": -206.50003051757812,
+                "y": -270.0000305175781
+            }
+        },
+        {
+            "id": "61f5f8e0-7bbd-46d2-9a46-e05e406ff91f",
+            "type": "custom",
+            "position": {
+                "x": 117.24996185302734,
+                "y": -155.00003051757812
+            },
+            "data": {
+                "label": "yolo",
+                "type": "Algorithm",
+                "params": {
+                    "task_type": "YOLO26",
+                    "model_path": "./model_files/yolo26n.onnx",
+                    "secondary_class_names": "",
+                    "queue_size": 3,
+                    "input_size": "",
+                    "class_names": "",
+                    "threading_num": 4,
+                    "max_batch_size": "",
+                    "input_names": "",
+                    "output_names": "",
+                    "dump_images": "False",
+                    "device": "cuda:0",
+                    "warmup": "True",
+                    "gray_mode": "False",
+                    "area_flag": "True",
+                    "save_top_n_objects": "",
+                    "valid_class_names": "",
+                    "conf_thres": 0.25,
+                    "iou_thres": 0.45,
+                    "router": null
+                },
+                "processId": "?"
+            },
+            "className": "CPipeNode Algorithm",
+            "width": 150,
+            "height": 66,
+            "positionAbsolute": {
+                "x": 117.24996185302734,
+                "y": -155.00003051757812
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": "719441e4-8e77-42ef-8b07-f765090a68e4",
+            "source": "df326f68-e6ee-4d16-9aa8-aadf2a891aa6",
+            "target": "61f5f8e0-7bbd-46d2-9a46-e05e406ff91f",
+            "sourceHandle": "out_1",
+            "type": "custom",
+            "animated": true,
+            "targetHandle": "in_1",
+            "data": {
+                "type": "",
+                "sourceType": "",
+                "label": "",
+                "edgeStyle": "straight"
+            },
+            "style": {
+                "strokeWidth": 2
+            }
+        },
+        {
+            "id": "b8ddaa17-d03a-4024-9c46-cf8aa0ea127d",
+            "source": "61f5f8e0-7bbd-46d2-9a46-e05e406ff91f",
+            "target": "CPipeInsight",
+            "sourceHandle": "out_1",
+            "type": "custom",
+            "animated": true,
+            "targetHandle": "in_1",
+            "data": {
+                "type": "",
+                "sourceType": "",
+                "label": "",
+                "edgeStyle": "straight"
+            },
+            "style": {
+                "strokeWidth": 2
+            }
+        }
+    ]
+}
