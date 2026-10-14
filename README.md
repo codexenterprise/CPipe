@@ -134,7 +134,6 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 
 ### 版本更新记录
 
-
 ### CPIPE4.3.0版本:
 1. 新增Logic节点自带方法get_cmask_info, 用于获取Web页面绘制的检查框信息
 2. examples目录现在直接内嵌到cpipe中.可以在cpipe.examples下找到所有案例代码
