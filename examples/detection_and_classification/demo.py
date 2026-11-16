@@ -3,7 +3,6 @@ from cpipe.module.model.yolov10 import YOLOv10
 from cpipe.module.streamer import VideoStreamer
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.node import Node
-from cpipe.module.model.shufflenet import MMShuffleNet
 
 if __name__ == "__main__":
     stream1 = VideoStreamer(stream="rtsp://admin:tp123456@192.168.10.199:554/Streaming/Channels/101", process_frame_interval=0, once_mode=True)

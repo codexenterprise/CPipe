@@ -3,7 +3,7 @@ from cpipe.module.reports.httpreport import HTTPReport
 from cpipe.module.reports.mqttreport import MQTTReport
 from cpipe.module.reports.websocketreport import WebsocketReport
 from cpipe.module.streamer import VideoStreamer
-from examples.report_nodes.custom_node import my_node
+from custom_node import my_node
 
 
 def websocket_receive_func(data):

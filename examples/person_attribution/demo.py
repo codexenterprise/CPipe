@@ -1,4 +1,4 @@
-from cv2 import Tracker
+from cpipe.module.model.tracker.tracker import Tracker
 from cpipe.module.model.pphgnet import PPHGNet
 from cpipe.module.model.yolov10 import YOLOv10
 from cpipe.module.streamer import VideoStreamer
@@ -31,5 +31,5 @@ if __name__ == "__main__":
 
     cpipeinsight = CPipeInsight(http_insight=True, show_scale=2)
 
-    stream1 += [detect, person_attribution, cpipeinsight]
+    stream1 += [detect, track, person_attribution, cpipeinsight]
     Node.launch(check_node=True, auto_restart=False)

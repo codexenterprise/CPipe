@@ -11,8 +11,8 @@ from cpipe.module.insight import CPipeInsight
 from cpipe.module.streamer import VideoStreamer
 
 if __name__ == "__main__":
-    stream = VideoStreamer(node_name="stream", stream="./PAPER_20250331141736_20210204_D5.mp4", process_frame_interval=1, pause=0)
-    # stream = VideoStreamer("stream", "rtmp://192.168.8.121:1935/live/7777", 3, 1)
+    stream = VideoStreamer(node_name="stream", stream="./PAPER_20250331141736_20210204_D5.mp4", process_frame_interval=1)
+    # stream = VideoStreamer(node_name="stream", stream="rtmp://192.168.8.121:1935/live/7777", queue_size=3, process_frame_interval=1)
 
     zhu_det = YOLOv8obb(node_name="zhu_det",
                         model_path="./models/VA.om",
@@ -60,7 +60,6 @@ if __name__ == "__main__":
         model_path="./models/dianbiao_192_4.30_batch3.om",
         input_size=(3, 192, 192),
         class_names=['1', "2", "3", "4", "5", "6"],
-        center_weight_path="./models/center_weight_origin.npy",
         num_joints=6,
         max_batch_size=3,
         secondary_class_names=['电流表', '电压表'],
@@ -72,7 +71,7 @@ if __name__ == "__main__":
         node_name="rp",
         model_path="./models/hand-end2end_batch2.om",
         input_size=(3, 256, 256),
-        class_names=["pose"],
+        num_joints=21,
         secondary_class_names=["手"],
         device="npu:0"
     )

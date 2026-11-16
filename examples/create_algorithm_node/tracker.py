@@ -26,7 +26,7 @@ if __name__ == "__main__":
                                 'delta_t': 90,  # 时间间隔
                                 # 'inertia': 0.01,  # 时间间隔
                                 },
-                 tacker_type='ocsort',
+                 tracker_type='ocsort',
                  secondary_class_names=['materials'],
                  dump_images=True
                  )

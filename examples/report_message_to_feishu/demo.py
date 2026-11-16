@@ -1,7 +1,7 @@
 from cpipe.module.node import Node
 from cpipe.module.reports.feishureport import FeishuReport
 from cpipe.module.streamer import VideoStreamer
-from examples.report_message_to_feishu.custom_node import my_node
+from custom_node import my_node
 
 if __name__ == "__main__":
 

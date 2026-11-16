@@ -134,6 +134,17 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 
 ### 版本更新记录
 
+### CPIPE4.3.2版本:
+1. MCPStreamer节点新增参数just_return_box_json, 支持只返回box JSON(Box.box_josn变量数据,可自定义内容)数据, 不返回其他Box信息
+2. CImage新增image_json字段, 支持自定义图片信息, 如image_json = { "camera_name": "摄像头1" ...}
+3. 新增device变量, 支持获取设备ID(设备唯一标识,用于授权licnese使用), 方法: import cpipe;  print(cpipe.device)
+4. 新增HOOK: HKI_InferInterval, 支持单独设置算法节点推理速度(间隔时间,默认1秒), 支持单独设置算法节点推理间隔帧数(默认1帧)
+5. <好用!!!> 新增cpipe.logic装饰器,支持将普通函数转换为Logic节点, 降低节点代码编写难度,案例: cpipe/examples/function_logic_node
+6. 新增cpipe.discovery函数, 支持搜索局域网内所有使用了cpipe的设备(返回设备ip/insight端口号/mac地址等信息), 方法: import cpipe; print(cpipe.discovery())
+7. 新增算法节点QRCode(只识别,检测靠yolo), 支持远距离大图里的二维码检测, 支持zxing-cpp二维码解码, 支持YOLOv8前置检测二维码案例: cpipe/examples/wechat_qrcode
+8. 新增算法节点Decider(Jev模型), 直接通过语言描述做图像分类: cpipe/examples/decider
+9. 新增CPipe硬件算力评估功能(例如: 3090/4090硬件对应相关算法可以支持多少路视频), 通过命令行: cpipe.planner 运行进入web页面: 127.0.0.1:8888进行可视化操作. 降低硬件评估门槛
+
 ### CPIPE4.3.0版本:
 1. 新增Logic节点自带方法get_cmask_info, 用于获取Web页面绘制的检查框信息
 2. examples目录现在直接内嵌到cpipe中.可以在cpipe.examples下找到所有案例代码

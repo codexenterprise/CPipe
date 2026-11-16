@@ -1,6 +1,6 @@
 from cpipe.module.node import Node
 from cpipe.module.streamer import VideoStreamer
-from examples.node_queue_pause.custom_node import my_node
+from custom_node import my_node
 
 
 if __name__ == "__main__":

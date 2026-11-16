@@ -1,4 +1,4 @@
-from sympy.core.facts import Logic
+from cpipe.module.logic import Logic
 from cpipe.module.node import Node
 from cpipe.config.config import CLOGER_LEVEL, CLOGER_LEVEL_DEBUG
 

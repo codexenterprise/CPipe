@@ -1,9 +1,9 @@
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.model.vlm import VLM
-from cpipe.module.model.yolov26 import YOLO26
+from cpipe.module.model.yolo26 import YOLO26
 from cpipe.module.node import Node
 from cpipe.module.streamer import VideoStreamer
-from examples.vlm_node.my_logic import my_node_with_to_vlm_event_mode
+from my_logic import my_node_with_to_vlm_event_mode
 
 if __name__ == "__main__":
     streamer = VideoStreamer(node_name="video_streamer", stream="demo.mp4", once_mode=True, process_frame_interval=24)

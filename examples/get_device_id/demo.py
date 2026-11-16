@@ -1,4 +1,3 @@
-from cpipe.module.security import Security
+import cpipe
 
-ret = Security.get_device_id()
-print(ret)
+print(cpipe.device)

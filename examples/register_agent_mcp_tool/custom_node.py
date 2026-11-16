@@ -1,7 +1,7 @@
 import time
 from cpipe.module.logic import Logic
 from cpipe.module.node import Node
-from cagent.core.tools import ToolResult
+from cpipe.module.service.toolkit import ToolResult
 
 
 class my_node(Logic):
@@ -19,7 +19,7 @@ class my_node(Logic):
             return ToolResult(success=False, output=None, error="a or b is not int")
         return ToolResult(success=True, output=a + b)
     
-    @Node.event("event_get_node_state")
+    @Node.event("get_node_state")
     def get_node_state_event(self, data):
         """
         get Node state

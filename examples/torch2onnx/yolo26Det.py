@@ -13,10 +13,11 @@ from ultralytics import YOLO
 
 
 # Load the YOLO11 model
-model = YOLO("/mnt/d/tmp/yolo26n_person_best.pt")
+model = YOLO("model_files/yolo26m_person_best.pt")
 
 # # Export the model to ONNX format opt 19
-model.export(format="onnx", dynamic=True, imgsz=(640, 640), opset=19)
+# model.export(format="onnx", dynamic=True, imgsz=(640, 640), opset=19)
+model.export(format="onnx", dynamic=True, imgsz=(640, 640), opset=19, nms=True) # 导出ONNX带NMS算子
 # model.export(format="rknn", imgsz=(416, 416), name="rk3588")
 
 

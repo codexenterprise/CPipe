@@ -5,7 +5,7 @@ from cpipe.module.insight import CPipeInsight
 from cpipe.module.streamer import VideoStreamer
 
 if __name__ == "__main__":
-    stream = VideoStreamer(node_name="stream", stream="../../../PAPER_20250331141736_20210204_D5.mp4", process_frame_interval=1, pause=0)
+    stream = VideoStreamer(node_name="stream", stream="../../../PAPER_20250331141736_20210204_D5.mp4", process_frame_interval=1)
 
     zhu_det = YOLOv7(node_name="YOLOv7",
                      model_path="../../../models/yolov7-tiny_rknn_om_batch4.om",

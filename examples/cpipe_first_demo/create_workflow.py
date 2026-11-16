@@ -1,8 +1,13 @@
+import os
+import sys
+
 from cpipe.module.model.yolov10 import YOLOv10
 from cpipe.module.streamer import VideoStreamer
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.node import Node
-from examples.personnel_intrusion.custom_node import PersonnelIntrusion
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "personnel_intrusion"))
+from custom_node import PersonnelIntrusion
 
 if __name__ == "__main__":
     # stream node

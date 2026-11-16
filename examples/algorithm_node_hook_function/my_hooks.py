@@ -1,3 +1,4 @@
+# Template for writing custom hooks. Built-in hooks live in cpipe.module.cinferencehook.
 from cpipe.module.cdata import Box
 from cpipe.module.cinferencehook import CHook
 

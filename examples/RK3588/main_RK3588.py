@@ -52,7 +52,7 @@ if __name__ == "__main__":
     #             device="rknn:4",
     # )
 
-    tk = Tracker(node_name="tracker1", tacker_type='ocsort', scale_ratio=4.0, secondary_class_names=["person"], dump_images=True)
+    tk = Tracker(node_name="tracker1", tracker_type='ocsort', scale_ratio=4.0, secondary_class_names=["person"], dump_images=True)
 
     # time:  0.29663944244384766
     rf = Retinaface(

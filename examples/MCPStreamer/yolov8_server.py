@@ -1,7 +1,7 @@
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.model.yolov8 import YOLOv8obb
 from cpipe.module.node import Node
-from cpipe.module.report import MCPReport
+from cpipe.module.reports.mcpreport import MCPReport
 from cpipe.module.streamer import MCPStreamer
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ from cpipe.module.model.yolov10 import YOLOv10
 from cpipe.module.streamer import VideoStreamer
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.node import Node
-from examples.personnel_intrusion.custom_node import PersonnelIntrusion
+from custom_node import PersonnelIntrusion
 
 if __name__ == "__main__":
     stream1 = VideoStreamer(stream="rtmp://192.168.10.7:1935/live/7777", process_frame_interval=1, once_mode=True)

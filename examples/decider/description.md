@@ -1,0 +1,1 @@
+介绍 CPipe 如何把 Perplexity Decider Flash v1.2 接到 Algorithm 节点，以及如何从官方 HF 权重导出 ONNX、再在 4090 上转 TensorRT FP16。

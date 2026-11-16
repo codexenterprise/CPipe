@@ -37,7 +37,7 @@ if __name__ == "__main__":
                     'max_iou_distance': 0.5,
                     'motion': 'KalmanFilter'
                 },
-                 tacker_type='deepsort_reid',
+                 tracker_type='deepsort_reid',
                  secondary_class_names=['person'],
                  dump_images=True
                  )

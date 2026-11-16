@@ -6,7 +6,7 @@ import numpy as np
 from cpipe.module.model.facematching import FaceLibrary
 from cpipe.module.model.facerecognition import FaceRecognition
 from cpipe.module.model.retinaface import Retinaface
-from cpipe.module.model.yolov26 import YOLO26
+from cpipe.module.model.yolo26 import YOLO26
 from cpipe.module.streamer import VideoStreamer
 from cpipe.module.insight import CPipeInsight
 from cpipe.module.node import Node

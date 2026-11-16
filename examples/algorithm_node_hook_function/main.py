@@ -2,7 +2,7 @@ from cpipe.module.insight import CPipeInsight
 from cpipe.module.model.yolov8 import YOLOv8obb
 from cpipe.module.node import Node
 from cpipe.module.streamer import VideoStreamer
-from my_hooks import HKI_CropImage, HKI_DilateImage, HKO_ClassNamesThresholdFilter
+from cpipe.module.cinferencehook import HKI_CropImage, HKI_DilateImage, HKO_ClassNamesThresholdFilter
 from cpipe.module.model.movenet import MoveNet
 from cpipe.module.model.shufflenet import ShuffleNet
 
@@ -38,7 +38,6 @@ if __name__ == "__main__":
         input_size=(3, 192, 192),
         # (3, 320, 320),
         class_names=['1', "2", "3", "4", "5", "6"],
-        center_weight_path="project/fuanfa/models/center_weight_origin.npy",
         num_joints=6,
         max_batch_size=2,
         secondary_class_names=['电压表', '电流表'],

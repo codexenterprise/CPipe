@@ -2,7 +2,7 @@ from cpipe.module.insight import CPipeInsight
 from cpipe.module.model.adaface import Adaface
 from cpipe.module.model.retinaface import Retinaface
 from cpipe.module.node import Node
-from cpipe.module.report import MCPReport
+from cpipe.module.reports.mcpreport import MCPReport
 from cpipe.module.streamer import MCPStreamer
 
 

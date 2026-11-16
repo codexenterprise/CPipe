@@ -19,7 +19,7 @@ if __name__ == "__main__":
         model_path="./models/hand-end2end_batch2.om",
         input_size=(3, 256, 256),
         max_batch_size=2,
-        class_names=["pose"],
+        num_joints=21,
         secondary_class_names=["手"], # <<<<
     )
 
