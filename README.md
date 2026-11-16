@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  CPipe(最新版本V4.3.0) 是基于 Python 的 AI 视觉算法快速部署框架
+  CPipe(最新版本V4.3) 是基于 Python 的 AI 视觉算法快速部署框架
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持页面添加/删除视频流节点
 - 支持页面配置算法区域（ROI）
 - 支持模型格式：TensorRT / ONNX / PyTorch / RKNN / OM 等
-- 支持算法类型：目标检测、旋转检测、分类、人脸识别、质量评估、关键点、跟踪、ReID、OCR、视频时序分类等
+- 支持算法类型：目标检测、旋转检测、分类、人脸识别、质量评估、关键点、跟踪、ReID、OCR、车牌识别、二维码识别、Jev、SAM3、视频时序分类等
 - 支持输入源：RTSP / RTMP / WebSocketFLV / 本地视频 / 本地图片 / 支持海康平台拉流
 - 支持日志本地存储、云端上报、网页实时显示
 - 支持模型文件加密
@@ -48,6 +48,7 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持VLM模型推理
 - 支持Agent对话功能
 - 支持Feishu / MQTT / WebSocket / HTTP消息上报功能
+- 支持局域网设备发现功能
 
 ## 框架优势
 
@@ -105,9 +106,9 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 
 ```bash
 # x86_64
-pip install cpipe-4.2.4-cp310-abi3-linux_x86_64.whl
+pip install cpipe-4.3.2-cp310-abi3-linux_x86_64.whl
 # ARM
-pip install cpipe-4.2.4-cp310-abi3-linux_aarch64.whl
+pip install cpipe-4.3.2-cp310-abi3-linux_aarch64.whl
 ```
 
 ### Docker 使用示例
@@ -117,13 +118,22 @@ wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe3.7.4_4090_57
 docker load -i cpipe3.7.4_4090_570.195.03.tar
 sudo docker run --name cpipe3 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=64g cpipe /bin/bash
 ```
-### 4.2版本使用示例
+### 4.0以上版本使用示例
 
 ```bash
-wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.6.tar.zst
-# wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/rk3588_cpipe4.2.3.tar
-docker load -i cpipe4.2.6.tar.zst # rk3588_cpipe4.2.3.tar
-sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe:jp721-py312-gst /bin/bash # rk3588_cpipe4.2.3 /bin/bash
+# X86_64
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.6.tar.gz
+docker load -i cpipe4.3.0.tar.gz
+sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe4.3.0 /bin/bash
+
+# RK3588
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.6rk3588.tar.zst
+docker load -i cpipe4.2.6rk3588.tar.zst
+sudo docker run --name cpipe4 --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe4.2.6rk3588 /bin/bash
+
+# ARM NVIDIA 
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe-jp721-py312-gst-ort.tar.zst
+sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe-jp721-py312-gst-ort /bin/bash
 ```
 
 ### 快速安装
