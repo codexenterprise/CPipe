@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  CPipe(最新版本V4.3) 是基于 Python 的 AI 视觉算法快速部署框架
+  CPipe(最新版本V4.4) 是基于 Python 的 AI 视觉算法快速部署框架
 </p>
 
 <p align="center">
@@ -30,6 +30,37 @@
 CPipe 是基于 Python 的 AI 视觉算法快速部署框架。  
 框架采用 Node 思想，将视频流/视频文件/AI 算法/上报信息/业务逻辑统一抽象为 `Node` 节点，并通过连线自由组合成业务 Pipeline。
 
+新版 Web 控制台把编排、预览、报警和日志放在同一套页面里。
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="doc/web/home.jpg" width="420" alt="首页：摄像头、算法节点与检测区域"><br>
+      <sub><b>首页</b> · 摄像头、算法节点与检测区域</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="doc/web/workflow.jpg" width="420" alt="工作流：节点可视化编排"><br>
+      <sub><b>工作流</b> · 拉流、检测、跟踪到报警的节点编排</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="doc/web/live.jpg" width="420" alt="实时画面：推理结果预览"><br>
+      <sub><b>实时画面</b> · 检测框与区域叠加预览</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="doc/web/alarms.jpg" width="420" alt="报警：告警检索与回放"><br>
+      <sub><b>报警</b> · 按时间、摄像头和类型检索告警</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="doc/web/logs.jpg" width="420" alt="日志：运行状态实时输出"><br>
+      <sub><b>日志</b> · 节点启动、拉流与推理耗时实时输出</sub>
+    </td>
+  </tr>
+</table>
+
 ## 核心能力
 
 - 支持 Node 节点网页可视化编排
@@ -39,7 +70,7 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持页面添加/删除视频流节点
 - 支持页面配置算法区域（ROI）
 - 支持模型格式：TensorRT / ONNX / PyTorch / RKNN / OM 等
-- 支持算法类型：目标检测、旋转检测、分类、人脸识别、质量评估、关键点、跟踪、ReID、OCR、车牌识别、二维码识别、Jev、SAM3、视频时序分类等
+- 支持算法类型：目标检测、旋转检测、分类、人脸识别、人体属性、质量评估、关键点、跟踪、ReID、OCR、车牌识别、二维码识别、Jev、SAM3、视频时序分类等
 - 支持输入源：RTSP / RTMP / WebSocketFLV / 本地视频 / 本地图片 / 支持海康平台拉流
 - 支持日志本地存储、云端上报、网页实时显示
 - 支持模型文件加密
@@ -49,10 +80,12 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 - 支持Agent对话功能
 - 支持Feishu / MQTT / WebSocket / HTTP消息上报功能
 - 支持局域网设备发现功能
+- 支持报警逻辑自动化/报警实时可视化
+
 
 ## 框架优势
 
-| 内容 | 使用前 | 使用 CPipe + 训练平台 |
+| 内容 | 使用前 | 使用 CPipe |
 | --- | --- | --- |
 | 算法工程师经验 | 3 年以上 | 1 年以上 |
 | 开发周期缩减 | 无 | 缩减 80% 以上 |
@@ -63,11 +96,13 @@ CPipe 是基于 Python 的 AI 视觉算法快速部署框架。
 | 一键无代码部署 | 无 | 框架自带 |
 | 算法性能可视化 | 无 | 框架自带 |
 | 算法结果实时 Web 可视化 | 需要前端参与 | 框架自带 |
-| 默认算法支持 | 无 | 自带十几种算法 |
+| 默认算法支持 | 无 | 自带几十种算法 |
 | 算法文件加密 | 需要自研加密程序 | 框架自带 |
 | 日志系统 | 需要自研 | 框架自带 |
 | 消息上报系统 | 需要自研 | 框架自带 |
-| 部署平台对接 | 需要前后端自研对接 | 框架自带 |
+| 日志系统Web显示 | 需要前后端自研对接 | 框架自带 |
+| 自带报警页面和逻辑 | 需要前后端自研对接 | 框架自带 |
+| 自带agent对话功能 | 需要前后端自研对接 | 框架自带 |
 
 **业务价值：** 降低研发成本、减少开发周期、提供稳定高性能推理引擎、支持高并发视频流实时推理、增强模型安全。
 
@@ -122,8 +157,8 @@ sudo docker run --name cpipe3 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 
 ```bash
 # X86_64
-wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.6.tar.gz
-docker load -i cpipe4.3.0.tar.gz
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.2.6_x86.tar.zst
+docker load -i cpipe4.2.6_x86.tar.zst
 sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe4.3.0 /bin/bash
 
 # RK3588
@@ -132,8 +167,8 @@ docker load -i cpipe4.2.6rk3588.tar.zst
 sudo docker run --name cpipe4 --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe4.2.6rk3588 /bin/bash
 
 # ARM NVIDIA 
-wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe-jp721-py312-gst-ort.tar.zst
-sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe-jp721-py312-gst-ort /bin/bash
+wget http://code-x.oss-cn-hangzhou.aliyuncs.com/zh/__docker__/cpipe4.3.0_nvidia_arm.tar.gz
+sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --env LANG="zh_CN.UTF-8" -dit -v ~:/host --privileged --shm-size=8g cpipe4.3.0_nvidia_arm /bin/bash
 ```
 
 ### 快速安装
@@ -143,6 +178,14 @@ sudo docker run --name cpipe4 --runtime=nvidia --net=host -e TZ=Asia/Shanghai --
 ## 版本更新
 
 ### 版本更新记录
+
+### CPIPE4.4.0版本:
+1. 全面升级CPipe Web页面, 支持更丰富的功能和更友好的用户体验
+2. 新增报警节点AlarmReport: 无需用户编写代码, 通过简单配置即可实现报警功能, 支持文本/图片/视频/文件/MQTT多种报警方式, 并保存本地, 且通过Web页面实时显示报警信息
+3. 全新Web页面支持日志实时显示功能
+<img src="doc/web/home.jpg" width="420" alt="首页：摄像头、算法节点与检测区域"><br>
+<img src="doc/web/logs.jpg" width="420" alt="日志：运行状态实时输出"><br>
+<img src="doc/web/alarms.jpg" width="420" alt="报警：告警检索与回放"><br>
 
 ### CPIPE4.3.2版本:
 1. MCPStreamer节点新增参数just_return_box_json, 支持只返回box JSON(Box.box_josn变量数据,可自定义内容)数据, 不返回其他Box信息
